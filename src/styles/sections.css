@@ -1,0 +1,223 @@
+main {
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.section {
+  padding: clamp(1.2rem, 3.2vw, 2rem);
+  border: 1px solid var(--section-border);
+  border-left: 4px solid var(--inner-accent-border);
+  margin-bottom: 1rem;
+  background: var(--section-bg);
+}
+
+.section--reveal {
+  animation: sectionReveal 0.75s ease both;
+}
+
+.section--reveal:nth-of-type(2) {
+  animation-delay: 0.1s;
+}
+
+.section--reveal:nth-of-type(3) {
+  animation-delay: 0.2s;
+}
+
+.section--reveal:nth-of-type(4) {
+  animation-delay: 0.3s;
+}
+
+.section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  margin-bottom: 0.5rem;
+}
+
+.section p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: clamp(1.05rem, 1.5vw, 1.14rem);
+  line-height: 1.5;
+}
+
+.section__heading {
+  margin-bottom: 1rem;
+}
+
+.cards {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.card {
+  position: relative;
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(108, 117, 125, 0.22), rgba(29, 31, 34, 0.9));
+  border: 1px solid var(--surface-border);
+  min-height: 170px;
+  overflow: hidden;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: auto -40px -44px auto;
+  width: 120px;
+  height: 120px;
+  border: 1px solid color-mix(in srgb, var(--surface-border) 90%, white 10%);
+  border-radius: 50%;
+}
+
+.card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.card--link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card--link:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--surface-border) 50%, var(--green-300) 50%);
+}
+
+.card--link:focus-visible {
+  outline: 2px solid var(--green-300);
+  outline-offset: 2px;
+}
+
+.section--image-note,
+.section--carousel,
+.section--trainers {
+  border-left: 4px solid var(--inner-accent-border);
+}
+
+.carousel__item {
+  margin: 0;
+  position: relative;
+  background: color-mix(in srgb, var(--surface-bg) 78%, black 22%);
+}
+
+.carousel__media {
+  position: relative;
+}
+
+.carousel__item img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel__item figcaption {
+  padding: 0.65rem 0.8rem;
+  color: var(--text-main);
+  text-align: left;
+}
+
+.carousel__controls {
+  position: absolute;
+  left: 50%;
+  bottom: 2.1rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.btn-icon {
+  border: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-bg) 82%, black 18%);
+  color: var(--heading-main);
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.btn-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.btn-icon:hover {
+  background: rgba(108, 117, 125, 0.72);
+}
+
+.carousel__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.7rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.45rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--surface-border);
+  background: transparent;
+  cursor: pointer;
+}
+
+.dot--active {
+  background: var(--green-300);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.trainer-card {
+  border: 1px solid var(--surface-border);
+  background: linear-gradient(180deg, rgba(108, 117, 125, 0.18), rgba(17, 19, 22, 0.86));
+  overflow: hidden;
+}
+
+.trainer-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.trainer-card__body {
+  padding: 0.9rem;
+}
+
+.trainer-card__body h3 {
+  margin-bottom: 0.4rem;
+}

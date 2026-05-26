@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+@import './styles/base.css';
+@import './styles/header-hero.css';
+@import './styles/sections.css';
+@import './styles/pricing-contact.css';
+@import './styles/footer.css';
+@import './styles/responsive.css';

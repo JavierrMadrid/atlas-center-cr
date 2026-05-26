@@ -1,0 +1,156 @@
+{
+  "brand": {
+    "name": "ATLAS CENTER",
+    "heroName": "Entrena con propósito",
+    "kicker": "Centro de entrenamiento",
+    "claim": "",
+    "description": "Entrenamientos guiados que mezclan entrenamiento funcional y musculación para que ganes resistencia real, técnica y potencia para superarte cada día.",
+    "headerLogoSrc": "/imagenes/logo_simple.png",
+    "heroLogoSrc": "/imagenes/logo_grande.png",
+    "primaryActionLabel": "Ver entrenamientos",
+    "primaryActionTarget": "#entrenamientos",
+    "secondaryActionLabel": "Consulta tarifas",
+    "secondaryActionTarget": "/tarifas-horarios"
+  },
+  "contact": {
+    "phones": [
+      "+34 616725294",
+      "+34000000001"
+    ],
+    "title": "Empieza esta semana",
+    "description": "Primera clase guiada para conocer tu nivel y crear tu ruta de progresión.",
+    "buttonLabel": "Llamar al gimnasio"
+  },
+  "contactPage": {
+    "phones": [
+      "+34 616725294",
+      "+34000000001"
+    ],
+    "email": "atlas.ceenter@gmail.com",
+    "address": "Calle Ronda de Calatrava, Local 2, 13003 Ciudad Real",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.0377086397507!2d-3.9249003876717254!3d38.99163574101893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6bc3c6df2ab793%3A0x31db625929299e0!2sAtlas%20Center!5e0!3m2!1ses!2ses!4v1779784920357!5m2!1ses!2ses"
+  },
+  "trainingPrograms": [
+    {
+      "title": "Entrenamiento guiado",
+      "description": "Clases en grupos reducidos de hasta 5 personas con seguimiento técnico.",
+      "href": "/tarifas-horarios#tarifas-grupos-reducidos"
+    },
+    {
+      "title": "Yoga y pilates",
+      "description": "Sesiones de movilidad, control postural y trabajo de core dentro de los bonos de clase.",
+      "href": "/tarifas-horarios#tarifas-grupos-reducidos"
+    },
+    {
+      "title": "Sala open",
+      "description": "Acceso libre a sala de musculación con bonos open para entrenar a tu ritmo.",
+      "href": "/tarifas-horarios#tarifas-solo-open"
+    }
+  ],
+  "carouselImages": [
+    {
+      "src": "/imagenes/carrusel/PXL_20260525_175721349.jpg",
+      "alt": "Zona principal de entrenamiento del gimnasio Atlas Center",
+      "caption": "Zona principal de trabajo mixto"
+    },
+    {
+      "src": "/imagenes/carrusel/PXL_20260525_175649902.jpg",
+      "alt": "Área de funcional con material de cardio y movilidad",
+      "caption": "Bloque funcional guiado"
+    },
+    {
+      "src": "/imagenes/carrusel/PXL_20260525_175641455.jpg",
+      "alt": "Zona de musculación con barras y discos",
+      "caption": "Trabajo de fuerza y musculación"
+    }
+  ],
+  "trainers": [
+    {
+      "name": "Dani",
+      "image": "/imagenes/entrenador-dani.jpg",
+      "description": "Especialista en fuerza aplicada. Te ayuda a ganar técnica, estabilidad y confianza con cargas progresivas."
+    },
+    {
+      "name": "Sergio",
+      "image": "/imagenes/entrenador-sergio.jpg",
+      "description": "Enfocado en acondicionamiento mixto. Diseña sesiones dinámicas para mejorar resistencia, movilidad y potencia."
+    }
+  ],
+  "pricingPlans": [
+    {
+      "name": "Grupos reducidos - Basic",
+      "price": "50 EUR",
+      "details": "4 bonos de clase (entrenamiento guiado, yoga o pilates) + 2 bonos open.",
+      "imageSrc": "/imagenes/tarifas/Tarifa%20BASIC.png"
+    },
+    {
+      "name": "Grupos reducidos - Atlas",
+      "price": "75 EUR",
+      "details": "8 bonos de clase + 4 bonos open.",
+      "imageSrc": "/imagenes/tarifas/Tarifa%20ATLAS.png"
+    },
+    {
+      "name": "Grupos reducidos - Titan",
+      "price": "90 EUR",
+      "details": "12 bonos de clase + 4 bonos open.",
+      "imageSrc": "/imagenes/tarifas/TARIFA%20TITAN.png"
+    },
+    {
+      "name": "Grupos reducidos - Olympo",
+      "price": "110 EUR",
+      "details": "Sin límite de clases ni open.",
+      "imageSrc": "/imagenes/tarifas/Tarifa%20OLYMPO.png"
+    },
+    {
+      "name": "Solo open - Base",
+      "price": "50 EUR",
+      "details": "12 bonos open (sala de musculación libre).",
+      "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20BASE.png"
+    },
+    {
+      "name": "Solo open - Plus",
+      "price": "60 EUR",
+      "details": "16 bonos open (sala de musculación libre).",
+      "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20PLUS.png"
+    },
+    {
+      "name": "Solo open - Rat",
+      "price": "",
+      "details": "",
+      "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20RAT.jpg"
+    }
+  ],
+  "pricingPolicy": "Todos los bonos se deben gastar en un plazo máximo de 40 días.",
+  "schedule": [
+    {
+      "day": "Lunes a Viernes",
+      "hours": "08:00 - 13:30 y 16:30 - 21:30"
+    },
+    {
+      "day": "Sábado",
+      "hours": "08:00 - 13:30"
+    }
+  ],
+  "legalItems": [
+    {
+      "id": "aviso-legal",
+      "title": "Aviso legal",
+      "text": "Titular del sitio: Atlas Center. Este sitio tiene carácter informativo y el uso de sus contenidos implica la aceptación de este aviso."
+    },
+    {
+      "id": "privacidad",
+      "title": "Política de privacidad",
+      "text": "Los datos enviados por formularios se usan solo para atender solicitudes de información y gestionar la comunicación con el gimnasio."
+    },
+    {
+      "id": "cookies",
+      "title": "Política de cookies",
+      "text": "Este sitio puede usar cookies técnicas necesarias para su funcionamiento y, en su caso, cookies de analítica según configuración vigente."
+    },
+    {
+      "id": "condiciones",
+      "title": "Condiciones de uso",
+      "text": "La navegación debe realizarse de forma lícita y respetuosa. Queda prohibido el uso del sitio para actividades fraudulentas o ilegales."
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+.section--pricing-schedule {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.pricing-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.pricing-schedule-grid--stack {
+  grid-template-columns: 1fr;
+}
+
+.pricing-page {
+  padding: clamp(0.6rem, 1.8vw, 1.2rem);
+}
+
+.panel {
+  border: 1px solid var(--surface-border);
+  border-left: 4px solid var(--inner-accent-border);
+  background: color-mix(in srgb, var(--surface-bg) 86%, black 14%);
+  padding: 1rem;
+}
+
+.panel h3 {
+  margin: 0 0 0.9rem;
+}
+
+.section--pricing-schedule .panel h3 {
+  text-align: center;
+  font-family: var(--heading-font);
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(198, 200, 196, 0.72);
+  background: linear-gradient(135deg, #d0d2cd 0%, #c6c8c4 52%, #bbbdb8 100%);
+  color: #111111;
+}
+
+.pricing-groups {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.pricing-group {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.pricing-group h4 {
+  margin: 0;
+  color: var(--heading-main);
+  font-family: 'GFS Didot', serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.pricing-group__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.pricing-image-card {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.pricing-image-card h5 {
+  margin: 0 0 0.45rem;
+  color: var(--heading-main);
+  font-family: 'GFS Didot', serif;
+  font-size: 1.16rem;
+  text-align: center;
+}
+
+.pricing-image-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.pricing-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.6rem;
+  border: 0;
+  color: var(--text-soft);
+  background: color-mix(in srgb, var(--surface-bg) 72%, black 28%);
+}
+
+.list-clean {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 0;
+}
+
+.schedule-item span {
+  color: var(--text-main);
+  font-size: clamp(1.06rem, 1.5vw, 1.15rem);
+}
+
+.schedule-item:last-child {
+  border-bottom: 0;
+}
+
+.schedule-item strong {
+  color: var(--heading-main);
+  font-size: clamp(1.09rem, 1.55vw, 1.18rem);
+}
+
+.section--contact {
+  text-align: center;
+  background:
+    var(--contact-layer-1),
+    repeating-linear-gradient(
+      -45deg,
+      var(--contact-pattern) 0,
+      var(--contact-pattern) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+}
+
+.section--contact .btn {
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.contact-phones {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-phones .btn {
+  margin-top: 0;
+}
+
+.contact-phones__hint {
+  margin-top: 0.7rem;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+.contact-page {
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.section--contact-hero {
+  border-left: 4px solid var(--inner-accent-border);
+}
+
+.section--contact-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+}
+
+.section--contact-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 0.9rem;
+}
+
+.contact-map {
+  margin-top: 0.9rem;
+  border: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-bg) 82%, black 18%);
+  min-height: 300px;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border: 0;
+}
+
+.contact-form {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-bg) 76%, black 24%);
+  color: var(--text-main);
+  padding: 0.55rem 0.65rem;
+  font: inherit;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--green-500);
+  outline-offset: 1px;
+}
+
+.contact-form__feedback {
+  color: var(--green-300);
+  font-weight: 700;
+}
+
+.contact-phone-list {
+  margin: 0 0 0.8rem;
+  padding-left: 1.1rem;
+}
+
+.contact-phone-list a {
+  color: var(--heading-main);
+  text-decoration: none;
+}
+
+.contact-phone-list a:hover {
+  text-decoration: underline;
+}
+

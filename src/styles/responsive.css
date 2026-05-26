@@ -1,0 +1,124 @@
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .atlas-page {
+    width: 100%;
+    margin: 0;
+    border: none;
+  }
+
+  .hero {
+    min-height: 50vh;
+  }
+
+  .site-header {
+    position: static;
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .site-header__brand {
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    font-size: 1.4rem;
+  }
+
+  .site-header__brand-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .site-header__nav {
+    justify-self: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid var(--surface-border);
+    border-bottom: 1px solid var(--surface-border);
+    padding: 0;
+  }
+
+  .site-header__link {
+    min-height: 2.8rem;
+    padding: 0 1rem;
+    font-size: 1.08rem;
+  }
+
+  .site-header__social {
+    justify-self: center;
+  }
+
+  .site-header__social-link {
+    min-height: 2.6rem;
+    width: 3rem;
+  }
+
+  .scroll-to-top {
+    left: 50%;
+    bottom: 0.8rem;
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-group__cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .trainers-grid,
+  .pricing-schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-item {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: flex-start;
+  }
+
+  .section--contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__legal {
+    grid-template-columns: 1fr;
+  }
+}
