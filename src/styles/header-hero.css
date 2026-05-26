@@ -13,6 +13,16 @@
   backdrop-filter: blur(10px);
 }
 
+.site-header__menu-toggle,
+.site-header__menu-close,
+.site-header__menu-backdrop {
+  display: none;
+}
+
+.site-header__menu-shell {
+  display: contents;
+}
+
 .site-header__brand {
   display: flex;
   align-items: center;
@@ -142,6 +152,12 @@
 .site-header__social-link:focus-visible {
   color: var(--heading-main);
   background-color: color-mix(in srgb, var(--surface-bg) 52%, var(--green-500) 48%);
+}
+
+.site-header__menu-toggle:focus-visible,
+.site-header__menu-close:focus-visible {
+  outline: 2px solid var(--green-300);
+  outline-offset: 2px;
 }
 
 .hero {

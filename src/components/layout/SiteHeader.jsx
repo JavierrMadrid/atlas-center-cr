@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const pageLinks = [
   { to: '/', label: 'Inicio', icon: 'home' },
@@ -113,9 +114,37 @@ function NavIcon({ name }) {
 }
 
 function SiteHeader({ brandName, brandLogoSrc }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
+
+  const toggleMenu = () => {
+    setIsMenuOpen((value) => !value)
+  }
+
+  useEffect(() => {
+    closeMenu()
+  }, [location.pathname])
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [isMenuOpen])
+
   return (
-    <header className="site-header">
-      <NavLink className="site-header__brand" to="/">
+    <header className={isMenuOpen ? 'site-header site-header--menu-open' : 'site-header'}>
+      <NavLink className="site-header__brand" to="/" onClick={closeMenu}>
         {brandLogoSrc ? (
           <img className="site-header__brand-icon" src={brandLogoSrc} alt="" aria-hidden="true" />
         ) : (
@@ -126,38 +155,70 @@ function SiteHeader({ brandName, brandLogoSrc }) {
         <span>{brandName}</span>
       </NavLink>
 
-      <nav className="site-header__nav" aria-label="Secciones principales">
-        {pageLinks.map((link) => (
-          <NavLink
-            key={link.to}
-            className={({ isActive }) =>
-              isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
-            }
-            to={link.to}
-          >
-            <span className="site-header__link-icon" aria-hidden="true">
-              <NavIcon name={link.icon} />
-            </span>
-            <span>{link.label}</span>
-          </NavLink>
-        ))}
-      </nav>
+      <button
+        type="button"
+        className="site-header__menu-toggle"
+        aria-expanded={isMenuOpen}
+        aria-controls="site-mobile-menu"
+        aria-label={isMenuOpen ? 'Cerrar menú principal' : 'Abrir menú principal'}
+        onClick={toggleMenu}
+      >
+        <span className="site-header__menu-line" aria-hidden="true"></span>
+        <span className="site-header__menu-line" aria-hidden="true"></span>
+        <span className="site-header__menu-line" aria-hidden="true"></span>
+      </button>
 
-      <nav className="site-header__social" aria-label="Redes sociales">
-        {socialLinks.map((link) => (
-          <a
-            key={link.label}
-            className="site-header__social-link"
-            href={link.href}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label={link.label}
-            title={link.label}
-          >
-            {link.icon}
-          </a>
-        ))}
-      </nav>
+      <div
+        className="site-header__menu-backdrop"
+        onClick={closeMenu}
+        aria-hidden="true"
+      ></div>
+
+      <div className="site-header__menu-shell" id="site-mobile-menu">
+        <button
+          type="button"
+          className="site-header__menu-close"
+          onClick={closeMenu}
+          aria-label="Cerrar menú"
+        >
+          Cerrar
+        </button>
+
+        <nav className="site-header__nav" aria-label="Secciones principales">
+          {pageLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              className={({ isActive }) =>
+                isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
+              }
+              to={link.to}
+              onClick={closeMenu}
+            >
+              <span className="site-header__link-icon" aria-hidden="true">
+                <NavIcon name={link.icon} />
+              </span>
+              <span>{link.label}</span>
+            </NavLink>
+          ))}
+        </nav>
+
+        <nav className="site-header__social" aria-label="Redes sociales">
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              className="site-header__social-link"
+              href={link.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              aria-label={link.label}
+              title={link.label}
+              onClick={closeMenu}
+            >
+              {link.icon}
+            </a>
+          ))}
+        </nav>
+      </div>
     </header>
   )
 }
