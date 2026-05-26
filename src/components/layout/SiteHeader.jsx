@@ -33,7 +33,7 @@ const socialLinks = [
   },
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/',
+    href: 'https://www.facebook.com/profile.php?id=61586132360765&locale=es_ES',
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M14.5 8h2V5h-2.3C11.8 5 11 6.3 11 8.1V10H9v3h2v6h3v-6h2.2l.3-3H14V8.4c0-.3.2-.4.5-.4Z" />
