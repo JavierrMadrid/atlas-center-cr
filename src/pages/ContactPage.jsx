@@ -10,8 +10,7 @@ function ContactPage({ content }) {
       <section className="section section--contact-hero section--reveal">
         <h1>Contacto</h1>
         <p>
-          Ven a conocer Atlas Center, prueba una clase y resuelve tus dudas con nuestro
-          equipo.
+          Ven a conocer Atlas Center, consulta nuestras tarifas y horarios, o escríbenos para cualquier duda. Estamos aquí para ayudarte.
         </p>
       </section>
 
@@ -45,7 +44,10 @@ function ContactPage({ content }) {
         <article className="panel">
           <h2>Escríbenos</h2>
           <p>Te respondemos con la mejor opción según tus objetivos y horario.</p>
-          <ContactForm />
+          <ContactForm
+            formspreeEndpoint={contactPage.formspreeEndpoint}
+            minSubmitDelayMs={contactPage.antiSpamMinSubmitDelayMs}
+          />
         </article>
       </section>
     </main>

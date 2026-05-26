@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+
+const DEFAULT_MIN_SUBMIT_DELAY_MS = 3000
 
 const initialState = {
   name: '',
@@ -7,23 +9,91 @@ const initialState = {
   message: '',
 }
 
-function ContactForm() {
+function ContactForm({ formspreeEndpoint, minSubmitDelayMs = DEFAULT_MIN_SUBMIT_DELAY_MS }) {
   const [formData, setFormData] = useState(initialState)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [honeypot, setHoneypot] = useState('')
+  const [submitStatus, setSubmitStatus] = useState('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+  const formStartedAtRef = useRef(Date.now())
+  const minDelayMs =
+    Number.isFinite(minSubmitDelayMs) && minSubmitDelayMs >= 0
+      ? minSubmitDelayMs
+      : DEFAULT_MIN_SUBMIT_DELAY_MS
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormData((current) => ({ ...current, [name]: value }))
 
-    if (isSubmitted) {
-      setIsSubmitted(false)
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle')
+      setErrorMessage('')
     }
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    setIsSubmitted(true)
-    setFormData(initialState)
+
+    const elapsedMs = Date.now() - formStartedAtRef.current
+
+    if (elapsedMs < minDelayMs) {
+      setSubmitStatus('error')
+      setErrorMessage('Espera un momento antes de enviar el formulario.')
+      return
+    }
+
+    if (honeypot.trim()) {
+      setSubmitStatus('success')
+      setFormData(initialState)
+      setHoneypot('')
+      formStartedAtRef.current = Date.now()
+      return
+    }
+
+    if (!formspreeEndpoint) {
+      setSubmitStatus('error')
+      setErrorMessage('Falta configurar el endpoint de Formspree.')
+      return
+    }
+
+    setSubmitStatus('submitting')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          _subject: `Contacto web Atlas Center - ${formData.name}`,
+          _replyto: formData.email,
+          source: window.location.href,
+          _gotcha: honeypot,
+        }),
+      })
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}))
+        const formspreeMessage =
+          Array.isArray(data.errors) && data.errors.length > 0
+            ? data.errors[0].message
+            : data.error
+
+        throw new Error(formspreeMessage || 'No se pudo enviar el mensaje.')
+      }
+
+      setSubmitStatus('success')
+      setFormData(initialState)
+      setHoneypot('')
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage(error.message || 'Ha ocurrido un error al enviar el mensaje.')
+    }
   }
 
   return (
@@ -75,13 +145,30 @@ function ContactForm() {
         />
       </label>
 
-      <button className="btn btn--primary" type="submit">
-        Enviar mensaje
+      <input
+        type="text"
+        name="_gotcha"
+        value={honeypot}
+        onChange={(event) => setHoneypot(event.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }}
+      />
+
+      <button className="btn btn--primary" type="submit" disabled={submitStatus === 'submitting'}>
+        {submitStatus === 'submitting' ? 'Enviando...' : 'Enviar mensaje'}
       </button>
 
-      {isSubmitted && (
+      {submitStatus === 'success' && (
         <p className="contact-form__feedback" role="status" aria-live="polite">
-          Gracias. Hemos recibido tu mensaje y te contactaremos pronto.
+          Gracias. Tu mensaje se ha enviado correctamente.
+        </p>
+      )}
+
+      {submitStatus === 'error' && (
+        <p className="contact-form__feedback" role="alert">
+          {errorMessage}
         </p>
       )}
     </form>

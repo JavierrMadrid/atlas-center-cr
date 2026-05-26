@@ -10,6 +10,8 @@ Reglas rapidas:
 - brand.heroLogoSrc controla el logo grande de la pagina de inicio.
 - contactPage.mapEmbedUrl define el mapa de Google embebido para la pagina /contacto.
 - contactPage.phones, contactPage.email y contactPage.address se muestran en la pagina /contacto.
+- contactPage.formspreeEndpoint define el endpoint de envio del formulario de contacto.
+- contactPage.antiSpamMinSubmitDelayMs define el retraso minimo para enviar el formulario (en milisegundos).
 - pricingPlans[].imageSrc controla la imagen individual de cada tarifa.
 - trainingPrograms[].href permite que cada tarjeta de entrenamiento enlace a una tarifa concreta.
 - legalItems[] controla los textos legales del footer (id, title y text).

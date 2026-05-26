@@ -27,6 +27,8 @@
       "+34000000001"
     ],
     "email": "atlas.ceenter@gmail.com",
+    "formspreeEndpoint": "https://formspree.io/f/xnjrgenn",
+    "antiSpamMinSubmitDelayMs": 3000,
     "address": "Calle Ronda de Calatrava, Local 2, 13003 Ciudad Real",
     "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.0377086397507!2d-3.9249003876717254!3d38.99163574101893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6bc3c6df2ab793%3A0x31db625929299e0!2sAtlas%20Center!5e0!3m2!1ses!2ses!4v1779784920357!5m2!1ses!2ses"
   },

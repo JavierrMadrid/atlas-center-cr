@@ -54,6 +54,8 @@ const defaultContact = {
 const defaultContactPage = {
   phones: ['+34 616725294', '+34000000001'],
   email: 'atlas.ceenter@gmail.com',
+  formspreeEndpoint: '',
+  antiSpamMinSubmitDelayMs: 3000,
   address: 'Calle Ronda de Calatrava, Local 2, 13003 Ciudad Real',
   mapEmbedUrl:
     'https://www.google.com/maps?q=Calle%20Ronda%20de%20Calatrava%2C%20Local%202%2C%2013003%20Ciudad%20Real&output=embed',

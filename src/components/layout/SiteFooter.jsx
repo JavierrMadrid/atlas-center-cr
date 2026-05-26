@@ -54,7 +54,7 @@ function SiteFooter({ brand, contactPage, legalItems, schedule }) {
       <div className="site-footer__inner">
         <div className="site-footer__grid">
           <section className="site-footer__column">
-            <h3>HORARIOS</h3>
+            <h3>Horarios</h3>
             <p>{scheduleSummary}</p>
           </section>
 
