@@ -7,6 +7,9 @@ import { localAdminContent } from './config/localAdminContent'
 const HomePage = lazy(() => import('./pages/HomePage'))
 const PricingPage = lazy(() => import('./pages/PricingPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
+const TeamPage = lazy(() => import('./pages/TeamPage'))
+const FisioterapiaPage = lazy(() => import('./pages/FisioterapiaPage'))
+const PilatesYogaPage = lazy(() => import('./pages/PilatesYogaPage'))
 
 const HEADER_OFFSET_PX = 88
 
@@ -69,6 +72,9 @@ function App() {
         <Suspense fallback={<main className="main-loading">Cargando contenido...</main>}>
           <Routes>
             <Route path="/" element={<HomePage content={localAdminContent} />} />
+            <Route path="/equipo" element={<TeamPage content={localAdminContent} />} />
+            <Route path="/fisioterapia" element={<FisioterapiaPage />} />
+            <Route path="/pilates-yoga" element={<PilatesYogaPage />} />
             <Route path="/tarifas-horarios" element={<PricingPage content={localAdminContent} />} />
             <Route path="/contacto" element={<ContactPage content={localAdminContent} />} />
             <Route path="*" element={<Navigate to="/" replace />} />

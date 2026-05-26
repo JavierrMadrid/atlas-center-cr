@@ -1,5 +1,9 @@
-main {
+.page-shell {
   padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.page-shell > .section:last-of-type {
+  margin-bottom: 0;
 }
 
 .section {
@@ -87,12 +91,6 @@ main {
 .card--link:focus-visible {
   outline: 2px solid var(--green-300);
   outline-offset: 2px;
-}
-
-.section--image-note,
-.section--carousel,
-.section--trainers {
-  border-left: 4px solid var(--inner-accent-border);
 }
 
 .carousel__item {

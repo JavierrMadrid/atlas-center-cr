@@ -1,4 +1,4 @@
-.section--pricing-schedule {
+.pricing-section {
   border: 0;
   background: transparent;
   padding: 0;
@@ -14,10 +14,6 @@
   grid-template-columns: 1fr;
 }
 
-.pricing-page {
-  padding: clamp(0.6rem, 1.8vw, 1.2rem);
-}
-
 .panel {
   border: 1px solid var(--surface-border);
   border-left: 4px solid var(--inner-accent-border);
@@ -29,7 +25,7 @@
   margin: 0 0 0.9rem;
 }
 
-.section--pricing-schedule .panel h3 {
+.pricing-section .panel h3 {
   text-align: center;
   font-family: var(--heading-font);
   font-size: clamp(1.2rem, 2.6vw, 1.5rem);
@@ -132,60 +128,14 @@
   font-size: clamp(1.09rem, 1.55vw, 1.18rem);
 }
 
-.section--contact {
-  text-align: center;
-  background:
-    var(--contact-layer-1),
-    repeating-linear-gradient(
-      -45deg,
-      var(--contact-pattern) 0,
-      var(--contact-pattern) 10px,
-      transparent 10px,
-      transparent 20px
-    );
-}
-
-.section--contact .btn {
-  margin-top: 1rem;
-  display: inline-block;
-}
-
-.contact-phones {
-  margin-top: 0.9rem;
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.contact-phones .btn {
-  margin-top: 0;
-}
-
-.contact-phones__hint {
-  margin-top: 0.7rem;
-  color: var(--text-soft);
-  font-size: 1.05rem;
-}
-
-.contact-page {
-  padding: clamp(1rem, 3vw, 2rem);
-}
-
-.section--contact-hero {
-  border-left: 4px solid var(--inner-accent-border);
-}
-
-.section--contact-hero h1 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  line-height: 1.05;
-  letter-spacing: 0.05em;
-}
-
-.section--contact-layout {
+.contact-page__layout {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 0.9rem;
+}
+
+.contact-page__layout .panel {
+  border-left: 4px solid var(--inner-accent-border);
 }
 
 .contact-map {
@@ -248,5 +198,67 @@
 
 .contact-phone-list a:hover {
   text-decoration: underline;
+}
+
+.service-page__note {
+  margin: 0;
+  text-align: center;
+}
+
+/* Botón wrapper de imagen de tarifa */
+.pricing-image-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.pricing-image-btn img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.pricing-image-btn:hover img {
+  opacity: 0.85;
+}
+
+/* Lightbox */
+.pricing-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  cursor: zoom-out;
+  padding: 1.5rem;
+}
+
+.pricing-lightbox img {
+  max-width: min(92vw, 680px);
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  cursor: default;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+}
+
+.pricing-lightbox__close {
+  position: fixed;
+  top: 1rem;
+  right: 1.2rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
 }
 

@@ -14,3 +14,16 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Formulario de contacto con Formspree
+
+El formulario envia los datos directamente a Formspree desde frontend.
+
+Pasos:
+
+1. Crea un formulario en Formspree.
+2. Copia tu endpoint (por ejemplo `https://formspree.io/f/xxxxabcd`).
+3. En `src/config/localAdminPanel.json`, asigna ese valor en `contactPage.formspreeEndpoint`.
+4. Vuelve a desplegar.
+
+Si `contactPage.formspreeEndpoint` esta vacio, el formulario mostrara un error de configuracion al enviar.

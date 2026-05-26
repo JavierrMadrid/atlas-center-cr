@@ -1,9 +1,12 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
-const sectionLinks = [
-  { href: '/#entrenamientos', label: 'Entrenamientos', icon: 'dumbbell' },
-  { href: '/#galeria', label: 'Galería', icon: 'gallery' },
-  { href: '/#entrenadores', label: 'Entrenadores', icon: 'trainers' },
+const pageLinks = [
+  { to: '/', label: 'Inicio', icon: 'home' },
+  { to: '/equipo', label: 'Equipo', icon: 'equipo' },
+  { to: '/fisioterapia', label: 'Fisioterapia', icon: 'physio' },
+  { to: '/pilates-yoga', label: 'Pilates y Yoga', icon: 'pilates' },
+  { to: '/tarifas-horarios', label: 'Tarifas y horarios', icon: 'schedule' },
+  { to: '/contacto', label: 'Contacto', icon: 'contact' },
 ]
 
 const socialLinks = [
@@ -40,6 +43,15 @@ const socialLinks = [
 ]
 
 function NavIcon({ name }) {
+  if (name === 'home') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11.5Z" />
+        <path d="M9 21V12h6v9" />
+      </svg>
+    )
+  }
+
   if (name === 'dumbbell') {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -48,23 +60,34 @@ function NavIcon({ name }) {
     )
   }
 
-  if (name === 'gallery') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M4 5h16v14H4z" />
-        <path d="m7 15 3-3 2 2 3-4 2 5" />
-        <circle cx="9" cy="9" r="1.2" />
-      </svg>
-    )
-  }
-
-  if (name === 'trainers') {
+  if (name === 'equipo') {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <circle cx="9" cy="8" r="2" />
         <circle cx="15" cy="8" r="2" />
         <path d="M5.5 17c.4-2 1.7-3 3.5-3s3.1 1 3.5 3" />
         <path d="M11.5 17c.4-2 1.7-3 3.5-3s3.1 1 3.5 3" />
+      </svg>
+    )
+  }
+
+  if (name === 'physio') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 3c-1.7 0-3 1.3-3 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3Z" />
+        <path d="M7 21v-4c0-2.2 1.8-4 5-4s5 1.8 5 4v4" />
+        <path d="M9 15v6M15 15v6" />
+      </svg>
+    )
+  }
+
+  if (name === 'pilates') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="5" r="2" />
+        <path d="M12 9v5" />
+        <path d="M8 11c0 0 1.5 3 4 3s4-3 4-3" />
+        <path d="M10 17l-2 4M14 17l2 4" />
       </svg>
     )
   }
@@ -104,36 +127,20 @@ function SiteHeader({ brandName, brandLogoSrc }) {
       </NavLink>
 
       <nav className="site-header__nav" aria-label="Secciones principales">
-        {sectionLinks.map((link) => (
-          <Link key={link.href} className="site-header__link" to={link.href}>
+        {pageLinks.map((link) => (
+          <NavLink
+            key={link.to}
+            className={({ isActive }) =>
+              isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
+            }
+            to={link.to}
+          >
             <span className="site-header__link-icon" aria-hidden="true">
               <NavIcon name={link.icon} />
             </span>
             <span>{link.label}</span>
-          </Link>
+          </NavLink>
         ))}
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
-          }
-          to="/tarifas-horarios"
-        >
-          <span className="site-header__link-icon" aria-hidden="true">
-            <NavIcon name="schedule" />
-          </span>
-          <span>Tarifas y horarios</span>
-        </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? 'site-header__link site-header__link--active' : 'site-header__link'
-          }
-          to="/contacto"
-        >
-          <span className="site-header__link-icon" aria-hidden="true">
-            <NavIcon name="contact" />
-          </span>
-          <span>Contacto</span>
-        </NavLink>
       </nav>
 
       <nav className="site-header__social" aria-label="Redes sociales">

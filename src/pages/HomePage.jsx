@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import CarouselSection from '../components/sections/CarouselSection'
-import TrainersSection from '../components/sections/TrainersSection'
-import TrainingSection from '../components/sections/TrainingSection'
+import CarouselSection from '../components/page-blocks/CarouselSection'
+import PageShell from '../components/layout/PageShell'
+import TrainingSection from '../components/page-blocks/TrainingSection'
 
 function HomePage({ content }) {
   const { brand } = content
@@ -44,11 +44,10 @@ function HomePage({ content }) {
         </div>
       </header>
 
-      <main>
+      <PageShell className="home-page">
         <TrainingSection programs={content.trainingPrograms} />
         <CarouselSection images={content.carouselImages} />
-        <TrainersSection trainers={content.trainers} />
-      </main>
+      </PageShell>
 
       <button
         type="button"

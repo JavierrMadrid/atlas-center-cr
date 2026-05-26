@@ -3,7 +3,7 @@ import SectionHeading from '../ui/SectionHeading'
 
 function TrainingSection({ programs }) {
   return (
-    <section id="entrenamientos" className="section section--cards section--reveal">
+    <section id="entrenamientos" className="section training-section section--reveal">
       <SectionHeading
         title="Modalidades de entrenamiento"
         description="Elige entre bonos de clase (entrenamiento guiado, yoga o pilates) y bonos open para sala libre."

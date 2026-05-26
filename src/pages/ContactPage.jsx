@@ -1,4 +1,6 @@
 import ContactForm from '../components/forms/ContactForm'
+import PageShell from '../components/layout/PageShell'
+import SectionHeading from '../components/ui/SectionHeading'
 
 const toTelHref = (phone) => `tel:${phone.replace(/\s+/g, '')}`
 
@@ -6,16 +8,15 @@ function ContactPage({ content }) {
   const { contactPage } = content
 
   return (
-    <main className="contact-page">
-      <section className="section section--contact-hero section--reveal">
-        <h1>Contacto</h1>
-        <p>
-          Ven a conocer Atlas Center, consulta nuestras tarifas y horarios, o escríbenos para cualquier duda. Estamos aquí para ayudarte.
-        </p>
-      </section>
+    <PageShell className="pricing-page contact-page">
+      <section className="section pricing-section contact-page__section section--reveal">
+        <SectionHeading
+          title="Contacto"
+          description="Ven a conocer Atlas Center, consulta nuestras tarifas y horarios, o escríbenos para cualquier duda. Estamos aquí para ayudarte."
+        />
 
-      <section className="section section--contact-layout section--reveal">
-        <article className="panel">
+        <div className="pricing-schedule-grid contact-page__layout">
+          <article className="panel">
           <h2>Dónde estamos</h2>
           <p>{contactPage.address}</p>
           <p>
@@ -39,18 +40,19 @@ function ContactPage({ content }) {
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-        </article>
+          </article>
 
-        <article className="panel">
-          <h2>Escríbenos</h2>
-          <p>Te respondemos con la mejor opción según tus objetivos y horario.</p>
-          <ContactForm
-            formspreeEndpoint={contactPage.formspreeEndpoint}
-            minSubmitDelayMs={contactPage.antiSpamMinSubmitDelayMs}
-          />
-        </article>
+          <article className="panel">
+            <h2>Escríbenos</h2>
+            <p>Te respondemos con la mejor opción según tus objetivos y horario.</p>
+            <ContactForm
+              formspreeEndpoint={contactPage.formspreeEndpoint}
+              minSubmitDelayMs={contactPage.antiSpamMinSubmitDelayMs}
+            />
+          </article>
+        </div>
       </section>
-    </main>
+    </PageShell>
   )
 }
 

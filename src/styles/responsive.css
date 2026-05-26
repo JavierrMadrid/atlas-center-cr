@@ -110,7 +110,7 @@
     align-items: flex-start;
   }
 
-  .section--contact-layout {
+  .contact-page__layout {
     grid-template-columns: 1fr;
   }
 

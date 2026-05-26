@@ -4,7 +4,7 @@
     "heroName": "Entrena con propósito",
     "kicker": "Centro de entrenamiento",
     "claim": "",
-    "description": "Entrenamientos guiados que mezclan entrenamiento funcional y musculación para que ganes resistencia real, técnica y potencia para superarte cada día.",
+    "description": "Especializados en grupos reducidos, entrenamiento personal, pilates y yoga. Ofrecemos seguimiento personalizado adaptado a cada nivel y objetivo: pérdida de peso, ganancia muscular, salud y bienestar. Un espacio cercano y motivador donde entrenar de forma segura, eficiente y acompañada.",
     "headerLogoSrc": "/imagenes/logo_simple.png",
     "heroLogoSrc": "/imagenes/logo_grande.png",
     "primaryActionLabel": "Ver entrenamientos",
@@ -76,6 +76,11 @@
       "name": "Sergio",
       "image": "/imagenes/entrenador-sergio.jpg",
       "description": "Enfocado en acondicionamiento mixto. Diseña sesiones dinámicas para mejorar resistencia, movilidad y potencia."
+    },
+    {
+      "name": "Fisio",
+      "image": "/imagenes/logo_simple.png",
+      "description": "Especialista en fisioterapia deportiva y recuperación funcional para prevenir lesiones y optimizar tu rendimiento."
     }
   ],
   "pricingPlans": [

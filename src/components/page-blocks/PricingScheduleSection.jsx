@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import SectionHeading from '../ui/SectionHeading'
 
 function PricingScheduleSection({ pricingPlans, pricingPolicy, schedule, stacked = false }) {
+  const [lightbox, setLightbox] = useState(null)
   const normalizePlanName = (name) =>
     name
       .replace(/^\s*grupos reducidos\s*-\s*/i, '')
@@ -45,11 +47,17 @@ function PricingScheduleSection({ pricingPlans, pricingPolicy, schedule, stacked
           <article key={plan.name} className="pricing-image-card">
             <h5>{planLabel}</h5>
             {plan.imageSrc ? (
-              <img
-                src={plan.imageSrc}
-                alt={`Tarifa ${planLabel}`}
-                loading="lazy"
-              />
+              <button
+                className="pricing-image-btn"
+                onClick={() => setLightbox({ src: plan.imageSrc, alt: `Tarifa ${planLabel}` })}
+                aria-label={`Ver tarifa ${planLabel} en grande`}
+              >
+                <img
+                  src={plan.imageSrc}
+                  alt={`Tarifa ${planLabel}`}
+                  loading="lazy"
+                />
+              </button>
             ) : (
               <div className="pricing-image-placeholder">
                 Imagen pendiente para {planLabel}
@@ -62,7 +70,20 @@ function PricingScheduleSection({ pricingPlans, pricingPolicy, schedule, stacked
   )
 
   return (
-    <section id="tarifas-horarios" className="section section--pricing-schedule section--reveal">
+    <>
+    {lightbox && (
+      <div
+        className="pricing-lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label={lightbox.alt}
+        onClick={() => setLightbox(null)}
+      >
+        <button className="pricing-lightbox__close" onClick={() => setLightbox(null)} aria-label="Cerrar">&times;</button>
+        <img src={lightbox.src} alt={lightbox.alt} onClick={(e) => e.stopPropagation()} />
+      </div>
+    )}
+    <section id="tarifas-horarios" className="section pricing-section section--reveal">
       <SectionHeading
         title="Tarifas y horarios"
         description={pricingPolicy}
@@ -102,6 +123,7 @@ function PricingScheduleSection({ pricingPlans, pricingPolicy, schedule, stacked
         </article>
       </div>
     </section>
+    </>
   )
 }
 
