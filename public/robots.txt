@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Sitemap: https://atlas-center.com/sitemap.xml
 
 # Bloquea recursos internos de desarrollo
 Disallow: /src/
