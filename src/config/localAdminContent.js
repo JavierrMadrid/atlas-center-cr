@@ -53,7 +53,7 @@ const defaultContact = {
 
 const defaultContactPage = {
   phones: ['+34 616725294', '+34000000001'],
-  email: 'atlas.ceenter@gmail.com',
+  email: 'info@atlas-center.com',
   formspreeEndpoint: '',
   antiSpamMinSubmitDelayMs: 3000,
   address: 'Calle Ronda de Calatrava, Local 2, 13003 Ciudad Real',

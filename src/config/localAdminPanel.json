@@ -26,7 +26,7 @@
       "+34 616725294",
       "+34000000001"
     ],
-    "email": "atlas.ceenter@gmail.com",
+    "email": "info@atlas-center.com",
     "formspreeEndpoint": "https://formspree.io/f/xnjrgenn",
     "antiSpamMinSubmitDelayMs": 3000,
     "address": "Calle Ronda de Calatrava, Local 2, 13003 Ciudad Real",
@@ -36,17 +36,23 @@
     {
       "title": "Entrenamiento guiado",
       "description": "Clases en grupos reducidos de hasta 5 personas con seguimiento técnico.",
-      "href": "/tarifas-horarios#tarifas-grupos-reducidos"
+      "href": "/tarifas-horarios#tarifas-grupos-reducidos",
+      "imageSrc": "/imagenes/entrenamiento/funcional.jpg",
+      "imageAlt": "Entrenamiento guiado en zona funcional"
     },
     {
       "title": "Yoga y pilates",
       "description": "Sesiones de movilidad, control postural y trabajo de core dentro de los bonos de clase.",
-      "href": "/tarifas-horarios#tarifas-grupos-reducidos"
+      "href": "/tarifas-horarios#tarifas-grupos-reducidos",
+      "imageSrc": "/imagenes/entrenamiento/yogaypilates.jpg",
+      "imageAlt": "Clase de yoga y pilates"
     },
     {
       "title": "Sala open",
       "description": "Acceso libre a sala de musculación con bonos open para entrenar a tu ritmo.",
-      "href": "/tarifas-horarios#tarifas-solo-open"
+      "href": "/tarifas-horarios#tarifas-solo-open",
+      "imageSrc": "/imagenes/entrenamiento/open.jpg",
+      "imageAlt": "Zona de sala open para musculación libre"
     }
   ],
   "carouselImages": [

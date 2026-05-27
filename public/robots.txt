@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Bloquea recursos internos de desarrollo
+Disallow: /src/
+Disallow: /node_modules/

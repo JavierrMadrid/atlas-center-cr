@@ -15,6 +15,14 @@ function TrainingSection({ programs }) {
             className="card card--link"
             to={program.href ?? '/tarifas-horarios'}
           >
+            {program.imageSrc && (
+              <img
+                className="card__media"
+                src={program.imageSrc}
+                alt={program.imageAlt ?? `Imagen de ${program.title}`}
+                loading="lazy"
+              />
+            )}
             <h3>{program.title}</h3>
             <p>{program.description}</p>
           </Link>

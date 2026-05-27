@@ -42,6 +42,10 @@
     min-height: 50vh;
   }
 
+  .hero__text {
+    display: none;
+  }
+
   .site-header {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
