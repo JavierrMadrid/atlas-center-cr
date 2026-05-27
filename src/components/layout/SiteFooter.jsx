@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const socialLinks = [
   {
@@ -72,16 +72,16 @@ function SiteFooter({ brand, contactPage, legalItems, schedule }) {
             </p>
             <p>{contactPage.address}</p>
             <p>
-              <Link to="/contacto">Ver página de contacto completa</Link>
+              <NavLink to="/contacto">Ver página de contacto completa</NavLink>
             </p>
           </section>
 
           <section className="site-footer__column">
             <h3>Accesos rápidos</h3>
             <nav className="site-footer__nav" aria-label="Accesos rápidos del pie de página">
-              <Link to="/#entrenamientos">Entrenamientos</Link>
-              <Link to="/#galeria">Galería</Link>
-              <Link to="/#entrenadores">Entrenadores</Link>
+              <NavLink to="/#entrenamientos">Entrenamientos</NavLink>
+              <NavLink to="/#galeria">Galería</NavLink>
+              <NavLink to="/#entrenadores">Entrenadores</NavLink>
               <NavLink to="/tarifas-horarios">Tarifas y horarios</NavLink>
             </nav>
             <div className="site-footer__social-wrap">
