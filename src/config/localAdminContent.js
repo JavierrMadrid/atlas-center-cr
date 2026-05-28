@@ -44,7 +44,7 @@ const defaultBrand = {
 }
 
 const defaultContact = {
-  phones: ['+34 616725294', '+34000000001'],
+  phones: ['616725294'],
   title: 'Empieza esta semana',
   description:
     'Primera clase guiada para conocer tu nivel y crear tu ruta de progresión.',
@@ -52,7 +52,7 @@ const defaultContact = {
 }
 
 const defaultContactPage = {
-  phones: ['+34 616725294', '+34000000001'],
+  phones: ['616725294'],
   email: 'info@atlas-center.com',
   formspreeEndpoint: '',
   antiSpamMinSubmitDelayMs: 3000,
