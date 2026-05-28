@@ -102,31 +102,31 @@
   "pricingPlans": [
     {
       "name": "Grupos reducidos - Basic",
-      "price": "50 EUR",
+      "price": "50 €",
       "details": "4 bonos de clase (entrenamiento guiado, yoga o pilates) + 2 bonos open.",
       "imageSrc": "/imagenes/tarifas/Tarifa%20BASIC.png"
     },
     {
       "name": "Grupos reducidos - Atlas",
-      "price": "75 EUR",
+      "price": "75 €",
       "details": "8 bonos de clase + 4 bonos open.",
       "imageSrc": "/imagenes/tarifas/Tarifa%20ATLAS.png"
     },
     {
       "name": "Grupos reducidos - Titan",
-      "price": "90 EUR",
+      "price": "90 €",
       "details": "12 bonos de clase + 4 bonos open.",
       "imageSrc": "/imagenes/tarifas/TARIFA%20TITAN.png"
     },
     {
       "name": "Grupos reducidos - Olympo",
-      "price": "110 EUR",
+      "price": "110 €",
       "details": "Sin límite de clases ni open.",
       "imageSrc": "/imagenes/tarifas/Tarifa%20OLYMPO.png"
     },
     {
       "name": "Solo open - Base",
-      "price": "50 EUR",
+      "price": "50 €",
       "details": "12 bonos open (sala de musculación libre).",
       "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20BASE.png"
     },
@@ -141,6 +141,18 @@
       "price": "",
       "details": "",
       "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20RAT.jpg"
+    }
+  ],
+  "physiotherapyPrices": [
+    {
+      "label": "Bono 5 sesiones",
+      "memberPrice": "150 €",
+      "nonMemberPrice": "175 €"
+    },
+    {
+      "label": "Sesion suelta",
+      "memberPrice": "35 €",
+      "nonMemberPrice": "40 €"
     }
   ],
   "pricingPolicy": "Todos los bonos se deben gastar en un plazo máximo de 40 días.",

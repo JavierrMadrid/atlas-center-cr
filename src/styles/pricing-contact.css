@@ -221,6 +221,8 @@
   display: grid;
   gap: 0.35rem;
   color: var(--text-soft);
+  font-size: clamp(1.05rem, 1.5vw, 1.14rem);
+  line-height: 1.5;
 }
 
 .service-page__content a {
@@ -229,6 +231,69 @@
 
 .service-page__content a:hover {
   text-decoration: underline;
+}
+
+.service-page__pricing {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+  padding: 0.8rem;
+  border: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-bg) 80%, black 20%);
+}
+
+.service-page__pricing h4 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.1vw, 1.45rem);
+}
+
+.service-page__pricing-table-wrap {
+  overflow-x: auto;
+}
+
+.service-page__pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 420px;
+}
+
+.service-page__pricing-table th,
+.service-page__pricing-table td {
+  padding: 0.6rem 0.55rem;
+  border-bottom: 1px solid var(--surface-border);
+  text-align: left;
+}
+
+.service-page__pricing-table thead th {
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.service-page__pricing-table tbody th {
+  font-size: clamp(1.04rem, 1.55vw, 1.16rem);
+  color: var(--heading-main);
+  font-weight: 700;
+}
+
+.service-page__pricing-table tbody td {
+  font-size: clamp(1.26rem, 2.2vw, 1.55rem);
+  font-weight: 800;
+  color: var(--heading-main);
+  white-space: nowrap;
+}
+
+.service-page__pricing-table th:nth-child(2),
+.service-page__pricing-table th:nth-child(3),
+.service-page__pricing-table td:nth-child(2),
+.service-page__pricing-table td:nth-child(3) {
+  text-align: right;
+}
+
+.service-page__pricing-table tbody tr:last-child th,
+.service-page__pricing-table tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .service-page__split {

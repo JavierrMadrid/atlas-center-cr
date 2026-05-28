@@ -547,7 +547,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage content={localAdminContent} />} />
             <Route path="/equipo" element={<TeamPage content={localAdminContent} />} />
-            <Route path="/fisioterapia" element={<FisioterapiaPage />} />
+            <Route path="/fisioterapia" element={<FisioterapiaPage content={localAdminContent} />} />
             <Route path="/pilates-yoga" element={<PilatesYogaPage />} />
             <Route path="/tarifas-horarios" element={<PricingPage content={localAdminContent} />} />
             <Route path="/contacto" element={<ContactPage content={localAdminContent} />} />

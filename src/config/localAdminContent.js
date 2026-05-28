@@ -112,6 +112,7 @@ export const localAdminContent = {
   carouselImages: safeArray(localAdminPanel.carouselImages),
   trainers: safeArray(localAdminPanel.trainers),
   pricingPlans: safeArray(localAdminPanel.pricingPlans),
+  physiotherapyPrices: safeArray(localAdminPanel.physiotherapyPrices),
   pricingPolicy:
     localAdminPanel.pricingPolicy ??
     'Todos los bonos se deben gastar en un plazo máximo de 40 días.',

@@ -2,7 +2,11 @@ import PageShell from '../components/layout/PageShell'
 import { Link } from 'react-router-dom'
 import SectionHeading from '../components/ui/SectionHeading'
 
-function FisioterapiaPage() {
+function FisioterapiaPage({ content }) {
+  const physiotherapyPrices = Array.isArray(content?.physiotherapyPrices)
+    ? content.physiotherapyPrices
+    : []
+
   return (
     <PageShell className="pricing-page service-page service-page--fisioterapia">
       <section className="section pricing-section section--reveal">
@@ -32,9 +36,30 @@ function FisioterapiaPage() {
                 <li>Readaptacion para retomar entrenamiento personal o en grupos.</li>
                 <li>Mejora de movilidad y control del movimiento.</li>
               </ul>
+              <div className="service-page__pricing" aria-label="Precios de fisioterapia">
+                <div className="service-page__pricing-table-wrap">
+                  <table className="service-page__pricing-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Tarifa</th>
+                        <th scope="col">Socios</th>
+                        <th scope="col">No socios</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {physiotherapyPrices.map((item) => (
+                        <tr key={item.label}>
+                          <th scope="row">{item.label}</th>
+                          <td>{item.memberPrice}</td>
+                          <td>{item.nonMemberPrice}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
               <p>
-                Puedes revisar opciones en <Link to="/tarifas-horarios">tarifas y horarios</Link> o escribirnos desde{' '}
-                <Link to="/contacto">contacto</Link> para una primera orientacion.
+                Puedes escribirnos desde <Link to="/contacto">contacto</Link> para una primera orientacion.
               </p>
             </div>
           </article>
