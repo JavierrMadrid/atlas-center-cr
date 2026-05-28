@@ -47,6 +47,20 @@ function HomePage({ content }) {
       <PageShell className="home-page">
         <TrainingSection programs={content.trainingPrograms} />
         <CarouselSection images={content.carouselImages} />
+        <section className="section section--reveal" aria-labelledby="seo-intent-title">
+          <header className="section__heading">
+            <h2 id="seo-intent-title">Centro deportivo en Ciudad Real para entrenar con acompanamiento real</h2>
+            <p>
+              En Atlas Center combinamos entrenamiento personal y entrenamiento en grupos reducidos para ayudarte a
+              progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, yoga, pilates o fisioterapia, aqui
+              tienes un espacio profesional orientado a resultados sostenibles.
+            </p>
+          </header>
+          <p>
+            Trabajamos objetivos de salud, perdida de grasa, fuerza, movilidad y readaptacion con seguimiento tecnico.
+            Puedes empezar en sala open o en clases guiadas segun tu nivel y disponibilidad.
+          </p>
+        </section>
       </PageShell>
 
       <button

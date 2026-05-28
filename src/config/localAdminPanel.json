@@ -70,6 +70,11 @@
       "src": "/imagenes/carrusel/PXL_20260525_175641455.jpg",
       "alt": "Zona de musculación con barras y discos",
       "caption": "Trabajo de fuerza y musculación"
+    },
+    {
+      "src": "/imagenes/carrusel/fisio_carrusel.jpg",
+      "alt": "Sesion de fisioterapia en Atlas Center Ciudad Real",
+      "caption": "Fisioterapia deportiva y recuperacion funcional"
     }
   ],
   "trainers": [
@@ -84,9 +89,14 @@
       "description": "Enfocado en acondicionamiento mixto. Diseña sesiones dinámicas para mejorar resistencia, movilidad y potencia."
     },
     {
-      "name": "Fisio",
+      "name": "Carlos",
       "image": "/imagenes/logo_simple.png",
       "description": "Especialista en fisioterapia deportiva y recuperación funcional para prevenir lesiones y optimizar tu rendimiento."
+    },
+    {
+      "name": "Patricia",
+      "image": "/imagenes/logo_simple.png",
+      "description": "Entrenadora especializada en entrenamiento guiado y trabajo de movilidad para progresar con tecnica y seguridad."
     }
   ],
   "pricingPlans": [

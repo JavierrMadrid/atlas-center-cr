@@ -5,7 +5,7 @@ function TrainersSection({ trainers }) {
     <section id="equipo" className="section pricing-section team-section section--reveal">
       <SectionHeading
         title="Equipo"
-        description="Conoce a nuestro equipo: dos entrenadores y un fisio con una misma filosofía de trabajo, técnica, intensidad y cercanía."
+        description="Conoce a nuestro equipo multidisciplinar de entrenamiento y fisioterapia, con una misma filosofia de trabajo: tecnica, intensidad y cercania."
       />
 
       <div className="pricing-schedule-grid pricing-schedule-grid--stack">
@@ -13,7 +13,7 @@ function TrainersSection({ trainers }) {
           <div className="trainers-grid">
             {trainers.map((trainer) => (
               <article key={trainer.name} className="trainer-card">
-                <img src={trainer.image} alt={`Entrenador ${trainer.name}`} loading="lazy" />
+                <img src={trainer.image} alt={`Miembro del equipo ${trainer.name}`} loading="lazy" />
                 <div className="trainer-card__body">
                   <h3>{trainer.name}</h3>
                   <p>{trainer.description}</p>
