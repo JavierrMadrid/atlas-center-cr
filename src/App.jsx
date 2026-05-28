@@ -18,7 +18,7 @@ const SEO_BY_PATH = {
   '/': {
     title: 'Atlas Center | Centro Deportivo y Gimnasio en Ciudad Real',
     description:
-      'Atlas Center, centro deportivo en Ciudad Real: entrenamiento personal, entrenamiento en grupos reducidos, entrenamiento guiado, gimnasio, yoga, pilates y fisioterapia deportiva.',
+      'Centro deportivo especializado en entrenamientos mediante clases guiadas. Ofrecemos fisioterapia, yoga y sala de entrenamiento libre en Ciudad Real. Consulta horarios y tarifas en Atlas Center.',
   },
   '/equipo': {
     title: 'Equipo de Entrenadores | Atlas Center Ciudad Real',
