@@ -51,16 +51,16 @@ function HomePage({ content }) {
           <div className="seo-intent__layout">
             <div className="seo-intent__content">
               <header className="section__heading">
-                <h2 id="seo-intent-title">Centro deportivo en Ciudad Real para entrenar con acompanamiento real</h2>
+                <h2 id="seo-intent-title">Centro deportivo en Ciudad Real para entrenamientos guiados</h2>
                 <p>
                   En Atlas Center combinamos entrenamiento personal y entrenamiento en grupos reducidos para ayudarte a
-                  progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, yoga, pilates o fisioterapia, aqui
-                  tienes un espacio profesional orientado a resultados sostenibles.
+                  progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, yoga, pilates o fisioterapia, Atlas Center
+                  es tu sitio.
                 </p>
               </header>
               <p>
                 Trabajamos objetivos de salud, perdida de grasa, fuerza, movilidad y readaptacion con seguimiento
-                tecnico. Puedes empezar en sala open o en clases guiadas segun tu nivel y disponibilidad.
+                técnico. Puedes empezar en sala open o en clases guiadas segun tu nivel y disponibilidad.
               </p>
             </div>
             <figure className="seo-intent__media">

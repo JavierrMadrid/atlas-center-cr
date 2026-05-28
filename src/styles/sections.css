@@ -50,7 +50,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: clamp(1rem, 2.2vw, 1.6rem);
-  align-items: center;
+  align-items: start;
 }
 
 .seo-intent__content {
@@ -59,7 +59,6 @@
 
 .seo-intent__media {
   margin: 0;
-  aspect-ratio: 16 / 10;
   border: 1px solid var(--surface-border);
   background: color-mix(in srgb, var(--surface-bg) 82%, black 18%);
   overflow: hidden;
@@ -68,9 +67,12 @@
 .seo-intent__media img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
+}
+
+.seo-intent__content .section__heading h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .cards {
