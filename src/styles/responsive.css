@@ -212,6 +212,15 @@
     grid-template-columns: 1fr;
   }
 
+  .seo-intent__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .seo-intent__media {
+    max-width: 560px;
+    justify-self: center;
+  }
+
   .pricing-group__cards {
     grid-template-columns: minmax(0, 1fr);
   }
