@@ -16,7 +16,7 @@ const HEADER_OFFSET_PX = 88
 
 const SEO_BY_PATH = {
   '/': {
-    title: 'Atlas Center | Centro Deportivo y Gimnasio en Ciudad Real',
+    title: 'Atlas Center | Centro Deportivo en Ciudad Real',
     description:
       'Centro deportivo especializado en entrenamientos mediante clases guiadas. Ofrecemos fisioterapia, yoga y sala de entrenamiento libre en Ciudad Real. Consulta horarios y tarifas en Atlas Center.',
   },
