@@ -80,23 +80,23 @@
   "trainers": [
     {
       "name": "Dani",
-      "image": "/imagenes/entrenador-dani.jpg",
+      "image": "/imagenes/equipo/dani.png",
       "description": "Especialista en fuerza aplicada. Te ayuda a ganar técnica, estabilidad y confianza con cargas progresivas."
     },
     {
       "name": "Sergio",
-      "image": "/imagenes/entrenador-sergio.jpg",
+      "image": "/imagenes/equipo/sergio.jpg",
       "description": "Enfocado en acondicionamiento mixto. Diseña sesiones dinámicas para mejorar resistencia, movilidad y potencia."
     },
     {
       "name": "Carlos",
-      "image": "/imagenes/logo_simple.png",
+      "image": "/imagenes/equipo/carlos.jpg",
       "description": "Especialista en fisioterapia deportiva y recuperación funcional para prevenir lesiones y optimizar tu rendimiento."
     },
     {
       "name": "Patricia",
       "image": "/imagenes/logo_simple.png",
-      "description": "Entrenadora especializada en entrenamiento guiado y trabajo de movilidad para progresar con tecnica y seguridad."
+      "description": "Profesora de pilates con base en fisioterapia. Su trabajo se centra en pilates guiado, control postural y movilidad para progresar con tecnica y seguridad."
     }
   ],
   "pricingPlans": [

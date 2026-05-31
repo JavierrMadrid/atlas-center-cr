@@ -13,22 +13,30 @@ function PilatesYogaPage() {
 
         <div className="service-page__split">
           <article className="panel panel--service service-page__text-panel">
-            <h3>Clases guiadas de yoga y pilates en Atlas Center</h3>
+            <h3>Clases guiadas de yoga y pilates</h3>
             <div className="service-page__content">
               <p>
                 Las sesiones de yoga y pilates estan pensadas para mejorar movilidad, control corporal, estabilidad de
                 core y bienestar general. Son clases guiadas con atencion tecnica para que progreses con seguridad.
               </p>
-              <h4>Yoga</h4>
-              <p>
-                El trabajo de yoga se centra en respiracion, movilidad global y conciencia corporal para mejorar tu
-                bienestar diario y complementar otras actividades del centro deportivo.
-              </p>
-              <h4>Pilates</h4>
-              <p>
-                En pilates priorizamos control postural, estabilidad lumbo-pelvica y fuerza de core para que entrenes
-                con mejor tecnica y reduzcas riesgo de sobrecargas.
-              </p>
+              <div className="service-page__mini-grid">
+                <article className="service-page__mini-card">
+                  <h4>Yoga</h4>
+                  <p>
+                    El trabajo de yoga se centra en respiracion, movilidad global y conciencia corporal para mejorar tu
+                    bienestar diario y complementar otras actividades del centro deportivo.
+                  </p>
+                </article>
+
+                <article className="service-page__mini-card">
+                  <h4>Pilates</h4>
+                  <p>
+                    En pilates priorizamos control postural, estabilidad lumbo-pelvica y fuerza de core para que
+                    entrenes con mejor tecnica y reduzcas riesgo de sobrecargas.
+                  </p>
+                </article>
+              </div>
+
               <p>
                 Este formato complementa el entrenamiento personal y el trabajo en gimnasio, ayudando a reducir
                 sobrecargas, mejorar postura y mantener continuidad en tus objetivos de salud.
@@ -48,7 +56,7 @@ function PilatesYogaPage() {
           </article>
 
           <article className="panel panel--service service-page__media-panel">
-            <div className="service-page__gallery service-page__gallery--two">
+            <div className="service-page__gallery service-page__gallery--single">
               <figure className="service-page__figure">
                 <img
                   src="/imagenes/entrenamiento/yogaypilates.jpg"
@@ -56,15 +64,6 @@ function PilatesYogaPage() {
                   loading="lazy"
                 />
                 <figcaption>Yoga guiado para mejorar movilidad y respiracion.</figcaption>
-              </figure>
-
-              <figure className="service-page__figure">
-                <img
-                  src="/imagenes/carrusel/PXL_20260525_175649902.jpg"
-                  alt="Sesion de pilates en Atlas Center Ciudad Real"
-                  loading="lazy"
-                />
-                <figcaption>Pilates para control postural y fortalecimiento de core.</figcaption>
               </figure>
             </div>
           </article>

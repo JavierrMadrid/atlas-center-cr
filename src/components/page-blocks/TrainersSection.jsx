@@ -13,7 +13,12 @@ function TrainersSection({ trainers }) {
           <div className="trainers-grid">
             {trainers.map((trainer) => (
               <article key={trainer.name} className="trainer-card">
-                <img src={trainer.image} alt={`Miembro del equipo ${trainer.name}`} loading="lazy" />
+                <img
+                  src={trainer.image}
+                  alt={`Miembro del equipo ${trainer.name}`}
+                  loading="lazy"
+                  style={trainer.name === 'Sergio' ? { objectPosition: '25% center' } : undefined}
+                />
                 <div className="trainer-card__body">
                   <h3>{trainer.name}</h3>
                   <p>{trainer.description}</p>
