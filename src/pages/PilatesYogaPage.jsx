@@ -8,7 +8,7 @@ function PilatesYogaPage() {
       <section className="section pricing-section section--reveal">
         <SectionHeading
           title="Pilates y Yoga"
-          description="Clases de yoga y pilates con enfoque en movilidad, respiracion y control postural, adaptadas a todos los niveles."
+          description="Clases de yoga y pilates en Ciudad Real con enfoque en movilidad, respiracion y control postural, adaptadas a todos los niveles."
         />
 
         <div className="service-page__split">
@@ -17,7 +17,8 @@ function PilatesYogaPage() {
             <div className="service-page__content">
               <p>
                 Las sesiones de yoga y pilates estan pensadas para mejorar movilidad, control corporal, estabilidad de
-                core y bienestar general. Son clases guiadas con atencion tecnica para que progreses con seguridad.
+                core y bienestar general. Son clases guiadas con atencion tecnica para que progreses con seguridad y
+                mantengas una practica constante en Ciudad Real.
               </p>
               <div className="service-page__mini-grid">
                 <article className="service-page__mini-card">
@@ -38,8 +39,8 @@ function PilatesYogaPage() {
               </div>
 
               <p>
-                Este formato complementa el entrenamiento personal y el trabajo en gimnasio, ayudando a reducir
-                sobrecargas, mejorar postura y mantener continuidad en tus objetivos de salud.
+                Este formato complementa el entrenamiento personal, la fisioterapia y el trabajo en gimnasio,
+                ayudando a reducir sobrecargas, mejorar postura y mantener continuidad en tus objetivos de salud.
               </p>
               <h4>Beneficios principales</h4>
               <ul className="service-page__list">
@@ -50,7 +51,7 @@ function PilatesYogaPage() {
               </ul>
               <p>
                 Consulta <Link to="/tarifas-horarios">tarifas y horarios</Link> para ver bonos de clase y opciones de
-                acceso al centro.
+                acceso al centro, o visita <Link to="/contacto">contacto</Link> si quieres reservar tu primera clase.
               </p>
             </div>
           </article>
@@ -60,10 +61,10 @@ function PilatesYogaPage() {
               <figure className="service-page__figure">
                 <img
                   src="/imagenes/entrenamiento/yogaypilates.jpg"
-                  alt="Sesion de yoga guiada en Atlas Center"
+                  alt="Sesion de yoga y pilates guiada en Atlas Center, Ciudad Real"
                   loading="lazy"
                 />
-                <figcaption>Yoga guiado para mejorar movilidad y respiracion.</figcaption>
+                <figcaption>Yoga guiado para mejorar movilidad, respiracion y control postural.</figcaption>
               </figure>
             </div>
           </article>

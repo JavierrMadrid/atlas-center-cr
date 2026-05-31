@@ -1,2 +1,13 @@
+/ 
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-src 'self' https://www.google.com; form-action 'self' https://formspree.io; upgrade-insecure-requests
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/imagenes/equipo/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /imagenes/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400

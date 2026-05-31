@@ -31,9 +31,9 @@ const SEO_BY_PATH = {
       'Servicio de fisioterapia deportiva en Atlas Center, con recuperación funcional, readaptacion y prevencion de lesiones para deportistas y personas activas.',
   },
   '/pilates-yoga': {
-    title: 'Yoga y Pilates en Ciudad Real | Atlas Center',
+    title: 'Clases de Yoga y Pilates en Ciudad Real | Atlas Center',
     description:
-      'Clases de yoga y pilates en Atlas Center: movilidad, control postural, respiracion, fuerza del core y entrenamiento guiado para todos los niveles.',
+      'Clases de yoga y pilates en Atlas Center para mejorar movilidad, control postural, respiracion y fuerza del core, con sesiones guiadas para todos los niveles en Ciudad Real.',
   },
   '/tarifas-horarios': {
     title: 'Tarifas y Horarios del Gimnasio | Atlas Center Ciudad Real',
@@ -281,14 +281,14 @@ const getServiceSchemaByPath = (pathname, canonicalUrl, businessId) => {
       '@type': 'Service',
       '@id': `${canonicalUrl}#service`,
       name: 'Clases de yoga y pilates en Ciudad Real',
-      serviceType: ['Yoga', 'Pilates', 'Movilidad', 'Control postural'],
+      serviceType: ['Yoga', 'Pilates', 'Movilidad', 'Control postural', 'Respiracion'],
       provider: { '@id': businessId },
       areaServed: {
         '@type': 'City',
         name: 'Ciudad Real',
       },
       description:
-        'Clases guiadas de yoga y pilates para mejorar movilidad, control postural, respiracion y fuerza del core.',
+        'Clases guiadas de yoga y pilates para mejorar movilidad, control postural, respiracion, fuerza del core y bienestar general.',
       url: canonicalUrl,
     }
   }
