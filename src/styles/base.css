@@ -96,6 +96,11 @@ button,
   margin: 1rem auto;
 }
 
+.atlas-page--team {
+  width: min(1540px, calc(100% - 1rem));
+  margin: 1rem auto;
+}
+
 .main-loading {
   min-height: 42vh;
   display: grid;

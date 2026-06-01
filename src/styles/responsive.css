@@ -37,6 +37,12 @@
   }
 }
 
+@media (max-width: 680px) {
+  .trainers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 860px) {
   .atlas-page {
     width: 100%;
@@ -225,7 +231,6 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .trainers-grid,
   .pricing-schedule-grid {
     grid-template-columns: 1fr;
   }

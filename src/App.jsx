@@ -526,6 +526,7 @@ function App() {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
   const isPricingPage = location.pathname === '/tarifas-horarios'
+  const isTeamPage = location.pathname === '/equipo'
   const { brand, contactPage, legalItems, schedule } = localAdminContent
 
   return (
@@ -539,6 +540,7 @@ function App() {
           'atlas-page',
           isHomePage ? 'atlas-page--home' : '',
           isPricingPage ? 'atlas-page--pricing' : '',
+          isTeamPage ? 'atlas-page--team' : '',
         ]
           .filter(Boolean)
           .join(' ')}
