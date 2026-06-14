@@ -101,6 +101,11 @@ const renderTrainerDescription = (description) => {
   })
 }
 
+const trainerImagePositions = {
+  Sergio: { objectPosition: '25% center' },
+  Carlos: { objectPosition: 'center 18%' },
+}
+
 function TrainersSection({ trainers, headingLevel = 'h2' }) {
   const [flippedCards, setFlippedCards] = useState(() => new Set())
 
@@ -150,7 +155,7 @@ function TrainersSection({ trainers, headingLevel = 'h2' }) {
                           src={trainer.image}
                           alt={`Miembro del equipo ${trainer.name}`}
                           loading="lazy"
-                          style={trainer.name === 'Sergio' ? { objectPosition: '25% center' } : undefined}
+                          style={trainerImagePositions[trainer.name]}
                         />
                         <div className="trainer-card__overlay">
                           <p>Pulsa para ver su descripcion</p>
