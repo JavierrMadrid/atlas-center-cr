@@ -68,8 +68,20 @@ function esc(str) {
     .replace(/>/g, '&gt;')
 }
 
+function normalizePathname(pathname) {
+  if (typeof pathname !== 'string' || !pathname) {
+    return '/'
+  }
+
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return pathname.slice(0, -1)
+  }
+
+  return pathname
+}
+
 export function getHeadHtml(url) {
-  const pathname = url.split('?')[0].split('#')[0]
+  const pathname = normalizePathname(url.split('?')[0].split('#')[0])
   const isKnownPath = Boolean(SEO_BY_PATH[pathname])
   const seo = isKnownPath ? SEO_BY_PATH[pathname] : SEO_BY_PATH['/']
   const canonicalUrl = `${SITE_URL}${isKnownPath ? pathname : ''}`

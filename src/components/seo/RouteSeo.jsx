@@ -54,6 +54,18 @@ const SEO_BY_PATH = {
   },
 }
 
+const normalizePathname = (pathname) => {
+  if (typeof pathname !== 'string' || !pathname) {
+    return '/'
+  }
+
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return pathname.slice(0, -1)
+  }
+
+  return pathname
+}
+
 const toAbsoluteUrl = (value) => {
   if (!value) {
     return ''
@@ -212,8 +224,9 @@ const getPilatesZennFaqSchema = () => ({
 
 function RouteSeo({ brand, contactPage, schedule }) {
   const location = useLocation()
-  const isKnownPath = Boolean(SEO_BY_PATH[location.pathname])
-  const seoPath = isKnownPath ? location.pathname : '/404'
+  const normalizedPathname = normalizePathname(location.pathname)
+  const isKnownPath = Boolean(SEO_BY_PATH[normalizedPathname])
+  const seoPath = isKnownPath ? normalizedPathname : '/404'
   const pathSeo = SEO_BY_PATH[seoPath]
   const canonicalUrl = `${SITE_URL}${seoPath}`
   const socialImage = toAbsoluteUrl(brand.heroLogoSrc || '/imagenes/logo_grande.png')
