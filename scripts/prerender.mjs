@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = resolve(__dirname, '..')
 const distDir = resolve(rootDir, 'dist')
 
-const { render } = await import('../dist/server/entry-server.js')
+const { render, getHeadHtml } = await import('../dist/server/entry-server.js')
 
 const template = readFileSync(resolve(distDir, 'index.html'), 'utf-8')
 
@@ -20,17 +20,8 @@ const routes = [
 ]
 
 for (const route of routes) {
-  const { html, helmet } = render(route)
-
-  const headTags = helmet
-    ? [
-        helmet.title?.toString() ?? '',
-        helmet.meta?.toString() ?? '',
-        helmet.link?.toString() ?? '',
-      ]
-        .filter(Boolean)
-        .join('\n    ')
-    : ''
+  const { html } = render(route)
+  const headTags = getHeadHtml(route)
 
   const finalHtml = template
     .replace('</head>', `    ${headTags}\n  </head>`)
