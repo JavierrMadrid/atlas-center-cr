@@ -63,9 +63,8 @@ function PricingScheduleSection({
                   alt={`Tarifa ${planLabel}`}
                   loading="lazy"
                   decoding="async"
-                  width="1200"
-                  height="1800"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1280px) 42vw, 300px"
+                  width="280"
+                  height="280"
                 />
               </button>
             ) : (
