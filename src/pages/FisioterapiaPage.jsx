@@ -11,6 +11,7 @@ function FisioterapiaPage({ content }) {
     <PageShell className="pricing-page service-page service-page--fisioterapia">
       <section className="section pricing-section section--reveal">
         <SectionHeading
+          level="h1"
           title="Fisioterapia"
           description="Servicio de fisioterapia deportiva y recuperacion funcional integrado en Atlas Center para prevenir lesiones y volver a entrenar con seguridad."
         />

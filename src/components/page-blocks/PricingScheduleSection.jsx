@@ -1,7 +1,13 @@
 import { useState } from 'react'
 import SectionHeading from '../ui/SectionHeading'
 
-function PricingScheduleSection({ pricingPlans, pricingPolicy, schedule, stacked = false }) {
+function PricingScheduleSection({
+  pricingPlans,
+  pricingPolicy,
+  schedule,
+  stacked = false,
+  headingLevel = 'h2',
+}) {
   const [lightbox, setLightbox] = useState(null)
   const normalizePlanName = (name) =>
     name
@@ -85,6 +91,7 @@ function PricingScheduleSection({ pricingPlans, pricingPolicy, schedule, stacked
     )}
     <section id="tarifas-horarios" className="section pricing-section section--reveal">
       <SectionHeading
+        level={headingLevel}
         title="Tarifas y horarios"
         description={pricingPolicy}
       />

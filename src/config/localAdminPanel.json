@@ -4,7 +4,7 @@
     "heroName": "Entrena con propósito",
     "kicker": "Centro de entrenamiento",
     "claim": "",
-    "description": "Especializados en grupos reducidos, entrenamiento personal, pilates y yoga. Ofrecemos seguimiento personalizado adaptado a cada nivel y objetivo: pérdida de peso, ganancia muscular, salud y bienestar. Un espacio cercano y motivador donde entrenar de forma segura, eficiente y acompañada.",
+    "description": "Especializados en grupos reducidos, entrenamiento personal, pilates y Zenn. Ofrecemos seguimiento personalizado adaptado a cada nivel y objetivo: pérdida de peso, ganancia muscular, salud y bienestar. Un espacio cercano y motivador donde entrenar de forma segura, eficiente y acompañada.",
     "headerLogoSrc": "/imagenes/logo_simple.png",
     "heroLogoSrc": "/imagenes/logo_grande.png",
     "primaryActionLabel": "Ver entrenamientos",
@@ -41,11 +41,11 @@
       "imageAlt": "Entrenamiento guiado en zona funcional"
     },
     {
-      "title": "Yoga y pilates",
-      "description": "Sesiones de movilidad, control postural y trabajo de core dentro de los bonos de clase.",
+      "title": "Pilates y Zenn",
+      "description": "Sesiones enfocadas en movilidad, control postural, respiración y trabajo de core dentro de los bonos de clase.",
       "href": "/tarifas-horarios#tarifas-grupos-reducidos",
       "imageSrc": "/imagenes/entrenamiento/yogaypilates.jpg",
-      "imageAlt": "Clase de yoga y pilates"
+      "imageAlt": "Clase de pilates y Zenn"
     },
     {
       "title": "Sala open",
@@ -95,15 +95,15 @@
     },
     {
       "name": "Patricia",
-      "image": "/imagenes/logo_simple.png",
-      "description": "Profesora de pilates con base en fisioterapia. Su trabajo se centra en pilates guiado, control postural y movilidad para progresar con tecnica y seguridad."
+      "image": "/imagenes/equipo/patricia.jpg",
+      "description": "Soy Patricia, fisioterapeuta, y en Atlas Center soy profesora de **Pilates Suelo**. Me uno con muchisima ilusion a este proyecto para aportar una forma de trabajo tecnica, cercana y muy consciente del movimiento.\n\nEn mis clases trabajamos **fuerza, elasticidad y conciencia corporal** a traves de ejercicios de pilates controlados y adaptados, para que cada persona avance de forma eficaz y segura.\n\n**¿En qué me enfoco durante la sesión?**\n- 🌬️ **Respiracion y control profundo:** Especial atencion al suelo pelvico, transverso abdominal y musculatura estabilizadora.\n- 🧩 **Adaptacion individual:** Ajusto los ejercicios a las necesidades y nivel de cada persona.\n- 👀 **Correccion y acompanamiento:** Te guio durante toda la clase para progresar con confianza.\n- 🔥 **Intensidad con sentido:** Ese punto de exigencia que recuerda que estamos entrenando, sin perder tecnica.\n\nTengo muchas ganas de conoceros y compartir esta experiencia en clase."
     }
   ],
   "pricingPlans": [
     {
       "name": "Grupos reducidos - Basic",
       "price": "50 €",
-      "details": "4 bonos de clase (entrenamiento guiado, yoga o pilates) + 2 bonos open.",
+      "details": "4 bonos de clase (entrenamiento guiado, Zenn o pilates) + 2 bonos open.",
       "imageSrc": "/imagenes/tarifas/Tarifa%20BASIC.png"
     },
     {

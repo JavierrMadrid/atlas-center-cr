@@ -8,8 +8,20 @@ function HomePage({ content }) {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 360)
+      if (ticking) {
+        return
+      }
+
+      ticking = true
+
+      window.requestAnimationFrame(() => {
+        const shouldShow = window.scrollY > 360
+        setShowScrollTop((previous) => (previous === shouldShow ? previous : shouldShow))
+        ticking = false
+      })
     }
 
     handleScroll()
@@ -54,7 +66,7 @@ function HomePage({ content }) {
                 <h2 id="seo-intent-title">Centro deportivo en Ciudad Real para entrenamientos guiados</h2>
                 <p>
                   En Atlas Center combinamos entrenamiento personal y entrenamiento en grupos reducidos para ayudarte a
-                  progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, yoga, pilates o fisioterapia, Atlas Center
+                  progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, Zenn, pilates o fisioterapia, Atlas Center
                   es tu sitio.
                 </p>
               </header>

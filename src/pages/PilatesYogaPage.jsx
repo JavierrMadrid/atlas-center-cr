@@ -2,53 +2,69 @@ import PageShell from '../components/layout/PageShell'
 import { Link } from 'react-router-dom'
 import SectionHeading from '../components/ui/SectionHeading'
 
-function PilatesYogaPage() {
+function PilatesZennPage() {
   return (
-    <PageShell className="pricing-page service-page service-page--pilates-yoga">
+    <PageShell className="pricing-page service-page service-page--pilates-zenn">
       <section className="section pricing-section section--reveal">
         <SectionHeading
-          title="Pilates y Yoga"
-          description="Clases de yoga y pilates en Ciudad Real con enfoque en movilidad, respiracion y control postural, adaptadas a todos los niveles."
+          level="h1"
+          title="Pilates y Zenn"
+          description="Sesiones de pilates y Zenn en Ciudad Real, con una fusion inspirada en yoga, para mejorar control corporal, movilidad, fuerza y equilibrio con clases guiadas para todos los niveles."
         />
 
         <div className="service-page__split">
           <article className="panel panel--service service-page__text-panel">
-            <h3>Clases guiadas de yoga y pilates</h3>
+            <h3>Clases guiadas de pilates y Zenn</h3>
             <div className="service-page__content">
               <p>
-                Las sesiones de yoga y pilates estan pensadas para mejorar movilidad, control corporal, estabilidad de
-                core y bienestar general. Son clases guiadas con atencion tecnica para que progreses con seguridad y
-                mantengas una practica constante en Ciudad Real.
+                En Atlas Center trabajamos el pilates desde un enfoque tecnico y adaptado: fuerza, elasticidad,
+                conciencia corporal y control del movimiento para que avances con seguridad en cada sesion.
               </p>
               <div className="service-page__mini-grid">
                 <article className="service-page__mini-card">
-                  <h4>Yoga</h4>
+                  <h4>Zenn</h4>
                   <p>
-                    El trabajo de yoga se centra en respiracion, movilidad global y conciencia corporal para mejorar tu
-                    bienestar diario y complementar otras actividades del centro deportivo.
+                    Entrenamiento grupal que fusiona los mejores movimientos del Yoga, del Pilates y del Taichi,
+                    coreografiados al ritmo de la musica. Conecta cuerpo y mente para mejorar flexibilidad,
+                    coordinacion y equilibrio.
                   </p>
                 </article>
 
                 <article className="service-page__mini-card">
                   <h4>Pilates</h4>
                   <p>
-                    En pilates priorizamos control postural, estabilidad lumbo-pelvica y fuerza de core para que
-                    entrenes con mejor tecnica y reduzcas riesgo de sobrecargas.
+                    En pilates damos especial importancia a la activacion del suelo pelvico, el transverso abdominal,
+                    la respiracion y la musculatura estabilizadora para lograr un trabajo eficaz, seguro y consciente.
                   </p>
                 </article>
               </div>
 
               <p>
-                Este formato complementa el entrenamiento personal, la fisioterapia y el trabajo en gimnasio,
-                ayudando a reducir sobrecargas, mejorar postura y mantener continuidad en tus objetivos de salud.
+                Como parte del acompanamiento, los ejercicios se adaptan a las necesidades de cada persona,
+                corrigiendo tecnica y ajustando intensidad para progresar con confianza.
               </p>
               <h4>Beneficios principales</h4>
               <ul className="service-page__list">
                 <li>Mejora de movilidad y flexibilidad funcional.</li>
-                <li>Mayor control postural y fuerza de core.</li>
-                <li>Trabajo de respiracion y gestion del estres.</li>
+                <li>Mayor control postural y fuerza del core profundo.</li>
+                <li>Mejor conexion cuerpo-mente, respiracion y equilibrio.</li>
                 <li>Complemento ideal para entrenamiento guiado y sala open.</li>
               </ul>
+              <h4>Preguntas frecuentes sobre Zenn y yoga</h4>
+              <div className="service-page__faq">
+                <p>
+                  <strong>Que diferencia hay entre Zenn y una clase de yoga tradicional?</strong>
+                  <br />
+                  Zenn mantiene la conexion cuerpo-mente y la respiracion del yoga, pero combina tambien patrones de
+                  pilates y taichi en formato coreografiado y dinamico.
+                </p>
+                <p>
+                  <strong>Si busco yoga en Ciudad Real, me sirve Zenn?</strong>
+                  <br />
+                  Si. Es una opcion ideal si te interesa una experiencia inspirada en yoga con trabajo adicional de
+                  control postural, coordinacion y estabilidad del core.
+                </p>
+              </div>
               <p>
                 Consulta <Link to="/tarifas-horarios">tarifas y horarios</Link> para ver bonos de clase y opciones de
                 acceso al centro, o visita <Link to="/contacto">contacto</Link> si quieres reservar tu primera clase.
@@ -61,10 +77,10 @@ function PilatesYogaPage() {
               <figure className="service-page__figure">
                 <img
                   src="/imagenes/entrenamiento/yogaypilates.jpg"
-                  alt="Sesion de yoga y pilates guiada en Atlas Center, Ciudad Real"
+                  alt="Sesion de pilates y Zenn guiada en Atlas Center, Ciudad Real"
                   loading="lazy"
                 />
-                <figcaption>Yoga guiado para mejorar movilidad, respiracion y control postural.</figcaption>
+                <figcaption>Pilates y Zenn para mejorar movilidad, control corporal y equilibrio.</figcaption>
               </figure>
             </div>
           </article>
@@ -74,4 +90,4 @@ function PilatesYogaPage() {
   )
 }
 
-export default PilatesYogaPage
+export default PilatesZennPage

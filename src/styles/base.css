@@ -57,6 +57,12 @@ body {
     url('/imagenes/fondo.png') center / cover no-repeat fixed;
 }
 
+@media (max-width: 860px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 h1,
 h2,
 h3,

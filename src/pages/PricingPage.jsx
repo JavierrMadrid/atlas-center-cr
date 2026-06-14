@@ -9,6 +9,7 @@ function PricingPage({ content }) {
         pricingPolicy={content.pricingPolicy}
         schedule={content.schedule}
         stacked
+        headingLevel="h1"
       />
     </PageShell>
   )

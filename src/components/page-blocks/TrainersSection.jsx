@@ -101,7 +101,7 @@ const renderTrainerDescription = (description) => {
   })
 }
 
-function TrainersSection({ trainers }) {
+function TrainersSection({ trainers, headingLevel = 'h2' }) {
   const [flippedCards, setFlippedCards] = useState(() => new Set())
 
   const toggleCard = (trainerName) => {
@@ -121,6 +121,7 @@ function TrainersSection({ trainers }) {
   return (
     <section id="equipo" className="section pricing-section team-section section--reveal">
       <SectionHeading
+        level={headingLevel}
         title="Equipo"
         description="Conoce a nuestro equipo multidisciplinar de entrenamiento y fisioterapia, con una misma filosofia de trabajo: tecnica, intensidad y cercania."
       />

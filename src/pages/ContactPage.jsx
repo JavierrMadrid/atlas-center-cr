@@ -11,6 +11,7 @@ function ContactPage({ content }) {
     <PageShell className="pricing-page contact-page">
       <section className="section pricing-section contact-page__section section--reveal">
         <SectionHeading
+          level="h1"
           title="Contacto"
           description="Ven a conocer Atlas Center, consulta nuestras tarifas y horarios, o escríbenos para cualquier duda. Estamos aquí para ayudarte."
         />

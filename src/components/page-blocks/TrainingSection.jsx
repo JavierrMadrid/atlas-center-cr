@@ -6,7 +6,7 @@ function TrainingSection({ programs }) {
     <section id="entrenamientos" className="section training-section section--reveal">
       <SectionHeading
         title="Modalidades de entrenamiento"
-        description="Elige entre bonos de clase (entrenamiento guiado, yoga o pilates) y bonos open para sala libre."
+        description="Elige entre bonos de clase (entrenamiento guiado, Zenn o pilates) y bonos open para sala libre."
       />
       <div className="cards">
         {programs.map((program) => (
