@@ -92,7 +92,11 @@ function CarouselSection({ images }) {
           <img
             src={activeSlide.src}
             alt={activeSlide.alt}
+            width="1600"
+            height="900"
+            sizes="(max-width: 768px) 92vw, (max-width: 1280px) 80vw, 960px"
             loading={activeIndex === 0 ? 'eager' : 'lazy'}
+            fetchPriority={activeIndex === 0 ? 'high' : 'low'}
             decoding="async"
           />
 

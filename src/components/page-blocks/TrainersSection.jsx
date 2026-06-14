@@ -155,6 +155,10 @@ function TrainersSection({ trainers, headingLevel = 'h2' }) {
                           src={trainer.image}
                           alt={`Miembro del equipo ${trainer.name}`}
                           loading="lazy"
+                          decoding="async"
+                          width="1200"
+                          height="1600"
+                          sizes="(max-width: 768px) 92vw, (max-width: 1200px) 45vw, 360px"
                           style={trainerImagePositions[trainer.name]}
                         />
                         <div className="trainer-card__overlay">

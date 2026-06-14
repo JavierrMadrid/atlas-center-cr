@@ -76,7 +76,14 @@ function HomePage({ content }) {
               </p>
             </div>
             <figure className="seo-intent__media">
-              <img src="/imagenes/entrena con proposito pintada.png" alt="Entrena con proposito en Atlas Center" />
+              <img
+                src="/imagenes/entrena con proposito pintada.png"
+                alt="Entrena con proposito en Atlas Center"
+                width="1200"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
             </figure>
           </div>
         </section>

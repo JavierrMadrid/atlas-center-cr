@@ -62,6 +62,10 @@ function PricingScheduleSection({
                   src={plan.imageSrc}
                   alt={`Tarifa ${planLabel}`}
                   loading="lazy"
+                  decoding="async"
+                  width="1200"
+                  height="1800"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1280px) 42vw, 300px"
                 />
               </button>
             ) : (
@@ -86,7 +90,14 @@ function PricingScheduleSection({
         onClick={() => setLightbox(null)}
       >
         <button className="pricing-lightbox__close" onClick={() => setLightbox(null)} aria-label="Cerrar">&times;</button>
-        <img src={lightbox.src} alt={lightbox.alt} onClick={(e) => e.stopPropagation()} />
+        <img
+          src={lightbox.src}
+          alt={lightbox.alt}
+          width="1200"
+          height="1800"
+          decoding="async"
+          onClick={(e) => e.stopPropagation()}
+        />
       </div>
     )}
     <section id="tarifas-horarios" className="section pricing-section section--reveal">

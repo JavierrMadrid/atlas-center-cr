@@ -146,7 +146,15 @@ function SiteHeader({ brandName, brandLogoSrc }) {
     <header className={isMenuOpen ? 'site-header site-header--menu-open' : 'site-header'}>
       <NavLink className="site-header__brand" to="/" onClick={closeMenu}>
         {brandLogoSrc ? (
-          <img className="site-header__brand-icon" src={brandLogoSrc} alt="" aria-hidden="true" />
+          <img
+            className="site-header__brand-icon"
+            src={brandLogoSrc}
+            alt=""
+            width="46"
+            height="46"
+            decoding="async"
+            aria-hidden="true"
+          />
         ) : (
           <span className="site-header__brand-icon site-header__brand-icon--fallback" aria-hidden="true">
             A

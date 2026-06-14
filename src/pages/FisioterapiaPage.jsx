@@ -71,6 +71,10 @@ function FisioterapiaPage({ content }) {
                 src="/imagenes/fisio.jpg"
                 alt="Sesion de fisioterapia deportiva en Atlas Center Ciudad Real"
                 loading="lazy"
+                decoding="async"
+                width="1280"
+                height="853"
+                sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 520px"
               />
               <figcaption>Fisioterapia orientada a recuperacion funcional y prevencion de lesiones.</figcaption>
             </figure>

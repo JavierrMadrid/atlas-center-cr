@@ -236,6 +236,8 @@ function RouteSeo({ brand, contactPage, schedule }) {
   const robotsValue = isKnownPath
     ? 'index,follow,max-image-preview:large'
     : 'noindex,nofollow,noarchive,max-image-preview:large'
+  const heroImagePath = brand.heroLogoSrc || '/imagenes/logo_grande.png'
+  const shouldPreloadHeroImage = seoPath === '/'
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -319,6 +321,9 @@ function RouteSeo({ brand, contactPage, schedule }) {
       <link rel="canonical" href={canonicalUrl} />
       <link rel="alternate" hrefLang="es-ES" href={canonicalUrl} />
       <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+      {shouldPreloadHeroImage ? (
+        <link rel="preload" as="image" href={heroImagePath} fetchPriority="high" />
+      ) : null}
 
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
     </Helmet>

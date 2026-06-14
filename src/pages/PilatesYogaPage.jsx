@@ -79,6 +79,10 @@ function PilatesZennPage() {
                   src="/imagenes/entrenamiento/yogaypilates.jpg"
                   alt="Sesion de pilates y Zenn guiada en Atlas Center, Ciudad Real"
                   loading="lazy"
+                  decoding="async"
+                  width="1600"
+                  height="1067"
+                  sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 520px"
                 />
                 <figcaption>Pilates y Zenn para mejorar movilidad, control corporal y equilibrio.</figcaption>
               </figure>

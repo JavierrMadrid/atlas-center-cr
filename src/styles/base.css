@@ -53,8 +53,17 @@ body {
   background:
     linear-gradient(145deg, rgba(20, 22, 24, 0.38), rgba(20, 22, 24, 0.38)),
     var(--bg-body-glow-1),
-    var(--bg-body-glow-2),
-    url('/imagenes/fondo.png') center / cover no-repeat fixed;
+    var(--bg-body-glow-2);
+}
+
+@media (min-width: 861px) {
+  body {
+    background:
+      linear-gradient(145deg, rgba(20, 22, 24, 0.38), rgba(20, 22, 24, 0.38)),
+      var(--bg-body-glow-1),
+      var(--bg-body-glow-2),
+      url('/imagenes/fondo.png') center / cover no-repeat fixed;
+  }
 }
 
 @media (max-width: 860px) {
@@ -112,7 +121,7 @@ button,
   display: grid;
   place-items: center;
   padding: 2rem 1.25rem;
-  font-family: 'GFS Didot', serif;
+  font-family: var(--heading-font);
   font-size: clamp(1.2rem, 2.3vw, 1.6rem);
   color: var(--heading-main);
 }

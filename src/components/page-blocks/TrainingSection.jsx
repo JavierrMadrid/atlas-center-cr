@@ -21,6 +21,10 @@ function TrainingSection({ programs }) {
                 src={program.imageSrc}
                 alt={program.imageAlt ?? `Imagen de ${program.title}`}
                 loading="lazy"
+                decoding="async"
+                width="1600"
+                height="1067"
+                sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 380px"
               />
             )}
             <h3>{program.title}</h3>
