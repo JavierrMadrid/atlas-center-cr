@@ -90,8 +90,8 @@ export function getHeadHtml(url) {
     : 'noindex,nofollow,noarchive,max-image-preview:large'
 
   const { brand, contactPage } = localAdminContent
-  const socialImage = `${SITE_URL}${brand.heroLogoSrc || '/imagenes/logo_grande.png'}`
-  const brandLogo = `${SITE_URL}${brand.headerLogoSrc || '/imagenes/logo_simple.png'}`
+  const socialImage = `${SITE_URL}${brand.heroLogoSrc || '/imagenes/logo_grande.webp'}`
+  const brandLogo = `${SITE_URL}${brand.headerLogoSrc || '/imagenes/logo_simple.webp'}`
 
   const structuredData = {
     '@context': 'https://schema.org',

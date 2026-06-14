@@ -46,7 +46,7 @@ body {
 
 body {
   margin: 0;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   color: var(--text-main);
   caret-color: transparent;
   background-color: #23262a;
@@ -62,7 +62,7 @@ body {
       linear-gradient(145deg, rgba(20, 22, 24, 0.38), rgba(20, 22, 24, 0.38)),
       var(--bg-body-glow-1),
       var(--bg-body-glow-2),
-      url('/imagenes/fondo.png') center / cover no-repeat fixed;
+      url('/imagenes/fondo.webp') center / cover no-repeat fixed;
   }
 }
 

@@ -5,8 +5,8 @@
     "kicker": "Centro de entrenamiento",
     "claim": "",
     "description": "Especializados en grupos reducidos, entrenamiento personal, pilates y Zenn. Ofrecemos seguimiento personalizado adaptado a cada nivel y objetivo: pérdida de peso, ganancia muscular, salud y bienestar. Un espacio cercano y motivador donde entrenar de forma segura, eficiente y acompañada.",
-    "headerLogoSrc": "/imagenes/logo_simple.png",
-    "heroLogoSrc": "/imagenes/logo_grande.png",
+    "headerLogoSrc": "/imagenes/logo_simple.webp",
+    "heroLogoSrc": "/imagenes/logo_grande.webp",
     "primaryActionLabel": "Ver entrenamientos",
     "primaryActionTarget": "#entrenamientos",
     "secondaryActionLabel": "Consulta tarifas",
@@ -37,42 +37,42 @@
       "title": "Entrenamiento guiado",
       "description": "Clases en grupos reducidos de hasta 5 personas con seguimiento técnico.",
       "href": "/tarifas-horarios#tarifas-grupos-reducidos",
-      "imageSrc": "/imagenes/entrenamiento/funcional.jpg",
+      "imageSrc": "/imagenes/entrenamiento/funcional.webp",
       "imageAlt": "Entrenamiento guiado en zona funcional"
     },
     {
       "title": "Pilates y Zenn",
       "description": "Sesiones enfocadas en movilidad, control postural, respiración y trabajo de core dentro de los bonos de clase.",
       "href": "/tarifas-horarios#tarifas-grupos-reducidos",
-      "imageSrc": "/imagenes/entrenamiento/yogaypilates.jpg",
+      "imageSrc": "/imagenes/entrenamiento/yogaypilates.webp",
       "imageAlt": "Clase de pilates y Zenn"
     },
     {
       "title": "Sala open",
       "description": "Acceso libre a sala de musculación con bonos open para entrenar a tu ritmo.",
       "href": "/tarifas-horarios#tarifas-solo-open",
-      "imageSrc": "/imagenes/entrenamiento/open.jpg",
+      "imageSrc": "/imagenes/entrenamiento/open.webp",
       "imageAlt": "Zona de sala open para musculación libre"
     }
   ],
   "carouselImages": [
     {
-      "src": "/imagenes/carrusel/PXL_20260525_175721349.jpg",
+      "src": "/imagenes/carrusel/PXL_20260525_175721349.webp",
       "alt": "Zona principal de entrenamiento del gimnasio Atlas Center",
       "caption": "Zona principal de trabajo mixto"
     },
     {
-      "src": "/imagenes/carrusel/PXL_20260525_175649902.jpg",
+      "src": "/imagenes/carrusel/PXL_20260525_175649902.webp",
       "alt": "Área de funcional con material de cardio y movilidad",
       "caption": "Bloque funcional guiado"
     },
     {
-      "src": "/imagenes/carrusel/PXL_20260525_175641455.jpg",
+      "src": "/imagenes/carrusel/PXL_20260525_175641455.webp",
       "alt": "Zona de musculación con barras y discos",
       "caption": "Trabajo de fuerza y musculación"
     },
     {
-      "src": "/imagenes/carrusel/fisio_carrusel.jpg",
+      "src": "/imagenes/carrusel/fisio_carrusel.webp",
       "alt": "Sesion de fisioterapia en Atlas Center Ciudad Real",
       "caption": "Fisioterapia deportiva y recuperacion funcional"
     }
@@ -80,22 +80,22 @@
   "trainers": [
     {
       "name": "Dani",
-      "image": "/imagenes/equipo/dani.png",
+      "image": "/imagenes/equipo/dani.webp",
       "description": "Soy **Dani**, técnico superior en acondicionamiento físico.\n\nMe especializo en **musculación y entrenamiento híbrido**, enfocándome en el desarrollo físico y la salud a largo plazo. Mi objetivo no es solo que ganes músculo o pierdas grasa, sino usar el entrenamiento como herramienta para que construyas tu versión más fuerte, segura y con mayor calidad de vida.\n\n**¿Cómo trabajo?**\n- 👥 **Grupos reducidos (máx. 5 personas):** Para garantizar un trato cercano.\n- 🎯 **Atención personalizada:** Corrijo tu técnica y adapto la intensidad a tu nivel actual.\n- 📈 **Progreso eficiente:** Avanzamos a tu ritmo, independientemente de tu punto de partida."
     },
     {
       "name": "Sergio",
-      "image": "/imagenes/equipo/sergio.jpg",
+      "image": "/imagenes/equipo/sergio.webp",
       "description": "Soy Sergio, titulado en TAFAD y certificado como Entrenador de Fuerza por la NSCA. A lo largo de mi trayectoria, me he especializado en la planificación de programas de fuerza, poniendo siempre el foco en la biomecánica y la correcta ejecución para garantizar entrenamientos seguros y eficientes.\n\n**¿Qué puedes esperar de mis entrenamientos?**\n- ⚙️ **Técnica impecable:** Atención al detalle en cada movimiento para maximizar resultados y evitar lesiones.\n- 🤝 **Acompañamiento real:** Más allá de la técnica, mi trabajo se define por la disciplina, la amabilidad y la paciencia. Busco crear un espacio de confianza donde te sientas comprendido.\n- 🌍 **Espíritu de comunidad:** En Atlas queremos que encuentres mucho más que un gimnasio. Fomentamos el esfuerzo y la constancia para que logres cambios saludables y sostenibles en el tiempo."
     },
     {
       "name": "Carlos",
-      "image": "/imagenes/equipo/carlos.jpg",
+      "image": "/imagenes/equipo/carlos.webp",
       "description": "Soy Carlos, fisioterapia graduado. 🚀\n\nComo tal, mi prioridad es ofrecerte una atención integral y 100% personalizada. Para poder darte el mejor enfoque terapéutico y adaptarme a lo que tu cuerpo necesita, me he especializado en:\n\n- 🤲 **Terapia Manual**\n- ⚡ **Terapia Invasiva Miofascial**\n- 🏃‍♂️ **Ejercicio Terapéutico**\n\n**¿En qué puedo ayudarte?**\nSi necesitas tratar una lesión reciente, buscas alivio para un dolor crónico o quieres mejorar tu movilidad y calidad de vida diaria, estaré encantado de evaluar tu caso y acompañarte en tu recuperación. 💪"
     },
     {
       "name": "Patricia",
-      "image": "/imagenes/equipo/patricia.jpg",
+      "image": "/imagenes/equipo/patricia.webp",
       "description": "Soy Patricia, fisioterapeuta, y en Atlas Center soy profesora de **Pilates Suelo**. Me uno con muchisima ilusion a este proyecto para aportar una forma de trabajo tecnica, cercana y muy consciente del movimiento.\n\nEn mis clases trabajamos **fuerza, elasticidad y conciencia corporal** a traves de ejercicios de pilates controlados y adaptados, para que cada persona avance de forma eficaz y segura.\n\n**¿En qué me enfoco durante la sesión?**\n- 🌬️ **Respiracion y control profundo:** Especial atencion al suelo pelvico, transverso abdominal y musculatura estabilizadora.\n- 🧩 **Adaptacion individual:** Ajusto los ejercicios a las necesidades y nivel de cada persona.\n- 👀 **Correccion y acompanamiento:** Te guio durante toda la clase para progresar con confianza.\n- 🔥 **Intensidad con sentido:** Ese punto de exigencia que recuerda que estamos entrenando, sin perder tecnica.\n\nTengo muchas ganas de conoceros y compartir esta experiencia en clase."
     }
   ],
@@ -104,43 +104,43 @@
       "name": "Grupos reducidos - Basic",
       "price": "50 €",
       "details": "4 bonos de clase (entrenamiento guiado, Zenn o pilates) + 2 bonos open.",
-      "imageSrc": "/imagenes/tarifas/Tarifa%20BASIC.png"
+      "imageSrc": "/imagenes/tarifas/Tarifa BASIC.webp"
     },
     {
       "name": "Grupos reducidos - Atlas",
       "price": "75 €",
       "details": "8 bonos de clase + 4 bonos open.",
-      "imageSrc": "/imagenes/tarifas/Tarifa%20ATLAS.png"
+      "imageSrc": "/imagenes/tarifas/Tarifa ATLAS.webp"
     },
     {
       "name": "Grupos reducidos - Titan",
       "price": "90 €",
       "details": "12 bonos de clase + 4 bonos open.",
-      "imageSrc": "/imagenes/tarifas/TARIFA%20TITAN.png"
+      "imageSrc": "/imagenes/tarifas/TARIFA TITAN.webp"
     },
     {
       "name": "Grupos reducidos - Olympo",
       "price": "110 €",
       "details": "Sin límite de clases ni open.",
-      "imageSrc": "/imagenes/tarifas/Tarifa%20OLYMPO.png"
+      "imageSrc": "/imagenes/tarifas/Tarifa OLYMPO.webp"
     },
     {
       "name": "Solo open - Base",
       "price": "50 €",
       "details": "12 bonos open (sala de musculación libre).",
-      "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20BASE.png"
+      "imageSrc": "/imagenes/tarifas/Tarifa OPEN BASE.webp"
     },
     {
       "name": "Solo open - Plus",
       "price": "60 EUR",
       "details": "16 bonos open (sala de musculación libre).",
-      "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20PLUS.png"
+      "imageSrc": "/imagenes/tarifas/Tarifa OPEN PLUS.webp"
     },
     {
       "name": "Solo open - Rat",
       "price": "",
       "details": "",
-      "imageSrc": "/imagenes/tarifas/Tarifa%20OPEN%20RAT.jpg"
+      "imageSrc": "/imagenes/tarifas/Tarifa OPEN RAT.webp"
     }
   ],
   "physiotherapyPrices": [

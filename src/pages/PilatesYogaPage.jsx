@@ -76,7 +76,7 @@ function PilatesZennPage() {
             <div className="service-page__gallery service-page__gallery--single">
               <figure className="service-page__figure">
                 <img
-                  src="/imagenes/entrenamiento/yogaypilates.jpg"
+                  src="/imagenes/entrenamiento/yogaypilates.webp"
                   alt="Sesion de pilates y Zenn guiada en Atlas Center, Ciudad Real"
                   loading="lazy"
                   decoding="async"

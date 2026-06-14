@@ -229,14 +229,14 @@ function RouteSeo({ brand, contactPage, schedule }) {
   const seoPath = isKnownPath ? normalizedPathname : '/404'
   const pathSeo = SEO_BY_PATH[seoPath]
   const canonicalUrl = `${SITE_URL}${seoPath}`
-  const socialImage = toAbsoluteUrl(brand.heroLogoSrc || '/imagenes/logo_grande.png')
-  const brandLogo = toAbsoluteUrl(brand.headerLogoSrc || '/imagenes/logo_simple.png')
+  const socialImage = toAbsoluteUrl(brand.heroLogoSrc || '/imagenes/logo_grande.webp')
+  const brandLogo = toAbsoluteUrl(brand.headerLogoSrc || '/imagenes/logo_simple.webp')
   const mapUrl = toAbsoluteUrl(contactPage.mapEmbedUrl)
   const openingHoursSpecification = getOpeningHoursSpecification(schedule)
   const robotsValue = isKnownPath
     ? 'index,follow,max-image-preview:large'
     : 'noindex,nofollow,noarchive,max-image-preview:large'
-  const heroImagePath = brand.heroLogoSrc || '/imagenes/logo_grande.png'
+  const heroImagePath = brand.heroLogoSrc || '/imagenes/logo_grande.webp'
   const shouldPreloadHeroImage = seoPath === '/'
 
   const structuredData = {

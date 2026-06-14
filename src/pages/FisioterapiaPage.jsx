@@ -68,7 +68,7 @@ function FisioterapiaPage({ content }) {
           <article className="panel panel--service service-page__media-panel">
             <figure className="service-page__figure">
               <img
-                src="/imagenes/fisio.jpg"
+                src="/imagenes/fisio.webp"
                 alt="Sesion de fisioterapia deportiva en Atlas Center Ciudad Real"
                 loading="lazy"
                 decoding="async"

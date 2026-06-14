@@ -77,7 +77,7 @@ function HomePage({ content }) {
             </div>
             <figure className="seo-intent__media">
               <img
-                src="/imagenes/entrena con proposito pintada.png"
+                src="/imagenes/entrena con proposito pintada.webp"
                 alt="Entrena con proposito en Atlas Center"
                 width="1200"
                 height="900"
