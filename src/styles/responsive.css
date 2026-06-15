@@ -35,6 +35,24 @@
   .trainers-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card__media {
+    height: clamp(180px, 26vw, 240px);
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1201px) {
+  .card__media {
+    height: clamp(190px, 14vw, 230px);
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 680px) {
@@ -219,6 +237,18 @@
     grid-template-columns: 1fr;
   }
 
+  .card__media {
+    height: clamp(170px, 52vw, 250px);
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
+  .carousel__item img {
+    height: clamp(210px, 58vw, 320px);
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+
   .seo-intent__layout {
     grid-template-columns: 1fr;
   }
@@ -226,6 +256,12 @@
   .seo-intent__media {
     max-width: 560px;
     justify-self: center;
+  }
+
+  .seo-intent__media img {
+    width: 100%;
+    height: clamp(190px, 52vw, 280px);
+    object-fit: cover;
   }
 
   .pricing-group__cards {
