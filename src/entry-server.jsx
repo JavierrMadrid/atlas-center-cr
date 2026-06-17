@@ -89,7 +89,8 @@ export function getHeadHtml(url) {
   const isKnownPath = Boolean(SEO_BY_PATH[pathname])
   const seoPath = isKnownPath ? pathname : '/404'
   const seo = SEO_BY_PATH[seoPath]
-  const canonicalUrl = `${SITE_URL}${seoPath}`
+  const canonicalPath = seoPath === '/' ? '/' : `${seoPath}/`
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`
   const robotsValue = isKnownPath
     ? 'index,follow,max-image-preview:large'
     : 'noindex,nofollow,noarchive,max-image-preview:large'

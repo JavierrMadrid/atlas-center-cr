@@ -228,7 +228,8 @@ function RouteSeo({ brand, contactPage, schedule }) {
   const isKnownPath = Boolean(SEO_BY_PATH[normalizedPathname])
   const seoPath = isKnownPath ? normalizedPathname : '/404'
   const pathSeo = SEO_BY_PATH[seoPath]
-  const canonicalUrl = `${SITE_URL}${seoPath}`
+  const canonicalPath = seoPath === '/' ? '/' : `${seoPath}/`
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`
   const socialImage = toAbsoluteUrl(brand.heroLogoSrc || '/imagenes/logo_grande.webp')
   const brandLogo = toAbsoluteUrl(brand.headerLogoSrc || '/imagenes/logo_simple.webp')
   const mapUrl = toAbsoluteUrl(contactPage.mapEmbedUrl)
