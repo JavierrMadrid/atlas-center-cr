@@ -19,6 +19,7 @@
   border-left: 3px solid var(--inner-accent-border);
   background: color-mix(in srgb, var(--surface-bg) 86%, black 14%);
   padding: 1.1rem;
+  min-width: 0;
 }
 
 .panel h3 {
@@ -193,7 +194,8 @@
   color: var(--heading-main);
   font-size: clamp(1.2rem, 2vw, 1.4rem);
   font-weight: 800;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .schedule-table tbody tr:last-child th,
