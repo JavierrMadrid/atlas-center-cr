@@ -51,7 +51,7 @@ body {
   caret-color: transparent;
   background-color: #23262a;
   background:
-    linear-gradient(145deg, rgba(20, 22, 24, 0.38), rgba(20, 22, 24, 0.38)),
+    linear-gradient(145deg, rgba(20, 22, 24, 0.8), rgba(20, 22, 24, 0.8)),
     var(--bg-body-glow-1),
     var(--bg-body-glow-2);
 }
@@ -59,7 +59,7 @@ body {
 @media (min-width: 861px) {
   body {
     background:
-      linear-gradient(145deg, rgba(20, 22, 24, 0.38), rgba(20, 22, 24, 0.38)),
+      linear-gradient(145deg, rgba(20, 22, 24, 0.8), rgba(20, 22, 24, 0.8)),
       var(--bg-body-glow-1),
       var(--bg-body-glow-2),
       url('/imagenes/fondo.webp') center / cover no-repeat fixed;
