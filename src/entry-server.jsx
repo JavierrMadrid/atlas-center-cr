@@ -53,6 +53,10 @@ const SEO_BY_PATH = {
     description:
       'Contacta con Atlas Center en Ciudad Real. Direccion, telefonos, email y formulario para reservar entrenamiento, fisioterapia y clases guiadas.',
   },
+  '/404': {
+    title: 'Pagina no encontrada | Atlas Center',
+    description: 'La pagina solicitada no existe. Explora los servicios de Atlas Center en Ciudad Real.',
+  },
 }
 
 const SOCIAL_LINKS = [
@@ -83,8 +87,9 @@ function normalizePathname(pathname) {
 export function getHeadHtml(url) {
   const pathname = normalizePathname(url.split('?')[0].split('#')[0])
   const isKnownPath = Boolean(SEO_BY_PATH[pathname])
-  const seo = isKnownPath ? SEO_BY_PATH[pathname] : SEO_BY_PATH['/']
-  const canonicalUrl = `${SITE_URL}${isKnownPath ? pathname : ''}`
+  const seoPath = isKnownPath ? pathname : '/404'
+  const seo = SEO_BY_PATH[seoPath]
+  const canonicalUrl = `${SITE_URL}${seoPath}`
   const robotsValue = isKnownPath
     ? 'index,follow,max-image-preview:large'
     : 'noindex,nofollow,noarchive,max-image-preview:large'
@@ -197,6 +202,7 @@ function ServerApp() {
           <Route path="/pilates-yoga" element={<Navigate to="/pilates-zenn" replace />} />
           <Route path="/tarifas-horarios" element={<PricingPage content={localAdminContent} />} />
           <Route path="/contacto" element={<ContactPage content={localAdminContent} />} />
+          <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>

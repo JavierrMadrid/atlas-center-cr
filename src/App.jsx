@@ -83,6 +83,7 @@ function App() {
             <Route path="/pilates-yoga" element={<Navigate to="/pilates-zenn" replace />} />
             <Route path="/tarifas-horarios" element={<PricingPage content={localAdminContent} />} />
             <Route path="/contacto" element={<ContactPage content={localAdminContent} />} />
+            <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>

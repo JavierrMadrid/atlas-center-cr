@@ -17,6 +17,7 @@ const routes = [
   '/pilates-zenn',
   '/tarifas-horarios',
   '/contacto',
+  '/404',
 ]
 
 for (const route of routes) {
@@ -26,6 +27,12 @@ for (const route of routes) {
   const finalHtml = template
     .replace('</head>', `    ${headTags}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+
+  if (route === '/404') {
+    writeFileSync(resolve(distDir, '404.html'), finalHtml)
+    console.log('✓ Prerendered /404.html')
+    continue
+  }
 
   const outputDir = route === '/' ? distDir : resolve(distDir, route.slice(1))
   mkdirSync(outputDir, { recursive: true })

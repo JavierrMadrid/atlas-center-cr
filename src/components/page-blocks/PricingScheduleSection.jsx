@@ -129,14 +129,18 @@ function PricingScheduleSection({
 
         <article className="panel panel--schedule">
           <h3>Horarios</h3>
-          <ul className="list-clean">
-            {schedule.map((slot) => (
-              <li key={slot.day} className="schedule-item">
-                <span>{slot.day}</span>
-                <strong>{slot.hours}</strong>
-              </li>
-            ))}
-          </ul>
+          <div className="schedule-table-wrap">
+            <table className="schedule-table" aria-label="Horarios de apertura">
+              <tbody>
+                {schedule.map((slot) => (
+                  <tr key={slot.day}>
+                    <th scope="row">{slot.day}</th>
+                    <td>{slot.hours}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </article>
       </div>
     </section>
