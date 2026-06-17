@@ -1,2 +1,6 @@
+http://atlas-center.com/* https://atlas-center.com/:splat 301
+http://www.atlas-center.com/* https://atlas-center.com/:splat 301
+https://www.atlas-center.com/* https://atlas-center.com/:splat 301
+
 /pilates-yoga /pilates-zenn/ 301
 /pilates-yoga/ /pilates-zenn/ 301
