@@ -1,10 +1,15 @@
-function SectionHeading({ title, description, level = 'h2' }) {
+function SectionHeading({ title, description, showDescription = false, level = 'h2' }) {
   const HeadingTag = level
+  const isMainTitle = HeadingTag === 'h1'
+
+  if (isMainTitle && !(showDescription && description)) {
+    return null
+  }
 
   return (
     <header className="section__heading">
-      <HeadingTag>{title}</HeadingTag>
-      {description && <p>{description}</p>}
+      {!isMainTitle && <HeadingTag>{title}</HeadingTag>}
+      {showDescription && description && <p>{description}</p>}
     </header>
   )
 }

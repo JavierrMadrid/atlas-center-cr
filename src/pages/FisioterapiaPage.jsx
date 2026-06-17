@@ -16,59 +16,37 @@ function FisioterapiaPage({ content }) {
           description="Servicio de fisioterapia deportiva y recuperacion funcional integrado en Atlas Center para prevenir lesiones y volver a entrenar con seguridad."
         />
 
-        <div className="service-page__split">
+        <div className="service-page__intro">
           <article className="panel panel--service service-page__text-panel">
             <h3>Fisioterapia deportiva en Ciudad Real</h3>
-            <div className="service-page__content">
-              <p>
-                Nuestro servicio de fisioterapia se enfoca en aliviar dolor, mejorar movilidad y acelerar tu
-                recuperacion para que puedas entrenar mejor, tanto si practicas deporte como si pasas muchas horas
-                sentado o con sobrecargas recurrentes.
-              </p>
-              <p>
-                Trabajamos valoracion inicial, tratamiento y readaptacion funcional en coordinacion con los
-                entrenadores del centro cuando el objetivo es volver al entrenamiento guiado o al gimnasio con
-                confianza.
-              </p>
-              <h4>En que te podemos ayudar</h4>
-              <ul className="service-page__list">
-                <li>Prevencion de lesiones en entrenamiento y actividad diaria.</li>
-                <li>Tratamiento de molestias musculares y articulares frecuentes.</li>
-                <li>Readaptacion para retomar entrenamiento personal o en grupos.</li>
-                <li>Mejora de movilidad y control del movimiento.</li>
-              </ul>
-              <div className="service-page__pricing" aria-label="Precios de fisioterapia">
-                <div className="service-page__pricing-table-wrap">
-                  <table className="service-page__pricing-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Tarifa</th>
-                        <th scope="col">Socios</th>
-                        <th scope="col">No socios</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {physiotherapyPrices.map((item) => (
-                        <tr key={item.label}>
-                          <th scope="row">{item.label}</th>
-                          <td>{item.memberPrice}</td>
-                          <td>{item.nonMemberPrice}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <p>
-                Puedes escribirnos desde <Link to="/contacto">contacto</Link> para una primera orientacion.
-              </p>
+            <p className="service-page__note">
+              Valoracion, tratamiento y readaptacion para volver a entrenar con seguridad y menos dolor.
+            </p>
+
+            <div className="service-page__mini-grid">
+              <article className="service-page__mini-card">
+                <h4>Prevencion</h4>
+                <p>Prevencion de lesiones en entrenamiento y actividad diaria.</p>
+              </article>
+              <article className="service-page__mini-card">
+                <h4>Tratamiento</h4>
+                <p>Molestias musculares y articulares frecuentes con enfoque funcional.</p>
+              </article>
+              <article className="service-page__mini-card">
+                <h4>Readaptacion</h4>
+                <p>Plan para retomar entrenamiento personal o en grupos con confianza.</p>
+              </article>
+              <article className="service-page__mini-card">
+                <h4>Movilidad</h4>
+                <p>Mejora de rango de movimiento, control postural y calidad gestual.</p>
+              </article>
             </div>
           </article>
 
           <article className="panel panel--service service-page__media-panel">
-            <figure className="service-page__figure">
+            <figure className="service-page__figure service-page__figure--compact">
               <img
-                src="/imagenes/fisio.webp"
+                src="/imagenes/fisio.jpg"
                 alt="Sesion de fisioterapia deportiva en Atlas Center Ciudad Real"
                 loading="lazy"
                 decoding="async"
@@ -76,10 +54,36 @@ function FisioterapiaPage({ content }) {
                 height="853"
                 sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 520px"
               />
-              <figcaption>Fisioterapia orientada a recuperacion funcional y prevencion de lesiones.</figcaption>
             </figure>
           </article>
         </div>
+
+        <article className="panel panel--service service-page__block service-page__block--boxed" aria-label="Precios de fisioterapia">
+          <h3>Tarifas de fisioterapia</h3>
+          <div className="service-page__pricing-table-wrap">
+            <table className="service-page__pricing-table">
+              <thead>
+                <tr>
+                  <th scope="col">Tarifa</th>
+                  <th scope="col">Socios</th>
+                  <th scope="col">No socios</th>
+                </tr>
+              </thead>
+              <tbody>
+                {physiotherapyPrices.map((item) => (
+                  <tr key={item.label}>
+                    <th scope="row">{item.label}</th>
+                    <td>{item.memberPrice}</td>
+                    <td>{item.nonMemberPrice}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <p className="service-page__note service-page__note--cta">
+          Puedes escribirnos desde <Link to="/contacto">contacto</Link> para una primera orientacion.
+        </p>
       </section>
     </PageShell>
   )

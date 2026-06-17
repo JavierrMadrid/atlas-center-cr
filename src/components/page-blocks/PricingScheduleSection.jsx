@@ -51,7 +51,6 @@ function PricingScheduleSection({
 
         return (
           <article key={plan.name} className="pricing-image-card">
-            <h5>{planLabel}</h5>
             {plan.imageSrc ? (
               <button
                 className="pricing-image-btn"
@@ -104,6 +103,7 @@ function PricingScheduleSection({
         level={headingLevel}
         title="Tarifas y horarios"
         description={pricingPolicy}
+        showDescription
       />
 
       <div

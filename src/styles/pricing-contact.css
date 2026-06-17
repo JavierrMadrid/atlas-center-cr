@@ -16,9 +16,9 @@
 
 .panel {
   border: 1px solid var(--surface-border);
-  border-left: 4px solid var(--inner-accent-border);
+  border-left: 3px solid var(--inner-accent-border);
   background: color-mix(in srgb, var(--surface-bg) 86%, black 14%);
-  padding: 1rem;
+  padding: 1.1rem;
 }
 
 .panel h3 {
@@ -28,19 +28,48 @@
 .pricing-section .panel h3 {
   text-align: center;
   font-family: var(--heading-font);
-  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: clamp(1.7rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 0.45rem 0.7rem;
-  border: 1px solid rgba(198, 200, 196, 0.72);
-  background: linear-gradient(135deg, #d0d2cd 0%, #c6c8c4 52%, #bbbdb8 100%);
-  color: #111111;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #e8edf0;
+}
+
+.pricing-page .pricing-schedule-grid,
+.pricing-page .service-page__intro,
+.pricing-page .service-programs-grid,
+.pricing-page .contact-page__layout {
+  gap: 1.25rem;
+}
+
+.service-page--fisioterapia .service-page__intro .service-page__mini-card {
+  border: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-bg) 82%, black 18%);
+  padding: 0.85rem;
+}
+
+.service-page--fisioterapia .service-page__text-panel {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.service-page--fisioterapia .service-page__text-panel h3 {
+  text-align: center;
+}
+
+.service-page--fisioterapia .service-page__block--boxed {
+  border: 1px solid var(--surface-border);
+  background: color-mix(in srgb, var(--surface-bg) 86%, black 14%);
+  padding: 1.1rem;
 }
 
 .pricing-groups {
   display: grid;
-  gap: 0.85rem;
+  gap: 1.45rem;
 }
 
 .pricing-group {
@@ -48,13 +77,19 @@
   gap: 0.7rem;
 }
 
+.pricing-group + .pricing-group {
+  padding-top: 0.8rem;
+  border-top: 1px solid color-mix(in srgb, var(--surface-border) 75%, transparent 25%);
+}
+
 .pricing-group h4 {
   margin: 0;
   color: var(--heading-main);
-  font-family: 'GFS Didot', serif;
-  font-size: 1.12rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-family: var(--body-font);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
   text-align: center;
 }
 
@@ -75,8 +110,10 @@
 .pricing-image-card h5 {
   margin: 0 0 0.45rem;
   color: var(--heading-main);
-  font-family: 'GFS Didot', serif;
-  font-size: 1.16rem;
+  font-family: var(--heading-font);
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   text-align: center;
 }
 
@@ -96,7 +133,7 @@
   padding: 0.6rem;
   border: 0;
   color: var(--text-soft);
-  background: color-mix(in srgb, var(--surface-bg) 72%, black 28%);
+  background: color-mix(in srgb, var(--surface-bg) 84%, black 16%);
 }
 
 .list-clean {
@@ -110,13 +147,13 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 0.65rem 0;
+  padding: 0.7rem 0;
   border-bottom: 0;
 }
 
 .schedule-item span {
   color: var(--text-main);
-  font-size: clamp(1.06rem, 1.5vw, 1.15rem);
+  font-size: clamp(1rem, 1.4vw, 1.09rem);
 }
 
 .schedule-item:last-child {
@@ -125,7 +162,8 @@
 
 .schedule-item strong {
   color: var(--heading-main);
-  font-size: clamp(1.09rem, 1.55vw, 1.18rem);
+  font-size: clamp(1rem, 1.45vw, 1.1rem);
+  font-weight: 800;
 }
 
 .contact-page__layout {
@@ -141,7 +179,7 @@
 .contact-map {
   margin-top: 0.9rem;
   border: 1px solid var(--surface-border);
-  background: color-mix(in srgb, var(--surface-bg) 82%, black 18%);
+  background: color-mix(in srgb, var(--surface-bg) 84%, black 16%);
   min-height: 300px;
 }
 
@@ -162,16 +200,19 @@
   display: grid;
   gap: 0.35rem;
   color: var(--text-soft);
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
 }
 
 .field input,
 .field textarea {
   width: 100%;
   border: 1px solid var(--surface-border);
-  background: color-mix(in srgb, var(--surface-bg) 76%, black 24%);
+  background: color-mix(in srgb, var(--surface-bg) 84%, black 16%);
   color: var(--text-main);
-  padding: 0.55rem 0.65rem;
+  padding: 0.62rem 0.7rem;
   font: inherit;
 }
 
@@ -182,7 +223,7 @@
 }
 
 .contact-form__feedback {
-  color: var(--green-300);
+  color: #8eb6a3;
   font-weight: 700;
 }
 
@@ -228,6 +269,11 @@
 .service-page__content h4 {
   margin: 0.2rem 0 0;
   color: var(--heading-main);
+  font-family: var(--heading-font);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 0.96;
 }
 
 .service-page__list {
@@ -254,7 +300,7 @@
   margin-top: 0.35rem;
   padding: 0.8rem;
   border: 1px solid var(--surface-border);
-  background: color-mix(in srgb, var(--surface-bg) 80%, black 20%);
+  background: color-mix(in srgb, var(--surface-bg) 84%, black 16%);
 }
 
 .service-page__pricing h4 {
@@ -318,6 +364,21 @@
   align-items: stretch;
 }
 
+.service-page__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.service-page__block {
+  margin-top: 0.9rem;
+}
+
+.service-page__block h3 {
+  margin: 0 0 0.65rem;
+}
+
 .service-page__text-panel {
   display: block;
 }
@@ -345,6 +406,10 @@
   gap: 0.75rem;
 }
 
+.service-page__intro .service-page__mini-grid {
+  margin-top: 0.8rem;
+}
+
 .service-page__mini-card {
   padding: 0.85rem;
   border: 1px solid var(--surface-border);
@@ -353,6 +418,11 @@
 
 .service-page__mini-card h4 {
   margin: 0 0 0.45rem;
+  font-family: var(--heading-font);
+  font-size: clamp(1.2rem, 1.9vw, 1.6rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 0.97;
 }
 
 .service-page__mini-card p {
@@ -362,8 +432,12 @@
 .service-page__figure {
   margin: 0;
   border: 1px solid var(--surface-border);
-  background: color-mix(in srgb, var(--surface-bg) 78%, black 22%);
+  background: color-mix(in srgb, var(--surface-bg) 84%, black 16%);
   overflow: hidden;
+}
+
+.service-page__figure--compact {
+  height: 100%;
 }
 
 .service-page__figure img {
@@ -374,14 +448,95 @@
   display: block;
 }
 
+.service-page__figure--compact img {
+  height: 100%;
+  min-height: 220px;
+}
+
 .service-page__figure figcaption {
   padding: 0.55rem 0.7rem;
   color: var(--text-main);
   font-size: 0.96rem;
 }
 
+.service-program {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+.service-program__media {
+  height: 100%;
+}
+
+.service-program__media img {
+  height: 100%;
+  min-height: 240px;
+}
+
+.service-program__content {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.service-program__content h3 {
+  margin: 0;
+}
+
+.service-program__content p {
+  margin: 0;
+}
+
+.service-page__note--cta {
+  margin-top: 0.75rem;
+}
+
+.service-page__block + .service-page__note--cta {
+  margin-top: 2.1rem;
+}
+
+.service-programs-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
+.service-program-card {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.service-program-card__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.82);
+}
+
+.service-program-card__content {
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+}
+
+.service-program-card__content h3,
+.service-program-card__content p {
+  margin: 0;
+}
+
 @media (max-width: 860px) {
   .service-page__split {
+    grid-template-columns: 1fr;
+  }
+
+  .service-page__intro {
     grid-template-columns: 1fr;
   }
 
@@ -399,6 +554,20 @@
 
   .service-page__figure img {
     aspect-ratio: 3 / 2;
+  }
+
+  .service-page__figure--compact img,
+  .service-program__media img {
+    height: auto;
+    min-height: 0;
+  }
+
+  .service-program {
+    grid-template-columns: 1fr;
+  }
+
+  .service-programs-grid {
+    grid-template-columns: 1fr;
   }
 }
 

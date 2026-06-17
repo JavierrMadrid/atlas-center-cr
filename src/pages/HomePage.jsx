@@ -59,7 +59,7 @@ function HomePage({ content }) {
       <PageShell className="home-page">
         <TrainingSection programs={content.trainingPrograms} />
         <CarouselSection images={content.carouselImages} />
-        <section className="section section--reveal" aria-labelledby="seo-intent-title">
+        <section className="section section--reveal section--contrast section--split-band" aria-labelledby="seo-intent-title">
           <div className="seo-intent__layout">
             <div className="seo-intent__content">
               <header className="section__heading">

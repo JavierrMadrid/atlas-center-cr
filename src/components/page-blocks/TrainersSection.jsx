@@ -162,8 +162,7 @@ function TrainersSection({ trainers, headingLevel = 'h2' }) {
                           style={trainerImagePositions[trainer.name]}
                         />
                         <div className="trainer-card__overlay">
-                          <p>Pulsa para ver su descripcion</p>
-                          <h3>{trainer.name}</h3>
+                          <h3 className="trainer-card__name">{trainer.name}</h3>
                         </div>
                       </div>
 

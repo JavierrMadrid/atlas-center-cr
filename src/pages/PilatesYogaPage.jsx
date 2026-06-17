@@ -12,83 +12,70 @@ function PilatesZennPage() {
           description="Sesiones de pilates y Zenn en Ciudad Real, con una fusion inspirada en yoga, para mejorar control corporal, movilidad, fuerza y equilibrio con clases guiadas para todos los niveles."
         />
 
-        <div className="service-page__split">
-          <article className="panel panel--service service-page__text-panel">
-            <h3>Clases guiadas de pilates y Zenn</h3>
-            <div className="service-page__content">
-              <p>
-                En Atlas Center trabajamos el pilates desde un enfoque tecnico y adaptado: fuerza, elasticidad,
-                conciencia corporal y control del movimiento para que avances con seguridad en cada sesion.
-              </p>
-              <div className="service-page__mini-grid">
-                <article className="service-page__mini-card">
-                  <h4>Zenn</h4>
-                  <p>
-                    Entrenamiento grupal que fusiona los mejores movimientos del Yoga, del Pilates y del Taichi,
-                    coreografiados al ritmo de la musica. Conecta cuerpo y mente para mejorar flexibilidad,
-                    coordinacion y equilibrio.
-                  </p>
-                </article>
+        <div className="service-programs-grid">
+          <article className="panel panel--service service-program-card service-program-card--pilates">
+            <figure className="service-page__figure service-program-card__media">
+              <img
+                src="/imagenes/pilates.jpg"
+                alt="Clase de pilates en Atlas Center Ciudad Real"
+                loading="lazy"
+                decoding="async"
+                width="1280"
+                height="853"
+                sizes="(max-width: 768px) 92vw, (max-width: 1280px) 46vw, 600px"
+              />
+            </figure>
 
-                <article className="service-page__mini-card">
-                  <h4>Pilates</h4>
-                  <p>
-                    En pilates damos especial importancia a la activacion del suelo pelvico, el transverso abdominal,
-                    la respiracion y la musculatura estabilizadora para lograr un trabajo eficaz, seguro y consciente.
-                  </p>
-                </article>
-              </div>
-
+            <div className="service-program-card__content">
+              <h3>Pilates</h3>
               <p>
-                Como parte del acompanamiento, los ejercicios se adaptan a las necesidades de cada persona,
-                corrigiendo tecnica y ajustando intensidad para progresar con confianza.
+                Trabajo tecnico centrado en control postural, movilidad y fuerza del core para avanzar con seguridad.
               </p>
-              <h4>Beneficios principales</h4>
               <ul className="service-page__list">
-                <li>Mejora de movilidad y flexibilidad funcional.</li>
-                <li>Mayor control postural y fuerza del core profundo.</li>
-                <li>Mejor conexion cuerpo-mente, respiracion y equilibrio.</li>
-                <li>Complemento ideal para entrenamiento guiado y sala open.</li>
+                <li>Activacion de suelo pelvico y transverso abdominal.</li>
+                <li>Respiracion y control del movimiento en cada repeticion.</li>
+                <li>Mejora de flexibilidad funcional y estabilidad lumbar.</li>
               </ul>
-              <h4>Preguntas frecuentes sobre Zenn y yoga</h4>
-              <div className="service-page__faq">
-                <p>
-                  <strong>Que diferencia hay entre Zenn y una clase de yoga tradicional?</strong>
-                  <br />
-                  Zenn mantiene la conexion cuerpo-mente y la respiracion del yoga, pero combina tambien patrones de
-                  pilates y taichi en formato coreografiado y dinamico.
-                </p>
-                <p>
-                  <strong>Si busco yoga en Ciudad Real, me sirve Zenn?</strong>
-                  <br />
-                  Si. Es una opcion ideal si te interesa una experiencia inspirada en yoga con trabajo adicional de
-                  control postural, coordinacion y estabilidad del core.
-                </p>
-              </div>
-              <p>
-                Consulta <Link to="/tarifas-horarios">tarifas y horarios</Link> para ver bonos de clase y opciones de
-                acceso al centro, o visita <Link to="/contacto">contacto</Link> si quieres reservar tu primera clase.
-              </p>
             </div>
           </article>
 
-          <article className="panel panel--service service-page__media-panel">
-            <div className="service-page__gallery service-page__gallery--single">
-              <figure className="service-page__figure">
-                <img
-                  src="/imagenes/entrenamiento/yogaypilates.webp"
-                  alt="Sesion de pilates y Zenn guiada en Atlas Center, Ciudad Real"
-                  loading="lazy"
-                  decoding="async"
-                  width="1600"
-                  height="1067"
-                  sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 520px"
-                />
-                <figcaption>Pilates y Zenn para mejorar movilidad, control corporal y equilibrio.</figcaption>
-              </figure>
+          <article className="panel panel--service service-program-card service-program-card--zenn">
+            <figure className="service-page__figure service-program-card__media">
+              <img
+                src="/imagenes/zenn.jpg"
+                alt="Clase de Zenn en Atlas Center Ciudad Real"
+                loading="lazy"
+                decoding="async"
+                width="1280"
+                height="853"
+                sizes="(max-width: 768px) 92vw, (max-width: 1280px) 46vw, 600px"
+              />
+            </figure>
+
+            <div className="service-program-card__content">
+              <h3>Zenn</h3>
+              <p>
+                Sesion dinamica inspirada en yoga, pilates y taichi, coreografiada al ritmo de la musica.
+              </p>
+              <ul className="service-page__list">
+                <li>Mejora de coordinacion, equilibrio y conciencia corporal.</li>
+                <li>Conexion cuerpo-mente con trabajo fluido y guiado.</li>
+                <li>Intensidad adaptable para distintos niveles.</li>
+              </ul>
             </div>
           </article>
         </div>
+
+        <article className="panel panel--service service-page__block">
+          <h3>Como elegir tu clase</h3>
+          <p className="service-page__note">
+            Pilates es ideal si buscas precision tecnica y fortalecimiento del core. Zenn es perfecto si prefieres un
+            formato mas dinamico y fluido. Puedes combinar ambas modalidades.
+          </p>
+        </article>
+        <p className="service-page__note service-page__note--cta">
+          Consulta <Link to="/tarifas-horarios">tarifas y horarios</Link> o visita <Link to="/contacto">contacto</Link> para reservar.
+        </p>
       </section>
     </PageShell>
   )
