@@ -61,22 +61,12 @@ function ServerApp() {
 }
 
 export function render(url) {
-  const helmetContext = {}
   const html = renderToString(
-    <HelmetProvider context={helmetContext}>
+    <HelmetProvider>
       <StaticRouter location={url}>
         <ServerApp />
       </StaticRouter>
     </HelmetProvider>,
   )
-  const { helmet } = helmetContext
-  const headHtml = [
-    helmet.title.toString(),
-    helmet.meta.toString(),
-    helmet.link.toString(),
-    helmet.script.toString(),
-  ]
-    .filter(Boolean)
-    .join('\n    ')
-  return { html, headHtml }
+  return { html }
 }
