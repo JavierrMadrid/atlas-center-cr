@@ -282,8 +282,6 @@ function RouteSeo({ brand, contactPage, schedule }) {
       {
         '@type': 'WebPage',
         '@id': `${canonicalUrl}#webpage`,
-        name: pathSeo.title,
-        description: pathSeo.description,
         url: canonicalUrl,
         inLanguage: 'es',
         isPartOf: { '@id': `${SITE_URL}/#website` },
