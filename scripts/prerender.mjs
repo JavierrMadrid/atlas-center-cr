@@ -6,7 +6,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = resolve(__dirname, '..')
 const distDir = resolve(rootDir, 'dist')
 
-const { render, getHeadHtml } = await import('../dist/server/entry-server.js')
+const { render } = await import('../dist/server/entry-server.js')
 
 const template = readFileSync(resolve(distDir, 'index.html'), 'utf-8')
 
@@ -21,11 +21,10 @@ const routes = [
 ]
 
 for (const route of routes) {
-  const { html } = render(route)
-  const headTags = getHeadHtml(route)
+  const { html, headHtml } = render(route)
 
   const finalHtml = template
-    .replace('</head>', `    ${headTags}\n  </head>`)
+    .replace('</head>', `    ${headHtml}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${html}</div>`)
 
   if (route === '/404') {
