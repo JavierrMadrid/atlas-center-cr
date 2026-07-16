@@ -164,11 +164,13 @@ const getOpeningHoursSpecification = (schedule) => {
     }
 
     for (const range of ranges) {
+      const opens = range.opens && range.opens.length === 5 ? `${range.opens}:00` : range.opens
+      const closes = range.closes && range.closes.length === 5 ? `${range.closes}:00` : range.closes
       specs.push({
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: days,
-        opens: range.opens,
-        closes: range.closes,
+        opens,
+        closes,
       })
     }
   }
@@ -222,6 +224,103 @@ const getPilatesZennFaqSchema = () => ({
   ],
 })
 
+const getFisioterapiaFaqSchema = () => ({
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Cuanto cuesta una sesion de fisioterapia deportiva en Ciudad Real?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'La sesion suelta cuesta 35 EUR para socios y 40 EUR para no socios. Tambien ofrecemos bono de 5 sesiones por 150 EUR (socios) o 175 EUR (no socios).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Tengo que ser socio de Atlas Center para recibir fisioterapia?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. El servicio de fisioterapia esta abierto a socios y no socios. Las tarifas son distintas en cada caso, pero cualquier persona puede reservar sesion.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Que lesiones tratais en la fisioterapia de Atlas Center?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tratamos lesiones deportivas, molestias musculares y articulares, y readaptacion funcional para volver a entrenar o a la actividad diaria con seguridad.',
+      },
+    },
+  ],
+})
+
+const getTarifasFaqSchema = () => ({
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Cuanto cuesta entrenar en Atlas Center Ciudad Real?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Las tarifas de grupos reducidos empiezan en 50 EUR al mes (plan Basic) y llegan a 110 EUR (plan Olympo). La sala open va desde 50 EUR (Base) hasta 60 EUR (Plus).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Puedo probar una clase antes de apuntarme?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Si. Ofrecemos una primera clase guiada para conocer tu nivel y proponerte una ruta de progresion. Escríbenos por el formulario de contacto o llamanos al 616 725 294.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Cuanto tiempo tengo para gastar un bono?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Todos los bonos se deben gastar en un plazo maximo de 40 dias desde la fecha de compra.',
+      },
+    },
+  ],
+})
+
+const SERVICE_BY_PATH = {
+  '/fisioterapia': {
+    '@type': 'Service',
+    serviceType: 'Fisioterapia deportiva',
+    description: 'Fisioterapia deportiva, recuperacion funcional, readaptacion y prevencion de lesiones en Ciudad Real.',
+    areaServed: { '@type': 'City', name: 'Ciudad Real' },
+    provider: { '@id': `${SITE_URL}/#localbusiness` },
+  },
+  '/pilates-zenn': {
+    '@type': 'Service',
+    serviceType: 'Clases de pilates, Zenn y yoga',
+    description: 'Clases guiadas de pilates, Zenn (fusion de yoga, pilates y taichi) y trabajo de core en Ciudad Real.',
+    areaServed: { '@type': 'City', name: 'Ciudad Real' },
+    provider: { '@id': `${SITE_URL}/#localbusiness` },
+  },
+  '/tarifas-horarios': {
+    '@type': 'Service',
+    serviceType: 'Entrenamiento personal y en grupos reducidos',
+    description: 'Entrenamiento guiado en grupos reducidos y sala open de musculacion en Ciudad Real.',
+    areaServed: { '@type': 'City', name: 'Ciudad Real' },
+    provider: { '@id': `${SITE_URL}/#localbusiness` },
+  },
+  '/equipo': {
+    '@type': 'Service',
+    serviceType: 'Entrenamiento personal',
+    description: 'Entrenadores personales, especialistas en pilates, Zenn y fisioterapia en Ciudad Real.',
+    areaServed: { '@type': 'City', name: 'Ciudad Real' },
+    provider: { '@id': `${SITE_URL}/#localbusiness` },
+  },
+}
+
+const FAQ_BY_PATH = {
+  '/pilates-zenn': getPilatesZennFaqSchema,
+  '/fisioterapia': getFisioterapiaFaqSchema,
+  '/tarifas-horarios': getTarifasFaqSchema,
+}
+
 function RouteSeo({ brand, contactPage, schedule }) {
   const location = useLocation()
   const normalizedPathname = normalizePathname(location.pathname)
@@ -230,7 +329,7 @@ function RouteSeo({ brand, contactPage, schedule }) {
   const pathSeo = SEO_BY_PATH[seoPath]
   const canonicalPath = seoPath === '/' ? '/' : `${seoPath}/`
   const canonicalUrl = `${SITE_URL}${canonicalPath}`
-  const socialImage = toAbsoluteUrl(brand.heroLogoSrc || '/imagenes/logo_grande.webp')
+  const socialImage = toAbsoluteUrl(brand.socialImageSrc || '/imagenes/og-image.webp')
   const brandLogo = toAbsoluteUrl(brand.headerLogoSrc || '/imagenes/logo_simple.webp')
   const mapUrl = toAbsoluteUrl(contactPage.mapEmbedUrl)
   const openingHoursSpecification = getOpeningHoursSpecification(schedule)
@@ -252,7 +351,7 @@ function RouteSeo({ brand, contactPage, schedule }) {
         sameAs: SOCIAL_LINKS,
       },
       {
-        '@type': ['LocalBusiness', 'HealthClub', 'SportsActivityLocation'],
+        '@type': ['LocalBusiness', 'HealthClub', 'ExerciseGym', 'SportsActivityLocation'],
         '@id': `${SITE_URL}/#localbusiness`,
         name: brand.name,
         image: socialImage,
@@ -266,6 +365,11 @@ function RouteSeo({ brand, contactPage, schedule }) {
           addressLocality: 'Ciudad Real',
           postalCode: '13003',
           addressCountry: 'ES',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: 38.984,
+          longitude: -3.927,
         },
         hasMap: mapUrl || undefined,
         openingHoursSpecification: openingHoursSpecification.length
@@ -290,7 +394,8 @@ function RouteSeo({ brand, contactPage, schedule }) {
       ...(getBreadcrumbSchema(seoPath, canonicalUrl)
         ? [{ ...getBreadcrumbSchema(seoPath, canonicalUrl) }]
         : []),
-      ...(seoPath === '/pilates-zenn' ? [getPilatesZennFaqSchema()] : []),
+      ...(SERVICE_BY_PATH[seoPath] ? [SERVICE_BY_PATH[seoPath]] : []),
+      ...(FAQ_BY_PATH[seoPath] ? [FAQ_BY_PATH[seoPath]()] : []),
     ],
   }
 
@@ -309,6 +414,8 @@ function RouteSeo({ brand, contactPage, schedule }) {
       <meta property="og:description" content={pathSeo.description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={socialImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content={`${brand.name} en Ciudad Real`} />
 
       <meta name="twitter:card" content="summary_large_image" />
@@ -320,6 +427,10 @@ function RouteSeo({ brand, contactPage, schedule }) {
       <link rel="canonical" href={canonicalUrl} />
       <link rel="alternate" hrefLang="es-ES" href={canonicalUrl} />
       <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+
+      <link rel="preconnect" href="https://formspree.io" crossOrigin="anonymous" />
+      <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
+      <link rel="dns-prefetch" href="https://maps.googleapis.com" />
       {shouldPreloadHeroImage ? (
         <link rel="preload" as="image" href={heroImagePath} fetchPriority="high" />
       ) : null}

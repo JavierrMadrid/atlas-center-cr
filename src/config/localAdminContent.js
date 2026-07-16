@@ -30,13 +30,14 @@ const normalizeMapEmbedUrl = (mapEmbedUrl, address) => {
 
 const defaultBrand = {
   name: 'ATLAS CENTER',
-  heroName: 'Entrena con propósito',
-  kicker: 'Centro de entrenamiento',
+  heroName: 'Gimnasio en Ciudad Real con entrenamiento guiado, pilates y fisioterapia',
+  kicker: 'Centro de entrenamiento en Ciudad Real',
   claim: '',
   description:
     'Entrenamientos guiados que mezclan entrenamiento funcional y musculación para que ganes resistencia real, técnica y potencia para superarte cada día.',
   headerLogoSrc: '',
   heroLogoSrc: '',
+  socialImageSrc: '',
   primaryActionLabel: 'Ver entrenamientos',
   primaryActionTarget: '#entrenamientos',
   secondaryActionLabel: 'Consulta tarifas',

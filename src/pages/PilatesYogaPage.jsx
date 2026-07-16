@@ -8,16 +8,16 @@ function PilatesZennPage() {
       <section className="section pricing-section section--reveal">
         <SectionHeading
           level="h1"
-          title="Pilates y Zenn"
-          description="Sesiones de pilates y Zenn en Ciudad Real, con una fusion inspirada en yoga, para mejorar control corporal, movilidad, fuerza y equilibrio con clases guiadas para todos los niveles."
+          title="Clases de Pilates, Zenn y Yoga en Ciudad Real"
+          description="En Atlas Center damos clases de pilates y Zenn en Ciudad Real para todos los niveles. Mejora tu postura, tu movilidad y la fuerza del core con sesiones guiadas en grupos reducidos."
         />
 
         <div className="service-programs-grid">
           <article className="panel panel--service service-program-card service-program-card--pilates">
             <figure className="service-page__figure service-program-card__media">
               <img
-                src="/imagenes/pilates.jpg"
-                alt="Clase de pilates en Atlas Center Ciudad Real"
+                src="/imagenes/pilates.webp"
+                alt="Clase de pilates en el gimnasio Atlas Center de Ciudad Real"
                 loading="lazy"
                 decoding="async"
                 width="1280"
@@ -42,8 +42,8 @@ function PilatesZennPage() {
           <article className="panel panel--service service-program-card service-program-card--zenn">
             <figure className="service-page__figure service-program-card__media">
               <img
-                src="/imagenes/zenn.jpg"
-                alt="Clase de Zenn en Atlas Center Ciudad Real"
+                src="/imagenes/zenn.webp"
+                alt="Clase de Zenn, disciplina inspirada en yoga, en Atlas Center Ciudad Real"
                 loading="lazy"
                 decoding="async"
                 width="1280"

@@ -12,8 +12,8 @@ function FisioterapiaPage({ content }) {
       <section className="section pricing-section section--reveal">
         <SectionHeading
           level="h1"
-          title="Fisioterapia"
-          description="Servicio de fisioterapia deportiva y recuperacion funcional integrado en Atlas Center para prevenir lesiones y volver a entrenar con seguridad."
+          title="Fisioterapia deportiva en Ciudad Real"
+          description="Fisioterapia deportiva y recuperación funcional en Atlas Center, en Ciudad Real. Tratamos lesiones, prevenimos recaídas y readaptamos a personas activas para que vuelvan a entrenar con seguridad."
         />
 
         <div className="service-page__intro">
@@ -46,8 +46,8 @@ function FisioterapiaPage({ content }) {
           <article className="panel panel--service service-page__media-panel">
             <figure className="service-page__figure service-page__figure--compact">
               <img
-                src="/imagenes/fisio.jpg"
-                alt="Sesion de fisioterapia deportiva en Atlas Center Ciudad Real"
+                src="/imagenes/fisio.webp"
+                alt="Sesión de fisioterapia deportiva en el gimnasio Atlas Center de Ciudad Real"
                 loading="lazy"
                 decoding="async"
                 width="1280"

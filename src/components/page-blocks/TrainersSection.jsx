@@ -106,7 +106,7 @@ const trainerImagePositions = {
   Carlos: { objectPosition: 'center 18%' },
 }
 
-function TrainersSection({ trainers, headingLevel = 'h2' }) {
+function TrainersSection({ trainers, headingLevel = 'h2', headingTitle = 'Equipo', headingDescription }) {
   const [flippedCards, setFlippedCards] = useState(() => new Set())
 
   const toggleCard = (trainerName) => {
@@ -127,8 +127,8 @@ function TrainersSection({ trainers, headingLevel = 'h2' }) {
     <section id="equipo" className="section pricing-section team-section section--reveal">
       <SectionHeading
         level={headingLevel}
-        title="Equipo"
-        description="Conoce a nuestro equipo multidisciplinar de entrenamiento y fisioterapia, con una misma filosofia de trabajo: tecnica, intensidad y cercania."
+        title={headingTitle}
+        description={headingDescription ?? 'Conoce a nuestro equipo multidisciplinar de entrenamiento y fisioterapia, con una misma filosofia de trabajo: tecnica, intensidad y cercania.'}
       />
 
       <div className="pricing-schedule-grid pricing-schedule-grid--stack">

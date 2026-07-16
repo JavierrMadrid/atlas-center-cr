@@ -7,6 +7,8 @@ function PricingScheduleSection({
   schedule,
   stacked = false,
   headingLevel = 'h2',
+  headingTitle = 'Tarifas y horarios',
+  headingDescription,
 }) {
   const [lightbox, setLightbox] = useState(null)
   const normalizePlanName = (name) =>
@@ -101,8 +103,8 @@ function PricingScheduleSection({
     <section id="tarifas-horarios" className="section pricing-section section--reveal">
       <SectionHeading
         level={headingLevel}
-        title="Tarifas y horarios"
-        description={pricingPolicy}
+        title={headingTitle}
+        description={headingDescription ?? pricingPolicy}
         showDescription
       />
 

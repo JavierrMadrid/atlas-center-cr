@@ -1,12 +1,13 @@
 {
   "brand": {
     "name": "ATLAS CENTER",
-    "heroName": "Entrena con propósito",
-    "kicker": "Centro de entrenamiento",
+    "heroName": "Gimnasio en Ciudad Real con entrenamiento guiado, pilates y fisioterapia",
+    "kicker": "Centro de entrenamiento en Ciudad Real",
     "claim": "",
     "description": "Especializados en grupos reducidos, entrenamiento personal, pilates y Zenn. Ofrecemos seguimiento personalizado adaptado a cada nivel y objetivo: pérdida de peso, ganancia muscular, salud y bienestar. Un espacio cercano y motivador donde entrenar de forma segura, eficiente y acompañada.",
     "headerLogoSrc": "/imagenes/logo_simple.webp",
     "heroLogoSrc": "/imagenes/logo_grande.webp",
+    "socialImageSrc": "/imagenes/og-image.webp",
     "primaryActionLabel": "Ver entrenamientos",
     "primaryActionTarget": "#entrenamientos",
     "secondaryActionLabel": "Consulta tarifas",

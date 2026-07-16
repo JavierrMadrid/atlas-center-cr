@@ -12,8 +12,8 @@ function ContactPage({ content }) {
       <section className="section pricing-section contact-page__section section--reveal">
         <SectionHeading
           level="h1"
-          title="Contacto"
-          description="Ven a conocer Atlas Center, consulta nuestras tarifas y horarios, o escríbenos para cualquier duda. Estamos aquí para ayudarte."
+          title="Contacta con tu gimnasio en Ciudad Real"
+          description="Atlas Center está en Calle Ronda de Calatrava, 13003 Ciudad Real. Escríbenos por formulario, email o teléfono y te orientamos sin compromiso."
         />
 
         <div className="pricing-schedule-grid contact-page__layout">

@@ -20,6 +20,19 @@ const routes = [
   '/404',
 ]
 
+const SITE_URL = process.env.VITE_SITE_URL || 'https://atlas-center.com'
+
+const seoConfig = {
+  '/': { priority: 1.0, changefreq: 'weekly' },
+  '/equipo': { priority: 0.8, changefreq: 'monthly' },
+  '/fisioterapia': { priority: 0.8, changefreq: 'monthly' },
+  '/pilates-zenn': { priority: 0.8, changefreq: 'monthly' },
+  '/tarifas-horarios': { priority: 0.9, changefreq: 'weekly' },
+  '/contacto': { priority: 0.9, changefreq: 'weekly' },
+}
+
+const lastmodISO = new Date().toISOString().slice(0, 10)
+
 // En react-helmet-async v3 + React 19, el componente <Helmet> pinta las
 // etiquetas SEO como nodos JSX dentro del árbol. Como renderToString no las
 // hoistea al <head> (eso solo pasa en cliente), las extraemos del body y
@@ -73,5 +86,29 @@ for (const route of routes) {
 
 // Limpiar bundle SSR temporal
 rmSync(resolve(distDir, 'server'), { recursive: true, force: true })
+
+// Regenerar sitemap.xml con lastmod dinámico
+const sitemapUrls = routes
+  .filter((route) => route !== '/404')
+  .map((route) => {
+    const config = seoConfig[route] ?? { priority: 0.5, changefreq: 'monthly' }
+    const loc = route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}/`
+    return `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${lastmodISO}</lastmod>
+    <changefreq>${config.changefreq}</changefreq>
+    <priority>${config.priority.toFixed(1)}</priority>
+  </url>`
+  })
+  .join('\n')
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls}
+</urlset>
+`
+
+writeFileSync(resolve(distDir, 'sitemap.xml'), sitemap, 'utf-8')
+console.log(`✓ sitemap.xml regenerado (lastmod=${lastmodISO})`)
 
 console.log('Prerendering completado.')

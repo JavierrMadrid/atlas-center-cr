@@ -77,3 +77,34 @@ for (const file of files) {
 
 const savedMB = (totalSavedBytes / 1024 / 1024).toFixed(1)
 console.log(`\nConvertidas: ${converted} | Omitidas: ${skipped} | Ahorro total: ${savedMB} MB`)
+
+// Aviso si quedan JPGs referenciados por el código sin su versión .webp
+const { readFileSync } = await import('fs')
+const referencedJpgs = new Set()
+const collectFromFile = (filePath) => {
+  try {
+    const content = readFileSync(filePath, 'utf-8')
+    const matches = content.matchAll(/\/imagenes\/([a-z0-9_-]+)\.jpg\b/gi)
+    for (const match of matches) {
+      referencedJpgs.add(match[1])
+    }
+  } catch {}
+}
+collectFromFile(resolve(rootDir, 'src/App.jsx'))
+for (const page of ['HomePage', 'FisioterapiaPage', 'PilatesYogaPage', 'PricingPage', 'TeamPage', 'ContactPage']) {
+  collectFromFile(resolve(rootDir, 'src/pages', `${page}.jsx`))
+}
+
+const missingWebp = []
+for (const name of referencedJpgs) {
+  const webp = resolve(imagesDir, `${name}.webp`)
+  try {
+    await stat(webp)
+  } catch {
+    missingWebp.push(name)
+  }
+}
+
+if (missingWebp.length) {
+  console.log(`\n⚠ JPGs referenciados sin .webp: ${missingWebp.join(', ')}. Vuelve a correr el script para regenerarlos.`)
+}
