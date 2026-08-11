@@ -16,7 +16,7 @@ function PilatesZennPage() {
           <article className="panel panel--service service-program-card service-program-card--pilates">
             <figure className="service-page__figure service-program-card__media">
               <img
-                src="/imagenes/pilates.webp"
+                src="/imagenes/pilates.jpg"
                 alt="Clase de pilates en el gimnasio Atlas Center de Ciudad Real"
                 loading="lazy"
                 decoding="async"
@@ -42,7 +42,7 @@ function PilatesZennPage() {
           <article className="panel panel--service service-program-card service-program-card--zenn">
             <figure className="service-page__figure service-program-card__media">
               <img
-                src="/imagenes/zenn.webp"
+                src="/imagenes/zenn.jpg"
                 alt="Clase de Zenn, disciplina inspirada en yoga, en Atlas Center Ciudad Real"
                 loading="lazy"
                 decoding="async"
