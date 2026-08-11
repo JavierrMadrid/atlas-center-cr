@@ -21,7 +21,7 @@ const SEO_BY_PATH = {
   '/': {
     title: 'Atlas Center | Centro Deportivo en Ciudad Real',
     description:
-      'Centro deportivo especializado en entrenamientos mediante clases guiadas. Ofrecemos fisioterapia, pilates, Zenn inspirado en yoga y sala de entrenamiento libre en Ciudad Real. Consulta horarios y tarifas en Atlas Center.',
+      'Centro deportivo especializado en entrenamientos funcionales e híbridos en grupos reducidos. Ofrecemos fisioterapia, pilates, Zenn inspirado en yoga y sala de entrenamiento libre en Ciudad Real. Consulta horarios y tarifas en Atlas Center.',
   },
   '/equipo': {
     title: 'Equipo de Entrenadores | Atlas Center Ciudad Real',
@@ -41,7 +41,7 @@ const SEO_BY_PATH = {
   '/tarifas-horarios': {
     title: 'Tarifas y Horarios del Gimnasio | Atlas Center Ciudad Real',
     description:
-      'Consulta tarifas y horarios de Atlas Center para entrenamiento en grupos reducidos, entrenamiento guiado, gimnasio open, Zenn, yoga y pilates en Ciudad Real.',
+      'Consulta tarifas y horarios de Atlas Center para entrenamiento funcional e híbrido en grupos reducidos, entrenamiento guiado, gimnasio open, Zenn, yoga y pilates en Ciudad Real.',
   },
   '/contacto': {
     title: 'Contacto Atlas Center | Centro Deportivo en Ciudad Real',
@@ -302,7 +302,7 @@ const SERVICE_BY_PATH = {
   '/tarifas-horarios': {
     '@type': 'Service',
     serviceType: 'Entrenamiento personal y en grupos reducidos',
-    description: 'Entrenamiento guiado en grupos reducidos y sala open de musculacion en Ciudad Real.',
+    description: 'Entrenamiento funcional e híbrido guiado en grupos reducidos y sala open de musculacion en Ciudad Real.',
     areaServed: { '@type': 'City', name: 'Ciudad Real' },
     provider: { '@id': `${SITE_URL}/#localbusiness` },
   },

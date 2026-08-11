@@ -11,7 +11,7 @@ function PricingPage({ content }) {
         stacked
         headingLevel="h1"
         headingTitle="Tarifas y horarios del gimnasio en Ciudad Real"
-        headingDescription="Consulta las tarifas y horarios de Atlas Center, tu gimnasio en Ciudad Real: entrenamiento guiado en grupos reducidos, sala open, pilates, Zenn y fisioterapia. Bonos mensuales con caducidad de 40 días."
+        headingDescription="Consulta las tarifas y horarios de Atlas Center, tu gimnasio en Ciudad Real: entrenamiento funcional e híbrido guiado en grupos reducidos, sala open, pilates, Zenn y fisioterapia. Bonos mensuales con caducidad de 40 días."
       />
     </PageShell>
   )

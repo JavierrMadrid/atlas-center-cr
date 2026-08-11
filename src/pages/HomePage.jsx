@@ -63,11 +63,11 @@ function HomePage({ content }) {
           <div className="seo-intent__layout">
             <div className="seo-intent__content">
               <header className="section__heading">
-                <h2 id="seo-intent-title">Centro deportivo en Ciudad Real para entrenamientos guiados</h2>
+                <h2 id="seo-intent-title">Centro deportivo en Ciudad Real para entrenamientos funcionales e híbridos</h2>
                 <p>
-                  En Atlas Center combinamos entrenamiento personal y entrenamiento en grupos reducidos para ayudarte a
-                  progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, Zenn, pilates o fisioterapia, Atlas Center
-                  es tu sitio.
+                  En Atlas Center combinamos entrenamiento funcional e híbrido en grupos reducidos con entrenamiento personal
+                  para ayudarte a progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, Zenn, pilates o fisioterapia,
+                  Atlas Center es tu sitio.
                 </p>
               </header>
               <p>
