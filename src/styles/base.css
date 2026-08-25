@@ -109,7 +109,7 @@ button,
 }
 
 .atlas-page--home {
-  background: linear-gradient(180deg, rgba(12, 15, 18, 0.99), rgba(9, 11, 13, 0.99));
+  background: transparent;
   width: 100%;
   margin: 0;
   border: 0;
