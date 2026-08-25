@@ -6,6 +6,7 @@ import TrainingSection from '../components/page-blocks/TrainingSection'
 function HomePage({ content }) {
   const { brand } = content
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [isHeroFaded, setIsHeroFaded] = useState(false)
 
   useEffect(() => {
     let ticking = false
@@ -18,8 +19,9 @@ function HomePage({ content }) {
       ticking = true
 
       window.requestAnimationFrame(() => {
-        const shouldShow = window.scrollY > 360
-        setShowScrollTop((previous) => (previous === shouldShow ? previous : shouldShow))
+        const scrollY = window.scrollY
+        setShowScrollTop((previous) => (previous === (scrollY > 360) ? previous : scrollY > 360))
+        setIsHeroFaded((previous) => (previous === (scrollY > 50) ? previous : scrollY > 50))
         ticking = false
       })
     }
@@ -39,7 +41,7 @@ function HomePage({ content }) {
   return (
     <>
       <header
-        className="hero"
+        className={`hero ${isHeroFaded ? 'hero--faded' : ''}`}
         style={brand.heroLogoSrc ? { '--hero-logo-bg': `url(${brand.heroLogoSrc})` } : undefined}
       >
         <div className="hero__veil" aria-hidden="true"></div>

@@ -165,8 +165,9 @@
 }
 
 .hero {
-  position: relative;
-  overflow: hidden;
+  position: sticky;
+  top: var(--site-header-height);
+  z-index: 0;
   min-height: 75vh;
   display: grid;
   align-items: center;
@@ -175,6 +176,11 @@
     var(--hero-layer-1),
     var(--hero-layer-2),
     var(--hero-logo-bg, linear-gradient(150deg, #14181b 0%, #0a0c0d 100%)) center / cover no-repeat;
+  transition: opacity 0.4s ease;
+}
+
+.hero--faded {
+  opacity: 0.35;
 }
 
 .hero::before {

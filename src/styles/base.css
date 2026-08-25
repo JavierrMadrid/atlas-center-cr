@@ -115,6 +115,7 @@ button,
   border: 0;
   box-shadow: none;
   border-radius: 0;
+  overflow: visible;
 }
 
 .atlas-page--pricing {
