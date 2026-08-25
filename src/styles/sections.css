@@ -270,7 +270,7 @@
   position: relative;
   background: color-mix(in srgb, var(--surface-bg) 85%, black 15%);
   border: 1px solid var(--surface-border);
-  width: min(1180px, 100%);
+  width: min(960px, 100%);
   margin-inline: auto;
 }
 
@@ -280,7 +280,7 @@
 
 .carousel__item img {
   width: 100%;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 5 / 2;
   object-fit: cover;
   display: block;
 }
