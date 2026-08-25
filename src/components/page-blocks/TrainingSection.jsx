@@ -26,7 +26,7 @@ function TrainingSection({ programs }) {
   })
 
   return (
-    <section id="entrenamientos" className="section training-section section--reveal section--charcoal">
+    <section id="entrenamientos" className="section training-section section--reveal">
       <SectionHeading
         title="Modalidades de entrenamiento"
         description=""

@@ -60,7 +60,7 @@ function CarouselSection({ images }) {
 
   if (totalImages === 0) {
     return (
-      <section id="galeria" className="section gallery-section section--reveal section--ink">
+      <section id="galeria" className="section gallery-section section--reveal">
         <SectionHeading
           title="Galería del gimnasio"
           description="Conoce nuestro centro de entrenamiento"
