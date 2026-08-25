@@ -43,17 +43,6 @@ function HomePage({ content }) {
         style={brand.heroLogoSrc ? { '--hero-logo-bg': `url(${brand.heroLogoSrc})` } : undefined}
       >
         <div className="hero__veil" aria-hidden="true"></div>
-        <div className="hero__content">
-          <p className="kicker">{brand.kicker}</p>
-          <h1>{brand.heroName ?? brand.name}</h1>
-          <p className="hero__claim">{brand.claim}</p>
-          <p className="hero__text">{brand.description}</p>
-          <div className="hero__actions">
-            <a className="btn btn--ghost" href={brand.secondaryActionTarget}>
-              {brand.secondaryActionLabel}
-            </a>
-          </div>
-        </div>
       </header>
 
       <PageShell className="home-page">
@@ -63,16 +52,22 @@ function HomePage({ content }) {
           <div className="seo-intent__layout">
             <div className="seo-intent__content">
               <header className="section__heading">
-                <h2 id="seo-intent-title">Centro deportivo en Ciudad Real para entrenamientos funcionales e híbridos</h2>
+                <h2 id="seo-intent-title">Atlas Center — Tu gimnasio en Ciudad Real con entrenamiento guiado, pilates y fisioterapia</h2>
                 <p>
-                  En Atlas Center combinamos entrenamiento funcional e híbrido en grupos reducidos con entrenamiento personal
-                  para ayudarte a progresar con seguridad. Si buscas gimnasio, entrenamiento guiado, Zenn, pilates o fisioterapia,
-                  Atlas Center es tu sitio.
+                  Somos un centro de entrenamiento en Ciudad Real especializado en ayudarte a mejorar tu salud,
+                  composición corporal y rendimiento a través del ejercicio guiado por profesionales. En Atlas Center
+                  cada persona entrena a su ritmo, con atención personalizada y un plan adaptado a su nivel.
                 </p>
               </header>
               <p>
-                Trabajamos objetivos de salud, perdida de grasa, fuerza, movilidad y readaptacion con seguimiento
-                técnico. Puedes empezar en sala open o en clases guiadas segun tu nivel y disponibilidad.
+                Ofrecemos entrenamiento funcional e híbrido en grupos reducidos de hasta 5 personas, clases de pilates
+                y Zenn, acceso libre a sala de musculación y sesiones de fisioterapia deportiva. Nuestro equipo de
+                técnicos y fisioterapeutas diseña programas orientados a pérdida de peso, ganancia de fuerza, mejora
+                de la movilidad y prevención de lesiones, con seguimiento técnico continuo.
+              </p>
+              <p>
+                Ya estés empezando o busques dar el siguiente paso, en Atlas Center encontrarás un espacio cercano,
+                motivador y profesional para entrenar de forma segura y constante.
               </p>
             </div>
             <figure className="seo-intent__media">
