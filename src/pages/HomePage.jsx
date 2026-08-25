@@ -4,7 +4,6 @@ import PageShell from '../components/layout/PageShell'
 import TrainingSection from '../components/page-blocks/TrainingSection'
 
 function HomePage({ content }) {
-  const { brand } = content
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [isHeroFaded, setIsHeroFaded] = useState(false)
 
@@ -40,10 +39,7 @@ function HomePage({ content }) {
 
   return (
     <>
-      <header
-        className={`hero ${isHeroFaded ? 'hero--faded' : ''}`}
-        style={brand.heroLogoSrc ? { '--hero-logo-bg': `url(${brand.heroLogoSrc})` } : undefined}
-      >
+      <header className={`hero ${isHeroFaded ? 'hero--faded' : ''}`}>
         <div className="hero__veil" aria-hidden="true"></div>
       </header>
 
