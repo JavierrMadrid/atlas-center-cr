@@ -40,7 +40,6 @@ function HomePage({ content }) {
   return (
     <>
       <header className={`hero ${isHeroFaded ? 'hero--faded' : ''}`}>
-        <div className="hero__veil" aria-hidden="true"></div>
       </header>
 
       <PageShell className="home-page">

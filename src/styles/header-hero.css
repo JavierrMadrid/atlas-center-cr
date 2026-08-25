@@ -180,28 +180,6 @@
   opacity: 0.35;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.02) 0,
-    rgba(255, 255, 255, 0.02) 1px,
-    transparent 1px,
-    transparent 36px
-  );
-}
-
-.hero__veil {
-  display: block;
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 74% 18%, rgba(120, 130, 140, 0.22), rgba(0, 0, 0, 0));
-  pointer-events: none;
-}
-
 .hero__content {
   position: relative;
   z-index: 1;
