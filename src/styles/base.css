@@ -56,9 +56,7 @@ body {
   padding-top: var(--site-header-height);
   background-color: #0c0f11;
   background:
-    linear-gradient(145deg, rgba(8, 10, 12, 0.9), rgba(14, 18, 21, 0.9)),
-    var(--bg-body-glow-1),
-    var(--bg-body-glow-2),
+    linear-gradient(145deg, rgba(8, 10, 12, 0.3), rgba(14, 18, 21, 0.3)),
     url('/imagenes/logo_grande.webp') center / cover no-repeat;
   background-attachment: scroll;
 }
@@ -66,9 +64,7 @@ body {
 @media (min-width: 861px) {
   body {
     background:
-      linear-gradient(145deg, rgba(8, 10, 12, 0.86), rgba(14, 18, 21, 0.85)),
-      var(--bg-body-glow-1),
-      var(--bg-body-glow-2),
+      linear-gradient(145deg, rgba(8, 10, 12, 0.3), rgba(14, 18, 21, 0.3)),
       url('/imagenes/logo_grande.webp') center / cover no-repeat fixed;
   }
 }
