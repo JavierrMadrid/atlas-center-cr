@@ -167,7 +167,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 50vh;
+  min-height: 75vh;
   display: grid;
   align-items: center;
   padding: clamp(1.8rem, 4vw, 3.6rem);
