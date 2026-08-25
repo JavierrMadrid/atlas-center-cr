@@ -58,7 +58,9 @@ body {
   background:
     linear-gradient(145deg, rgba(8, 10, 12, 0.9), rgba(14, 18, 21, 0.9)),
     var(--bg-body-glow-1),
-    var(--bg-body-glow-2);
+    var(--bg-body-glow-2),
+    url('/imagenes/logo_grande.webp') center / cover no-repeat;
+  background-attachment: scroll;
 }
 
 @media (min-width: 861px) {
@@ -67,7 +69,7 @@ body {
       linear-gradient(145deg, rgba(8, 10, 12, 0.86), rgba(14, 18, 21, 0.85)),
       var(--bg-body-glow-1),
       var(--bg-body-glow-2),
-      url('/imagenes/fondo.webp') center / cover no-repeat fixed;
+      url('/imagenes/logo_grande.webp') center / cover no-repeat fixed;
   }
 }
 
