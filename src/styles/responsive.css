@@ -254,7 +254,7 @@
   }
 
   .carousel__item img {
-    height: clamp(210px, 58vw, 320px);
+    height: clamp(160px, 42vw, 240px);
     aspect-ratio: auto;
     object-fit: cover;
   }
