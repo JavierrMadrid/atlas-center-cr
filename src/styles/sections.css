@@ -318,7 +318,7 @@
   width: 100%;
   aspect-ratio: 3 / 4;
   transform-style: preserve-3d;
-  transition: transform 0.6s var(--ease-out);
+  transition: transform 0.45s var(--ease-out);
 }
 
 .trainer-card__face {
@@ -579,6 +579,11 @@
 
   .trainers-section__intro {
     grid-template-columns: 1fr;
+  }
+
+  .editorial__media img {
+    height: auto;
+    object-fit: contain;
   }
 }
 
