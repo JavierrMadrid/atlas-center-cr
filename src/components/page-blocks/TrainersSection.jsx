@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
 import Icon from '../ui/Icon'
 import Reveal from '../ui/Reveal'
@@ -130,6 +131,9 @@ const trainerImagePositions = {
   Carlos: { objectPosition: 'center 18%' },
 }
 
+const FLIP_DELAY = 520
+const CLOSE_DELAY = 640
+
 function TrainersSection({
   trainers,
   headingLevel = 'h2',
@@ -137,20 +141,163 @@ function TrainersSection({
   headingDescription,
   viewAll = false,
 }) {
-  const [flippedCards, setFlippedCards] = useState(() => new Set())
+  const [active, setActive] = useState(null)
+  const [flightTransform, setFlightTransform] = useState(null)
+  const [transEnabled, setTransEnabled] = useState(false)
+  const [settled, setSettled] = useState(false)
+  const [flipped, setFlipped] = useState(false)
 
-  const toggleCard = (trainerName) => {
-    setFlippedCards((previous) => {
-      const next = new Set(previous)
+  const cardRef = useRef(null)
+  const closeButtonRef = useRef(null)
+  const triggerRef = useRef(null)
+  const closingRef = useRef(false)
+  const flightKeyRef = useRef(null)
 
-      if (next.has(trainerName)) {
-        next.delete(trainerName)
-      } else {
-        next.add(trainerName)
+  const finishClose = useCallback(() => {
+    closingRef.current = false
+    setActive(null)
+    setFlightTransform(null)
+    setTransEnabled(false)
+  }, [])
+
+  const close = useCallback(() => {
+    if (closingRef.current) {
+      return
+    }
+
+    closingRef.current = true
+    setFlipped(false)
+    setSettled(false)
+  }, [])
+
+  const openTrainer = (trainer, event) => {
+    const trigger = event.currentTarget
+
+    triggerRef.current = trigger
+    closingRef.current = false
+    setFlightTransform(null)
+    setTransEnabled(false)
+    setSettled(false)
+    setFlipped(false)
+    setActive({ trainer, rect: trigger.getBoundingClientRect() })
+  }
+
+  useLayoutEffect(() => {
+    if (!active) {
+      flightKeyRef.current = null
+      return undefined
+    }
+
+    if (flightKeyRef.current === active) {
+      return undefined
+    }
+
+    const node = cardRef.current
+
+    if (!node) {
+      return undefined
+    }
+
+    flightKeyRef.current = active
+
+    const target = node.getBoundingClientRect()
+    const { rect } = active
+    const scaleX = rect.width / target.width
+    const scaleY = rect.height / target.height
+    const deltaX = rect.left + rect.width / 2 - (target.left + target.width / 2)
+    const deltaY = rect.top + rect.height / 2 - (target.top + target.height / 2)
+
+    setFlightTransform(
+      `translate(-50%, -50%) translate(${deltaX}px, ${deltaY}px) scale(${scaleX}, ${scaleY})`,
+    )
+
+    return undefined
+  }, [active])
+
+  useEffect(() => {
+    if (!active || !flightTransform) {
+      return undefined
+    }
+
+    let frameTwo = 0
+    const frameOne = window.requestAnimationFrame(() => {
+      if (closingRef.current) {
+        return
       }
 
-      return next
+      setTransEnabled(true)
+      frameTwo = window.requestAnimationFrame(() => {
+        if (!closingRef.current) {
+          setSettled(true)
+        }
+      })
     })
+
+    return () => {
+      window.cancelAnimationFrame(frameOne)
+      window.cancelAnimationFrame(frameTwo)
+    }
+  }, [active, flightTransform])
+
+  useEffect(() => {
+    if (!active || !settled || flipped || closingRef.current) {
+      return undefined
+    }
+
+    const timer = window.setTimeout(() => setFlipped(true), FLIP_DELAY)
+    return () => window.clearTimeout(timer)
+  }, [active, settled, flipped])
+
+  useEffect(() => {
+    if (!active || settled || !closingRef.current) {
+      return undefined
+    }
+
+    const timer = window.setTimeout(() => finishClose(), CLOSE_DELAY)
+    return () => window.clearTimeout(timer)
+  }, [active, settled, finishClose])
+
+  useEffect(() => {
+    if (!active) {
+      return undefined
+    }
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+    }
+  }, [active])
+
+  useEffect(() => {
+    if (!active) {
+      return undefined
+    }
+
+    const trigger = triggerRef.current
+    const frame = window.requestAnimationFrame(() => closeButtonRef.current?.focus())
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        close()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('keydown', handleKeyDown)
+
+      if (trigger && document.contains(trigger)) {
+        trigger.focus()
+      }
+    }
+  }, [active, close])
+
+  const cardStyle = {
+    transform: settled ? 'translate(-50%, -50%)' : flightTransform || 'translate(-50%, -50%)',
   }
 
   return (
@@ -174,21 +321,20 @@ function TrainersSection({
 
         <div className="trainers-grid">
           {trainers.map((trainer, index) => {
-            const isFlipped = flippedCards.has(trainer.name)
+            const isSource = active?.trainer.name === trainer.name
 
             return (
               <Reveal
                 key={trainer.name}
                 as="article"
                 delay={index * 60}
-                className={`trainer-card${isFlipped ? ' is-flipped' : ''}`}
+                className={`trainer-card${isSource ? ' trainer-card--source' : ''}`}
               >
                 <button
                   type="button"
                   className="trainer-card__flip"
-                  onClick={() => toggleCard(trainer.name)}
-                  aria-label={`${isFlipped ? 'Ver foto de' : 'Ver perfil de'} ${trainer.name}`}
-                  aria-pressed={isFlipped}
+                  onClick={(event) => openTrainer(trainer, event)}
+                  aria-label={`Ampliar perfil de ${trainer.name}`}
                 >
                   <div className="trainer-card__flip-inner">
                     <div className="trainer-card__face trainer-card__face--front">
@@ -204,13 +350,6 @@ function TrainersSection({
                       <h3 className="trainer-card__name">{trainer.name}</h3>
                       <span className="trainer-card__hint">Ver perfil</span>
                     </div>
-
-                    <div className="trainer-card__face trainer-card__face--back">
-                      <h3>{trainer.name}</h3>
-                      <div className="trainer-card__description">
-                        {renderTrainerDescription(trainer.description)}
-                      </div>
-                    </div>
                   </div>
                 </button>
               </Reveal>
@@ -218,6 +357,61 @@ function TrainersSection({
           })}
         </div>
       </div>
+
+      {active && typeof document !== 'undefined'
+        ? createPortal(
+            <div
+              className="trainer-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Perfil de ${active.trainer.name}`}
+              onClick={close}
+            >
+              <button
+                ref={closeButtonRef}
+                type="button"
+                className="trainer-modal__close"
+                onClick={close}
+                aria-label="Cerrar perfil"
+              >
+                <Icon name="close" size={20} />
+              </button>
+
+              <div
+                ref={cardRef}
+                className={`trainer-modal__card${transEnabled ? ' is-ready' : ''}`}
+                style={cardStyle}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <div
+                  className={`trainer-card__flip-inner trainer-modal__inner${
+                    flipped ? ' is-flipped' : ''
+                  }`}
+                >
+                  <div className="trainer-card__face trainer-card__face--front">
+                    <img
+                      src={active.trainer.image}
+                      alt={`Miembro del equipo ${active.trainer.name}`}
+                      decoding="async"
+                      width="1200"
+                      height="1600"
+                      style={trainerImagePositions[active.trainer.name]}
+                    />
+                    <h3 className="trainer-card__name">{active.trainer.name}</h3>
+                  </div>
+
+                  <div className="trainer-card__face trainer-card__face--back">
+                    <h3>{active.trainer.name}</h3>
+                    <div className="trainer-card__description">
+                      {renderTrainerDescription(active.trainer.description)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </section>
   )
 }

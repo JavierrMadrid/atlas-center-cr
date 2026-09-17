@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import CarouselSection from '../components/page-blocks/CarouselSection'
-import CtaBand from '../components/page-blocks/CtaBand'
 import EditorialSection from '../components/page-blocks/EditorialSection'
 import HeroSection from '../components/page-blocks/HeroSection'
 import PageShell from '../components/layout/PageShell'
@@ -10,7 +9,7 @@ import ValueStrip from '../components/page-blocks/ValueStrip'
 import Icon from '../components/ui/Icon'
 
 function HomePage({ content }) {
-  const { brand, trainers, trainingPrograms, carouselImages, contact, schedule } = content
+  const { brand, trainers, trainingPrograms, carouselImages } = content
   const [showScrollTop, setShowScrollTop] = useState(false)
   const sentinelRef = useRef(null)
 
@@ -56,7 +55,6 @@ function HomePage({ content }) {
           headingDescription="Entrenadores personales, pilates y fisioterapia bajo el mismo criterio técnico: técnica, intensidad y cercanía."
           viewAll
         />
-        <CtaBand contact={contact} schedule={schedule} />
         <EditorialSection />
       </PageShell>
 
