@@ -1,36 +1,39 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import CarouselSection from '../components/page-blocks/CarouselSection'
+import CtaBand from '../components/page-blocks/CtaBand'
+import EditorialSection from '../components/page-blocks/EditorialSection'
+import HeroSection from '../components/page-blocks/HeroSection'
 import PageShell from '../components/layout/PageShell'
+import TrainersSection from '../components/page-blocks/TrainersSection'
 import TrainingSection from '../components/page-blocks/TrainingSection'
+import ValueStrip from '../components/page-blocks/ValueStrip'
+import Icon from '../components/ui/Icon'
 
 function HomePage({ content }) {
+  const { brand, trainers, trainingPrograms, carouselImages, contact, schedule } = content
   const [showScrollTop, setShowScrollTop] = useState(false)
-  const [isHeroFaded, setIsHeroFaded] = useState(false)
+  const sentinelRef = useRef(null)
 
   useEffect(() => {
-    let ticking = false
+    const node = sentinelRef.current
 
-    const handleScroll = () => {
-      if (ticking) {
-        return
-      }
-
-      ticking = true
-
-      window.requestAnimationFrame(() => {
-        const scrollY = window.scrollY
-        setShowScrollTop((previous) => (previous === (scrollY > 360) ? previous : scrollY > 360))
-        setIsHeroFaded((previous) => (previous === (scrollY > 50) ? previous : scrollY > 50))
-        ticking = false
-      })
+    if (!node) {
+      return undefined
     }
 
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          setShowScrollTop(!entry.isIntersecting)
+          break
+        }
+      },
+      { threshold: 0 },
+    )
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    observer.observe(node)
+
+    return () => observer.disconnect()
   }, [])
 
   const handleBackToTop = () => {
@@ -39,56 +42,32 @@ function HomePage({ content }) {
 
   return (
     <>
-      <header className={`hero ${isHeroFaded ? 'hero--faded' : ''}`}>
-      </header>
+      <div ref={sentinelRef} className="scroll-sentinel" aria-hidden="true" />
+
+      <HeroSection brand={brand} />
 
       <PageShell className="home-page">
-        <TrainingSection programs={content.trainingPrograms} />
-        <CarouselSection images={content.carouselImages} />
-        <section className="section section--reveal section--ink" style={{ background: '#0e1113' }} aria-labelledby="seo-intent-title">
-          <div className="seo-intent__layout">
-            <div className="seo-intent__content">
-              <header className="section__heading">
-                <h2 id="seo-intent-title">Atlas Center — Tu gimnasio en Ciudad Real con entrenamiento guiado, pilates y fisioterapia</h2>
-                <p>
-                  Somos un centro de entrenamiento en Ciudad Real especializado en ayudarte a mejorar tu salud,
-                  composición corporal y rendimiento a través del ejercicio guiado por profesionales. En Atlas Center
-                  cada persona entrena a su ritmo, con atención personalizada y un plan adaptado a su nivel.
-                </p>
-              </header>
-              <p>
-                Ofrecemos entrenamiento funcional e híbrido en grupos reducidos de hasta 5 personas, clases de pilates
-                y Zenn, acceso libre a sala de musculación y sesiones de fisioterapia deportiva. Nuestro equipo de
-                técnicos y fisioterapeutas diseña programas orientados a pérdida de peso, ganancia de fuerza, mejora
-                de la movilidad y prevención de lesiones, con seguimiento técnico continuo.
-              </p>
-              <p>
-                Ya estés empezando o busques dar el siguiente paso, en Atlas Center encontrarás un espacio cercano,
-                motivador y profesional para entrenar de forma segura y constante.
-              </p>
-            </div>
-            <figure className="seo-intent__media">
-              <img
-                src="/imagenes/entrena con proposito pintada.webp"
-                alt="Entrena con proposito en Atlas Center"
-                width="1200"
-                height="900"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-          </div>
-        </section>
+        <ValueStrip />
+        <TrainingSection programs={trainingPrograms} />
+        <CarouselSection images={carouselImages} />
+        <TrainersSection
+          trainers={trainers}
+          headingTitle="El equipo"
+          headingDescription="Entrenadores personales, pilates y fisioterapia bajo el mismo criterio técnico: técnica, intensidad y cercanía."
+          viewAll
+        />
+        <CtaBand contact={contact} schedule={schedule} />
+        <EditorialSection />
       </PageShell>
 
       <button
         type="button"
-        className={`scroll-to-top ${showScrollTop ? 'scroll-to-top--visible' : ''}`}
+        className={`scroll-to-top${showScrollTop ? ' scroll-to-top--visible' : ''}`}
         onClick={handleBackToTop}
         aria-label="Volver al inicio"
         title="Volver al inicio"
       >
-        ↑
+        <Icon name="arrowUp" size={20} />
       </button>
     </>
   )

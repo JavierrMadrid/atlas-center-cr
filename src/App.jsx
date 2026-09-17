@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import SiteFooter from './components/layout/SiteFooter'
 import SiteHeader from './components/layout/SiteHeader'
+import ContactFloating from './components/layout/ContactFloating'
 import RouteSeo from './components/seo/RouteSeo'
 import { localAdminContent } from './config/localAdminContent'
 
@@ -52,29 +53,20 @@ function ScrollToHash() {
 }
 
 function App() {
-  const location = useLocation()
-  const isHomePage = location.pathname === '/'
-  const isPricingPage = location.pathname === '/tarifas-horarios'
-  const isTeamPage = location.pathname === '/equipo'
-  const { brand, contactPage, legalItems, schedule } = localAdminContent
+  const { brand, contact, contactPage, legalItems, schedule } = localAdminContent
 
   return (
     <>
-      <SiteHeader brandName={brand.name} brandLogoSrc={brand.headerLogoSrc} />
+      <SiteHeader
+        brandName={brand.name}
+        brandLogoSrc={brand.headerLogoSrc}
+        phone={contactPage.phones?.[0]}
+      />
       <ScrollToHash />
       <RouteSeo brand={brand} contactPage={contactPage} schedule={schedule} />
 
-      <div
-        className={[
-          'atlas-page',
-          isHomePage ? 'atlas-page--home' : '',
-          isPricingPage ? 'atlas-page--pricing' : '',
-          isTeamPage ? 'atlas-page--team' : '',
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        <Suspense fallback={<main className="main-loading">Cargando contenido...</main>}>
+      <main className="site-main">
+        <Suspense fallback={<div className="main-loading">Cargando contenido...</div>}>
           <Routes>
             <Route path="/" element={<HomePage content={localAdminContent} />} />
             <Route path="/equipo" element={<TeamPage content={localAdminContent} />} />
@@ -87,7 +79,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
-      </div>
+      </main>
 
       <SiteFooter
         brand={brand}
@@ -95,6 +87,8 @@ function App() {
         legalItems={legalItems}
         schedule={schedule}
       />
+
+      <ContactFloating contact={contact} />
     </>
   )
 }

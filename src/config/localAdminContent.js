@@ -116,7 +116,7 @@ export const localAdminContent = {
   physiotherapyPrices: safeArray(localAdminPanel.physiotherapyPrices),
   pricingPolicy:
     localAdminPanel.pricingPolicy ??
-    'Todos los bonos se deben gastar en un plazo máximo de 40 días.',
+    'Todos los bonos se deben gastar en un plazo máximo de 30 días.',
   schedule: safeArray(localAdminPanel.schedule),
   legalItems: safeArray(localAdminPanel.legalItems).length
     ? safeArray(localAdminPanel.legalItems)

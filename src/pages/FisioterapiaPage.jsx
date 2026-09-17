@@ -8,43 +8,44 @@ function FisioterapiaPage({ content }) {
     : []
 
   return (
-    <PageShell className="pricing-page service-page service-page--fisioterapia">
-      <section className="section pricing-section section--reveal">
-        <SectionHeading
-          level="h1"
-          title="Fisioterapia deportiva en Ciudad Real"
-          description="Fisioterapia deportiva y recuperación funcional en Atlas Center, en Ciudad Real. Tratamos lesiones, prevenimos recaídas y readaptamos a personas activas para que vuelvan a entrenar con seguridad."
-        />
+    <PageShell>
+      <section className="section">
+        <div className="container">
+          <SectionHeading
+            level="h1"
+            title="Fisioterapia deportiva en Ciudad Real"
+            description="Fisioterapia deportiva y recuperación funcional en Atlas Center. Tratamos lesiones, prevenimos recaídas y readaptamos a personas activas para que vuelvan a entrenar con seguridad."
+          />
 
-        <div className="service-page__intro">
-          <article className="panel panel--service service-page__text-panel">
-            <h3>Fisioterapia deportiva en Ciudad Real</h3>
-            <p className="service-page__note">
-              Valoracion, tratamiento y readaptacion para volver a entrenar con seguridad y menos dolor.
-            </p>
+          <div className="service__grid">
+            <div>
+              <h3 className="service__intro-title">Prevención, tratamiento y readaptación</h3>
+              <p className="service__note service__note--tight">
+                Valoración, tratamiento y readaptación para volver a entrenar con seguridad y con
+                menos dolor.
+              </p>
 
-            <div className="service-page__mini-grid">
-              <article className="service-page__mini-card">
-                <h4>Prevencion</h4>
-                <p>Prevencion de lesiones en entrenamiento y actividad diaria.</p>
-              </article>
-              <article className="service-page__mini-card">
-                <h4>Tratamiento</h4>
-                <p>Molestias musculares y articulares frecuentes con enfoque funcional.</p>
-              </article>
-              <article className="service-page__mini-card">
-                <h4>Readaptacion</h4>
-                <p>Plan para retomar entrenamiento personal o en grupos con confianza.</p>
-              </article>
-              <article className="service-page__mini-card">
-                <h4>Movilidad</h4>
-                <p>Mejora de rango de movimiento, control postural y calidad gestual.</p>
-              </article>
+              <div className="service__mini-grid">
+                <article className="mini-card">
+                  <h4>Prevención</h4>
+                  <p>Prevención de lesiones en entrenamiento y actividad diaria.</p>
+                </article>
+                <article className="mini-card">
+                  <h4>Tratamiento</h4>
+                  <p>Molestias musculares y articulares frecuentes con enfoque funcional.</p>
+                </article>
+                <article className="mini-card">
+                  <h4>Readaptación</h4>
+                  <p>Plan para retomar el entrenamiento personal o en grupo con confianza.</p>
+                </article>
+                <article className="mini-card">
+                  <h4>Movilidad</h4>
+                  <p>Mejora del rango de movimiento, el control postural y la calidad gestual.</p>
+                </article>
+              </div>
             </div>
-          </article>
 
-          <article className="panel panel--service service-page__media-panel">
-            <figure className="service-page__figure service-page__figure--compact">
+            <figure className="service__figure service__figure--short">
               <img
                 src="/imagenes/fisio.webp"
                 alt="Sesión de fisioterapia deportiva en el gimnasio Atlas Center de Ciudad Real"
@@ -52,16 +53,13 @@ function FisioterapiaPage({ content }) {
                 decoding="async"
                 width="1280"
                 height="853"
-                sizes="(max-width: 768px) 92vw, (max-width: 1280px) 44vw, 520px"
               />
             </figure>
-          </article>
-        </div>
+          </div>
 
-        <article className="panel panel--service service-page__block service-page__block--boxed" aria-label="Precios de fisioterapia">
-          <h3>Tarifas de fisioterapia</h3>
-          <div className="service-page__pricing-table-wrap">
-            <table className="service-page__pricing-table">
+          <div className="service__block service__block--card">
+            <h3>Tarifas de fisioterapia</h3>
+            <table className="price-table" aria-label="Precios de fisioterapia">
               <thead>
                 <tr>
                   <th scope="col">Tarifa</th>
@@ -80,10 +78,12 @@ function FisioterapiaPage({ content }) {
               </tbody>
             </table>
           </div>
-        </article>
-        <p className="service-page__note service-page__note--cta">
-          Puedes escribirnos desde <Link to="/contacto">contacto</Link> para una primera orientacion.
-        </p>
+
+          <p className="service__note">
+            Puedes escribirnos desde <Link to="/contacto">contacto</Link> para una primera
+            orientación.
+          </p>
+        </div>
       </section>
     </PageShell>
   )

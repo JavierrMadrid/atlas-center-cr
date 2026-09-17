@@ -1,16 +1,17 @@
 import { useState } from 'react'
+import Icon from '../ui/Icon'
 import SectionHeading from '../ui/SectionHeading'
 
 function PricingScheduleSection({
   pricingPlans,
   pricingPolicy,
   schedule,
-  stacked = false,
   headingLevel = 'h2',
   headingTitle = 'Tarifas y horarios',
   headingDescription,
 }) {
   const [lightbox, setLightbox] = useState(null)
+
   const normalizePlanName = (name) =>
     name
       .replace(/^\s*grupos reducidos\s*-\s*/i, '')
@@ -19,133 +20,120 @@ function PricingScheduleSection({
       .replace(/^\s*open\s*-\s*/i, '')
       .trim()
 
-  const guidedPlans = pricingPlans.filter((plan) =>
-    /grupos reducidos|guiad[oa]s?/i.test(plan.name),
-  )
-
-  const openPlans = pricingPlans.filter((plan) =>
-    /solo open|\bopen\b/i.test(plan.name),
-  )
-
-  const otherPlans = pricingPlans.filter(
-    (plan) => !guidedPlans.includes(plan) && !openPlans.includes(plan),
-  )
+  const guidedPlans = pricingPlans.filter((plan) => /grupos reducidos|guiad[oa]s?/i.test(plan.name))
+  const openPlans = pricingPlans.filter((plan) => /solo open|\bopen\b/i.test(plan.name))
+  const otherPlans = pricingPlans.filter((plan) => !guidedPlans.includes(plan) && !openPlans.includes(plan))
 
   const planGroups = [
     {
       key: 'guided',
       id: 'tarifas-grupos-reducidos',
-      title: 'Guiado - Entrenamientos guiados con grupos reducidos de 5 personas máximo',
+      title: 'Entrenamiento guiado',
       plans: guidedPlans,
     },
     {
       key: 'open',
       id: 'tarifas-solo-open',
-      title: 'Open - Acceso al centro para entrenamientos libres',
+      title: 'Sala open',
       plans: [...openPlans, ...otherPlans],
     },
   ].filter((group) => group.plans.length > 0)
 
-  const renderPlanImages = (plans) => (
-    <div className="pricing-group__cards">
-      {plans.map((plan) => {
-        const planLabel = normalizePlanName(plan.name)
-
-        return (
-          <article key={plan.name} className="pricing-image-card">
-            {plan.imageSrc ? (
-              <button
-                className="pricing-image-btn"
-                onClick={() => setLightbox({ src: plan.imageSrc, alt: `Tarifa ${planLabel}` })}
-                aria-label={`Ver tarifa ${planLabel} en grande`}
-              >
-                <img
-                  src={plan.imageSrc}
-                  alt={`Tarifa ${planLabel}`}
-                  loading="lazy"
-                  decoding="async"
-                  width="280"
-                  height="280"
-                />
-              </button>
-            ) : (
-              <div className="pricing-image-placeholder">
-                Imagen pendiente para {planLabel}
-              </div>
-            )}
-          </article>
-        )
-      })}
-    </div>
-  )
-
   return (
     <>
-    {lightbox && (
-      <div
-        className="pricing-lightbox"
-        role="dialog"
-        aria-modal="true"
-        aria-label={lightbox.alt}
-        onClick={() => setLightbox(null)}
-      >
-        <button className="pricing-lightbox__close" onClick={() => setLightbox(null)} aria-label="Cerrar">&times;</button>
-        <img
-          src={lightbox.src}
-          alt={lightbox.alt}
-          width="1200"
-          height="1800"
-          decoding="async"
-          onClick={(e) => e.stopPropagation()}
-        />
-      </div>
-    )}
-    <section id="tarifas-horarios" className="section pricing-section section--reveal">
-      <SectionHeading
-        level={headingLevel}
-        title={headingTitle}
-        description={headingDescription ?? pricingPolicy}
-        showDescription
-      />
+      {lightbox && (
+        <div
+          className="lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.alt}
+          onClick={() => setLightbox(null)}
+        >
+          <button className="lightbox__close" onClick={() => setLightbox(null)} aria-label="Cerrar">
+            <Icon name="close" size={20} />
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            width="1200"
+            height="1800"
+            decoding="async"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
 
-      <div
-        className={
-          stacked
-            ? 'pricing-schedule-grid pricing-schedule-grid--stack'
-            : 'pricing-schedule-grid'
-        }
-      >
-        <article className="panel panel--pricing">
-          <h3>Tarifas</h3>
+      <section id="tarifas-horarios" className="section">
+        <div className="container">
+          <div className="pricing__layout">
+            <div>
+              <SectionHeading
+                level={headingLevel}
+                title={headingTitle}
+                description={headingDescription}
+              />
 
-          <div className="pricing-groups">
-            {planGroups.map((group) => (
-              <div key={group.key} className="pricing-group">
-                <h4 id={group.id}>{group.title}</h4>
-                {renderPlanImages(group.plans)}
+              {planGroups.map((group) => (
+                <div key={group.key} className="pricing__group">
+                  <h3 className="pricing__group-title" id={group.id}>
+                    {group.title}
+                  </h3>
+                  <div className="pricing__grid">
+                    {group.plans.map((plan) => {
+                      const planLabel = normalizePlanName(plan.name)
+
+                      return (
+                        <article key={plan.name} className="price-card">
+                          <span className="price-card__name">{planLabel}</span>
+                          <span className="price-card__price">{plan.price || 'Consultar'}</span>
+                          <p className="price-card__details">
+                            {plan.details || 'Consulta las condiciones en el gimnasio.'}
+                          </p>
+                          <div className="price-card__footer">
+                            {plan.imageSrc ? (
+                              <button
+                                className="price-card__zoom"
+                                type="button"
+                                onClick={() =>
+                                  setLightbox({ src: plan.imageSrc, alt: `Tarifa ${planLabel}` })
+                                }
+                                aria-label={`Ver tarifa ${planLabel} en grande`}
+                              >
+                                Ver tarifa
+                                <Icon name="expand" size={16} />
+                              </button>
+                            ) : (
+                              <span />
+                            )}
+                          </div>
+                        </article>
+                      )
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div>
+              <div className="schedule">
+                <div className="schedule__header">
+                  <Icon name="clock" size={18} />
+                  Horarios de apertura
+                </div>
+                <div className="schedule__rows">
+                  {schedule.map((slot) => (
+                    <div className="schedule__row" key={slot.day}>
+                      <span className="schedule__row-day">{slot.day}</span>
+                      <span className="schedule__row-hours">{slot.hours}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+              {pricingPolicy ? <p className="service__note">{pricingPolicy}</p> : null}
+            </div>
           </div>
-
-        </article>
-
-        <article className="panel panel--schedule">
-          <h3>Horarios</h3>
-          <div className="schedule-table-wrap">
-            <table className="schedule-table" aria-label="Horarios de apertura">
-              <tbody>
-                {schedule.map((slot) => (
-                  <tr key={slot.day}>
-                    <th scope="row">{slot.day}</th>
-                    <td>{slot.hours}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </article>
-      </div>
-    </section>
+        </div>
+      </section>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const DEFAULT_MIN_SUBMIT_DELAY_MS = 3000
 
@@ -14,7 +14,11 @@ function ContactForm({ formspreeEndpoint, minSubmitDelayMs = DEFAULT_MIN_SUBMIT_
   const [honeypot, setHoneypot] = useState('')
   const [submitStatus, setSubmitStatus] = useState('idle')
   const [errorMessage, setErrorMessage] = useState('')
-  const formStartedAtRef = useRef(Date.now())
+  const formStartedAtRef = useRef(0)
+
+  useEffect(() => {
+    formStartedAtRef.current = Date.now()
+  }, [])
   const minDelayMs =
     Number.isFinite(minSubmitDelayMs) && minSubmitDelayMs >= 0
       ? minSubmitDelayMs

@@ -1,7 +1,7 @@
 function PageShell({ className = '', children }) {
   const classes = ['page-shell', className].filter(Boolean).join(' ')
 
-  return <main className={classes}>{children}</main>
+  return <div className={classes}>{children}</div>
 }
 
 export default PageShell

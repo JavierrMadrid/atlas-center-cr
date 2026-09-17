@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
+import Icon from '../ui/Icon'
+import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 
 const AUTOPLAY_DELAY_MS = 4500
@@ -14,16 +16,12 @@ function CarouselSection({ images }) {
   useEffect(() => {
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
 
-    const updateMotionPreference = () => {
-      setReduceMotion(motionQuery.matches)
-    }
+    const updateMotionPreference = () => setReduceMotion(motionQuery.matches)
 
     updateMotionPreference()
     motionQuery.addEventListener('change', updateMotionPreference)
 
-    return () => {
-      motionQuery.removeEventListener('change', updateMotionPreference)
-    }
+    return () => motionQuery.removeEventListener('change', updateMotionPreference)
   }, [])
 
   useEffect(() => {
@@ -38,13 +36,8 @@ function CarouselSection({ images }) {
     return () => window.clearInterval(intervalId)
   }, [isPaused, reduceMotion, totalImages])
 
-  const showPrevious = () => {
-    setActiveIndex((current) => (current - 1 + totalImages) % totalImages)
-  }
-
-  const showNext = () => {
-    setActiveIndex((current) => (current + 1) % totalImages)
-  }
+  const showPrevious = () => setActiveIndex((current) => (current - 1 + totalImages) % totalImages)
+  const showNext = () => setActiveIndex((current) => (current + 1) % totalImages)
 
   const handleKeyDown = (event) => {
     if (event.key === 'ArrowLeft') {
@@ -58,106 +51,86 @@ function CarouselSection({ images }) {
     }
   }
 
-  if (totalImages === 0) {
-    return (
-    <section id="galeria" className="section gallery-section section--reveal section--contrast">
-        <SectionHeading
-          title="Galería del gimnasio"
-          description="Conoce nuestro centro de entrenamiento"
-        />
-      </section>
-    )
-  }
-
   return (
-      <section id="galeria" className="section gallery-section section--reveal section--ink">
-      <SectionHeading
-        title="Galería del gimnasio"
-        description="Conoce nuestro centro de entrenamiento"
-      />
+    <section id="galeria" className="section">
+      <div className="container">
+        <Reveal>
+          <SectionHeading title="Conoce el centro" />
+        </Reveal>
 
-      <figure
-        className="carousel__item"
-        role="region"
-        aria-roledescription="carrusel"
-        aria-label="Imágenes del gimnasio Atlas Center"
-        tabIndex={0}
-        onKeyDown={handleKeyDown}
-      >
-        <p className="sr-only" aria-live="polite">
-          Imagen {activeIndex + 1} de {totalImages}: {activeSlide.caption}
-        </p>
-
-        <div className="carousel__media">
-          <img
-            src={activeSlide.src}
-            alt={activeSlide.alt}
-            width="1600"
-            height="900"
-            sizes="(max-width: 768px) 92vw, (max-width: 1280px) 80vw, 960px"
-            loading={activeIndex === 0 ? 'eager' : 'lazy'}
-            fetchPriority={activeIndex === 0 ? 'high' : 'low'}
-            decoding="async"
-          />
-
-          <div className="carousel__controls">
-            <button
-              className="btn-icon"
-              type="button"
-              onClick={showPrevious}
-              aria-label="Mostrar imagen anterior"
+        {totalImages === 0 ? (
+          <p className="service__note">Próximamente, imágenes del centro.</p>
+        ) : (
+          <Reveal delay={80}>
+            <figure
+              className="gallery__stage"
+              role="region"
+              aria-roledescription="carrusel"
+              aria-label="Imágenes del gimnasio Atlas Center"
+              tabIndex={0}
+              onKeyDown={handleKeyDown}
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="M15.5 5 8.5 12l7 7" />
-              </svg>
-              <span className="sr-only">Anterior</span>
-            </button>
-            <button
-              className="btn-icon"
-              type="button"
-              onClick={() => setIsPaused((value) => !value)}
-              aria-label={isPaused ? 'Reanudar reproducción automática' : 'Pausar reproducción automática'}
-            >
-              {isPaused ? (
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M8 6v12l10-6-10-6Z" />
-                </svg>
-              ) : (
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M8 6h3v12H8zM13 6h3v12h-3z" />
-                </svg>
-              )}
-              <span className="sr-only">{isPaused ? 'Reanudar' : 'Pausar'}</span>
-            </button>
-            <button
-              className="btn-icon"
-              type="button"
-              onClick={showNext}
-              aria-label="Mostrar imagen siguiente"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path d="m8.5 5 7 7-7 7" />
-              </svg>
-              <span className="sr-only">Siguiente</span>
-            </button>
-          </div>
+              <p className="sr-only" aria-live="polite">
+                Imagen {activeIndex + 1} de {totalImages}: {activeSlide.caption}
+              </p>
 
-          <div className="carousel__dots" aria-label="Selección de diapositiva">
-            {images.map((image, index) => (
-              <button
-                key={image.src}
-                className={index === activeIndex ? 'dot dot--active' : 'dot'}
-                type="button"
-                onClick={() => setActiveIndex(index)}
-                aria-label={`Ir a imagen ${index + 1}`}
-                aria-current={index === activeIndex}
-              />
-            ))}
-          </div>
-        </div>
+              <div className="gallery__media">
+                <img
+                  src={activeSlide.src}
+                  alt={activeSlide.alt}
+                  width="1600"
+                  height="900"
+                  loading={activeIndex === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={activeIndex === 0 ? 'high' : 'low'}
+                  decoding="async"
+                />
 
-        <figcaption>{activeSlide.caption}</figcaption>
-      </figure>
+                <div className="gallery__controls">
+                  <button
+                    className="btn-icon"
+                    type="button"
+                    onClick={showPrevious}
+                    aria-label="Mostrar imagen anterior"
+                  >
+                    <Icon name="caretLeft" size={20} />
+                  </button>
+                  <button
+                    className="btn-icon"
+                    type="button"
+                    onClick={() => setIsPaused((value) => !value)}
+                    aria-label={isPaused ? 'Reanudar reproducción automática' : 'Pausar reproducción automática'}
+                  >
+                    <Icon name={isPaused ? 'play' : 'pause'} size={20} />
+                  </button>
+                  <button
+                    className="btn-icon"
+                    type="button"
+                    onClick={showNext}
+                    aria-label="Mostrar imagen siguiente"
+                  >
+                    <Icon name="caretRight" size={20} />
+                  </button>
+                </div>
+
+                <div className="gallery__dots">
+                  {images.map((image, index) => (
+                    <button
+                      key={image.src}
+                      className={index === activeIndex ? 'gallery__dot gallery__dot--active' : 'gallery__dot'}
+                      type="button"
+                      onClick={() => setActiveIndex(index)}
+                      aria-label={`Ir a imagen ${index + 1}`}
+                      aria-current={index === activeIndex}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              <figcaption className="gallery__caption">{activeSlide.caption}</figcaption>
+            </figure>
+          </Reveal>
+        )}
+      </div>
     </section>
   )
 }

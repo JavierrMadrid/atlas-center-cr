@@ -1,0 +1,118 @@
+/* ============================================================================
+   Atlas Center - Design tokens
+   Redesign direction: dark athletic "performance club".
+   Locks: one theme (dark), one accent (muted green), one radius system.
+   ========================================================================== */
+
+:root {
+  /* Typography ------------------------------------------------------------ */
+  --font-display: 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
+  --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-display: clamp(3rem, 7.2vw, 5.75rem);
+  --fs-h1: clamp(2.25rem, 4.4vw, 3.6rem);
+  --fs-h2: clamp(1.9rem, 3.4vw, 2.85rem);
+  --fs-h3: clamp(1.35rem, 2vw, 1.7rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.075rem);
+  --fs-small: 0.875rem;
+  --fs-micro: 0.75rem;
+
+  --lh-display: 0.9;
+  --lh-heading: 1.02;
+  --lh-body: 1.65;
+
+  --tracking-display: 0.01em;
+  --tracking-label: 0.16em;
+
+  /* Neutrals: single cool graphite family --------------------------------- */
+  --ink-950: #0a0c0d;
+  --ink-900: #0f1214;
+  --ink-850: #14181a;
+  --ink-800: #1a1f22;
+  --ink-750: #20262a;
+  --ink-700: #2a3135;
+  --ink-600: #3c454a;
+  --ink-500: #5d686e;
+  --ink-400: #8a959b;
+  --ink-300: #b4bdc2;
+  --ink-200: #d5dbdf;
+  --ink-100: #eef1f3;
+  --paper: #f5f7f8;
+
+  /* Accent: green family of #1E570E (deep, military green).
+     - filled buttons use the darkest stops (#1e570e)
+     - text roles (links, icons, eyebrows) use readable mid stops on dark */
+  --accent-100: #e4efd6;
+  --accent-300: #9cc26a;
+  --accent-400: #7daa4f;
+  --accent-500: #4d7c28;
+  --accent-600: #2a6a13;
+  --accent-900: #162c0b;
+
+  /* Semantic surfaces ----------------------------------------------------- */
+  --bg: var(--ink-950);
+  --bg-raised: var(--ink-900);
+  --surface: var(--ink-850);
+  --surface-solid: var(--ink-850);
+  --surface-contrast: var(--ink-800);
+
+  --border: rgba(180, 189, 194, 0.14);
+  --border-strong: rgba(180, 189, 194, 0.3);
+
+  --text: var(--ink-200);
+  --text-soft: var(--ink-400);
+  --text-muted: var(--ink-500);
+  --heading: var(--paper);
+  --accent: var(--accent-400);
+  --accent-strong: var(--accent-300);
+
+  /* Botón primario: verde profundo (fondo) */
+  --btn-green: #1e570e;
+  --btn-green-hover: #2a6a13;
+  --btn-green-ink: #f2f6f2;
+
+  --danger: #e08a7a;
+
+  /* Spacing --------------------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  --section-y: clamp(4.5rem, 9vw, 8.5rem);
+  --gutter: clamp(1.25rem, 4.5vw, 3.5rem);
+  --page-max: 1280px;
+  --measure: 62ch;
+
+  /* Radii: documented system ---------------------------------------------
+     - interactive (buttons, pills, tags) -> pill
+     - containers (cards, panels, media)  -> 18px
+     - fields (inputs, textareas)         -> 14px
+  -------------------------------------------------------------------------- */
+  --radius-container: 18px;
+  --radius-field: 14px;
+  --radius-pill: 999px;
+
+  /* Elevation: tinted to the dark canvas, never pure black ----------------- */
+  --shadow-soft: 0 1px 0 rgba(255, 255, 255, 0.03), 0 20px 44px -28px rgba(0, 0, 0, 0.9);
+  --shadow-lift: 0 28px 64px -30px rgba(0, 0, 0, 0.95);
+
+  /* Layout ---------------------------------------------------------------- */
+  --header-h: 72px;
+  --z-raised: 1;
+  --z-contact: 25;
+  --z-header: 30;
+  --z-backdrop: 39;
+  --z-drawer: 40;
+  --z-lightbox: 60;
+
+  /* Motion ---------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 160ms;
+  --dur: 320ms;
+  --dur-slow: 720ms;
+}

@@ -1,5 +1,29 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Icon from '../ui/Icon'
+import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
+
+const EMOJI_PATTERNS = [
+  /[\u{1F000}-\u{1FAFF}]/gu,
+  /[\u{2600}-\u{27BF}]/gu,
+  /[\u{2B00}-\u{2BFF}]/gu,
+  /[\u{FE0F}]/gu,
+  /[\u{200D}]/gu,
+]
+
+const stripEmoji = (value) => {
+  if (typeof value !== 'string') {
+    return value
+  }
+
+  let result = value
+  for (const pattern of EMOJI_PATTERNS) {
+    result = result.replace(pattern, '')
+  }
+
+  return result
+}
 
 const renderInlineMarkdown = (text) => {
   const value = typeof text === 'string' ? text : ''
@@ -19,7 +43,7 @@ const renderInlineMarkdown = (text) => {
 const renderTrainerDescription = (description) => {
   const content =
     typeof description === 'string'
-      ? description
+      ? stripEmoji(description)
           .replace(/\\r\\n/g, '\n')
           .replace(/\r\n/g, '\n')
           .replace(/\\n/g, '\n')
@@ -106,7 +130,13 @@ const trainerImagePositions = {
   Carlos: { objectPosition: 'center 18%' },
 }
 
-function TrainersSection({ trainers, headingLevel = 'h2', headingTitle = 'Equipo', headingDescription }) {
+function TrainersSection({
+  trainers,
+  headingLevel = 'h2',
+  headingTitle = 'Equipo',
+  headingDescription,
+  viewAll = false,
+}) {
   const [flippedCards, setFlippedCards] = useState(() => new Set())
 
   const toggleCard = (trainerName) => {
@@ -124,61 +154,69 @@ function TrainersSection({ trainers, headingLevel = 'h2', headingTitle = 'Equipo
   }
 
   return (
-    <section id="equipo" className="section pricing-section team-section section--reveal">
-      <SectionHeading
-        level={headingLevel}
-        title={headingTitle}
-        description={headingDescription ?? 'Conoce a nuestro equipo multidisciplinar de entrenamiento y fisioterapia, con una misma filosofia de trabajo: tecnica, intensidad y cercania.'}
-      />
+    <section id="equipo" className="section">
+      <div className="container">
+        <Reveal>
+          <div className="trainers-section__intro">
+            <SectionHeading
+              level={headingLevel}
+              title={headingTitle}
+              description={headingDescription}
+            />
+            {viewAll ? (
+              <Link className="btn btn--ghost" to="/equipo">
+                Todo el equipo
+                <Icon name="arrowRight" size={16} className="btn__icon" />
+              </Link>
+            ) : null}
+          </div>
+        </Reveal>
 
-      <div className="pricing-schedule-grid pricing-schedule-grid--stack">
-        <article className="panel panel--team">
-          <div className="trainers-grid">
-            {trainers.map((trainer) => {
-              const isFlipped = flippedCards.has(trainer.name)
+        <div className="trainers-grid">
+          {trainers.map((trainer, index) => {
+            const isFlipped = flippedCards.has(trainer.name)
 
-              return (
-                <article
-                  key={trainer.name}
-                  className={`trainer-card${isFlipped ? ' is-flipped' : ''}`}
+            return (
+              <Reveal
+                key={trainer.name}
+                as="article"
+                delay={index * 60}
+                className={`trainer-card${isFlipped ? ' is-flipped' : ''}`}
+              >
+                <button
+                  type="button"
+                  className="trainer-card__flip"
+                  onClick={() => toggleCard(trainer.name)}
+                  aria-label={`${isFlipped ? 'Ver foto de' : 'Ver perfil de'} ${trainer.name}`}
+                  aria-pressed={isFlipped}
                 >
-                  <button
-                    type="button"
-                    className="trainer-card__flip"
-                    onClick={() => toggleCard(trainer.name)}
-                    aria-label={`${isFlipped ? 'Ver foto de' : 'Ver descripcion de'} ${trainer.name}`}
-                    aria-pressed={isFlipped}
-                  >
-                    <div className="trainer-card__flip-inner">
-                      <div className="trainer-card__face trainer-card__face--front">
-                        <img
-                          src={trainer.image}
-                          alt={`Miembro del equipo ${trainer.name}`}
-                          loading="lazy"
-                          decoding="async"
-                          width="1200"
-                          height="1600"
-                          sizes="(max-width: 768px) 92vw, (max-width: 1200px) 45vw, 360px"
-                          style={trainerImagePositions[trainer.name]}
-                        />
-                        <div className="trainer-card__overlay">
-                          <h3 className="trainer-card__name">{trainer.name}</h3>
-                        </div>
-                      </div>
+                  <div className="trainer-card__flip-inner">
+                    <div className="trainer-card__face trainer-card__face--front">
+                      <img
+                        src={trainer.image}
+                        alt={`Miembro del equipo ${trainer.name}`}
+                        loading="lazy"
+                        decoding="async"
+                        width="1200"
+                        height="1600"
+                        style={trainerImagePositions[trainer.name]}
+                      />
+                      <h3 className="trainer-card__name">{trainer.name}</h3>
+                      <span className="trainer-card__hint">Ver perfil</span>
+                    </div>
 
-                      <div className="trainer-card__face trainer-card__face--back">
-                        <h3>{trainer.name}</h3>
-                        <div className="trainer-card__description">
-                          {renderTrainerDescription(trainer.description)}
-                        </div>
+                    <div className="trainer-card__face trainer-card__face--back">
+                      <h3>{trainer.name}</h3>
+                      <div className="trainer-card__description">
+                        {renderTrainerDescription(trainer.description)}
                       </div>
                     </div>
-                  </button>
-                </article>
-              )
-            })}
-          </div>
-        </article>
+                  </div>
+                </button>
+              </Reveal>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

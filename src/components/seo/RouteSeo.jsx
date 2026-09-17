@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
+import { HERO_IMAGE_SRC } from '../../config/media'
 
 const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://atlas-center.com').replace(/\/$/, '')
 
@@ -336,7 +337,7 @@ function RouteSeo({ brand, contactPage, schedule }) {
   const robotsValue = isKnownPath
     ? 'index,follow,max-image-preview:large'
     : 'noindex,nofollow,noarchive,max-image-preview:large'
-  const heroImagePath = brand.heroLogoSrc || '/imagenes/logo_grande.webp'
+  const heroImagePath = HERO_IMAGE_SRC
   const shouldPreloadHeroImage = seoPath === '/'
 
   const structuredData = {

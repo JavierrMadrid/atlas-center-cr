@@ -2,80 +2,84 @@ import PageShell from '../components/layout/PageShell'
 import { Link } from 'react-router-dom'
 import SectionHeading from '../components/ui/SectionHeading'
 
+const programs = [
+  {
+    id: 'pilates',
+    title: 'Pilates',
+    imageSrc: '/imagenes/pilates.jpg',
+    imageAlt: 'Clase de pilates en el gimnasio Atlas Center de Ciudad Real',
+    description:
+      'Trabajo técnico centrado en el control postural, la movilidad y la fuerza del core para avanzar con seguridad.',
+    items: [
+      'Activación del suelo pélvico y del transverso abdominal.',
+      'Respiración y control del movimiento en cada repetición.',
+      'Mejora de la flexibilidad funcional y de la estabilidad lumbar.',
+    ],
+  },
+  {
+    id: 'zenn',
+    title: 'Zenn',
+    imageSrc: '/imagenes/zenn.jpg',
+    imageAlt: 'Clase de Zenn, disciplina inspirada en yoga, en Atlas Center Ciudad Real',
+    description:
+      'Sesión dinámica inspirada en yoga, pilates y taichi, coreografiada al ritmo de la música.',
+    items: [
+      'Mejora de la coordinación, el equilibrio y la conciencia corporal.',
+      'Conexión cuerpo-mente con trabajo fluido y guiado.',
+      'Intensidad adaptable a distintos niveles.',
+    ],
+  },
+]
+
 function PilatesZennPage() {
   return (
-    <PageShell className="pricing-page service-page service-page--pilates-zenn">
-      <section className="section pricing-section section--reveal">
-        <SectionHeading
-          level="h1"
-          title="Clases de Pilates, Zenn y Yoga en Ciudad Real"
-          description="En Atlas Center damos clases de pilates y Zenn en Ciudad Real para todos los niveles. Mejora tu postura, tu movilidad y la fuerza del core con sesiones guiadas en grupos reducidos."
-        />
+    <PageShell>
+      <section className="section">
+        <div className="container">
+          <SectionHeading
+            level="h1"
+            title="Clases de Pilates, Zenn y Yoga en Ciudad Real"
+            description="En Atlas Center damos clases de pilates y Zenn para todos los niveles. Mejora tu postura, tu movilidad y la fuerza del core con sesiones guiadas en grupos reducidos."
+          />
 
-        <div className="service-programs-grid">
-          <article className="panel panel--service service-program-card service-program-card--pilates">
-            <figure className="service-page__figure service-program-card__media">
-              <img
-                src="/imagenes/pilates.jpg"
-                alt="Clase de pilates en el gimnasio Atlas Center de Ciudad Real"
-                loading="lazy"
-                decoding="async"
-                width="1280"
-                height="853"
-                sizes="(max-width: 768px) 92vw, (max-width: 1280px) 46vw, 600px"
-              />
-            </figure>
+          <div className="programs__grid">
+            {programs.map((program) => (
+              <article key={program.id} className="program-card">
+                <figure className="service__figure service__figure--short">
+                  <img
+                    src={program.imageSrc}
+                    alt={program.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    width="1280"
+                    height="853"
+                  />
+                </figure>
+                <h3>{program.title}</h3>
+                <p>{program.description}</p>
+                <ul className="service__list">
+                  {program.items.map((item) => (
+                    <li key={item.slice(0, 24)}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
 
-            <div className="service-program-card__content">
-              <h3>Pilates</h3>
-              <p>
-                Trabajo tecnico centrado en control postural, movilidad y fuerza del core para avanzar con seguridad.
-              </p>
-              <ul className="service-page__list">
-                <li>Activacion de suelo pelvico y transverso abdominal.</li>
-                <li>Respiracion y control del movimiento en cada repeticion.</li>
-                <li>Mejora de flexibilidad funcional y estabilidad lumbar.</li>
-              </ul>
-            </div>
-          </article>
+          <div className="service__block service__block--card">
+            <h3>Cómo elegir tu clase</h3>
+            <p className="service__note service__note--tight">
+              Pilates es ideal si buscas precisión técnica y fortalecimiento del core. Zenn es
+              perfecto si prefieres un formato más dinámico y fluido. Puedes combinar ambas
+              modalidades.
+            </p>
+          </div>
 
-          <article className="panel panel--service service-program-card service-program-card--zenn">
-            <figure className="service-page__figure service-program-card__media">
-              <img
-                src="/imagenes/zenn.jpg"
-                alt="Clase de Zenn, disciplina inspirada en yoga, en Atlas Center Ciudad Real"
-                loading="lazy"
-                decoding="async"
-                width="1280"
-                height="853"
-                sizes="(max-width: 768px) 92vw, (max-width: 1280px) 46vw, 600px"
-              />
-            </figure>
-
-            <div className="service-program-card__content">
-              <h3>Zenn</h3>
-              <p>
-                Sesion dinamica inspirada en yoga, pilates y taichi, coreografiada al ritmo de la musica.
-              </p>
-              <ul className="service-page__list">
-                <li>Mejora de coordinacion, equilibrio y conciencia corporal.</li>
-                <li>Conexion cuerpo-mente con trabajo fluido y guiado.</li>
-                <li>Intensidad adaptable para distintos niveles.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-
-        <article className="panel panel--service service-page__block">
-          <h3>Como elegir tu clase</h3>
-          <p className="service-page__note">
-            Pilates es ideal si buscas precision tecnica y fortalecimiento del core. Zenn es perfecto si prefieres un
-            formato mas dinamico y fluido. Puedes combinar ambas modalidades.
+          <p className="service__note">
+            Consulta <Link to="/tarifas-horarios">tarifas y horarios</Link> o visita{' '}
+            <Link to="/contacto">contacto</Link> para reservar tu clase.
           </p>
-        </article>
-        <p className="service-page__note service-page__note--cta">
-          Consulta <Link to="/tarifas-horarios">tarifas y horarios</Link> o visita <Link to="/contacto">contacto</Link> para reservar.
-        </p>
+        </div>
       </section>
     </PageShell>
   )
