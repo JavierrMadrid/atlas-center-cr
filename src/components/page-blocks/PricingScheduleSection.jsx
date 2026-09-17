@@ -82,6 +82,31 @@ function PricingScheduleSection({
                     {group.plans.map((plan) => {
                       const planLabel = normalizePlanName(plan.name)
 
+                      if (plan.imageSrc) {
+                        return (
+                          <button
+                            key={plan.name}
+                            type="button"
+                            className="price-card price-card--image"
+                            onClick={() =>
+                              setLightbox({ src: plan.imageSrc, alt: `Tarifa ${planLabel}` })
+                            }
+                            aria-label={`Ver tarifa ${planLabel} en grande`}
+                          >
+                            <img
+                              src={plan.imageSrc}
+                              alt={`Tarifa ${planLabel}`}
+                              loading="lazy"
+                              decoding="async"
+                            />
+                            <span className="price-card__zoom">
+                              Ver tarifa
+                              <Icon name="expand" size={16} />
+                            </span>
+                          </button>
+                        )
+                      }
+
                       return (
                         <article key={plan.name} className="price-card">
                           <span className="price-card__name">{planLabel}</span>
@@ -89,23 +114,6 @@ function PricingScheduleSection({
                           <p className="price-card__details">
                             {plan.details || 'Consulta las condiciones en el gimnasio.'}
                           </p>
-                          <div className="price-card__footer">
-                            {plan.imageSrc ? (
-                              <button
-                                className="price-card__zoom"
-                                type="button"
-                                onClick={() =>
-                                  setLightbox({ src: plan.imageSrc, alt: `Tarifa ${planLabel}` })
-                                }
-                                aria-label={`Ver tarifa ${planLabel} en grande`}
-                              >
-                                Ver tarifa
-                                <Icon name="expand" size={16} />
-                              </button>
-                            ) : (
-                              <span />
-                            )}
-                          </div>
                         </article>
                       )
                     })}
