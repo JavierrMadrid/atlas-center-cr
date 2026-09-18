@@ -1,0 +1,30 @@
+.glow-media {
+  width: 100%;
+}
+
+.glow-media > .border-glow-inner {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.glow-media img {
+  display: block;
+  width: 100%;
+}
+
+/* Absolutely fills its positioned parent (image as card background) */
+.glow-media--fill {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+}
+
+.glow-media--fill > .border-glow-inner {
+  height: 100%;
+}
+
+.glow-media--fill img {
+  height: 100%;
+  object-fit: cover;
+}

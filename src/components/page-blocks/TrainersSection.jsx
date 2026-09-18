@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Link } from 'react-router-dom'
+import GlowMedia from '../ui/GlowMedia'
 import Icon from '../ui/Icon'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
@@ -140,6 +141,7 @@ function TrainersSection({
   headingTitle = 'Equipo',
   headingDescription,
   viewAll = false,
+  glow = false,
 }) {
   const [active, setActive] = useState(null)
   const [flightTransform, setFlightTransform] = useState(null)
@@ -328,7 +330,9 @@ function TrainersSection({
                 key={trainer.name}
                 as="article"
                 delay={index * 60}
-                className={`trainer-card${isSource ? ' trainer-card--source' : ''}`}
+                className={`trainer-card${isSource ? ' trainer-card--source' : ''}${
+                  glow ? ' trainer-card--glow' : ''
+                }`}
               >
                 <button
                   type="button"
@@ -338,15 +342,29 @@ function TrainersSection({
                 >
                   <div className="trainer-card__flip-inner">
                     <div className="trainer-card__face trainer-card__face--front">
-                      <img
-                        src={trainer.image}
-                        alt={`Miembro del equipo ${trainer.name}`}
-                        loading="lazy"
-                        decoding="async"
-                        width="1200"
-                        height="1600"
-                        style={trainerImagePositions[trainer.name]}
-                      />
+                      {glow ? (
+                        <GlowMedia className="trainer-card__glow" variant="fill">
+                          <img
+                            src={trainer.image}
+                            alt={`Miembro del equipo ${trainer.name}`}
+                            loading="lazy"
+                            decoding="async"
+                            width="1200"
+                            height="1600"
+                            style={trainerImagePositions[trainer.name]}
+                          />
+                        </GlowMedia>
+                      ) : (
+                        <img
+                          src={trainer.image}
+                          alt={`Miembro del equipo ${trainer.name}`}
+                          loading="lazy"
+                          decoding="async"
+                          width="1200"
+                          height="1600"
+                          style={trainerImagePositions[trainer.name]}
+                        />
+                      )}
                       <h3 className="trainer-card__name">{trainer.name}</h3>
                       <span className="trainer-card__hint">Ver perfil</span>
                     </div>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import GlowMedia from '../ui/GlowMedia'
 import Icon from '../ui/Icon'
 import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
@@ -31,15 +32,17 @@ function TrainingSection({ programs }) {
               >
                 <Link className="modalities__card-link-wrap" to={program.href ?? '/tarifas-horarios'}>
                   {program.imageSrc && (
-                    <img
-                      src={program.imageSrc}
-                      alt={program.imageAlt ?? `Imagen de ${program.title}`}
-                      loading="lazy"
-                      decoding="async"
-                      width="1600"
-                      height="1067"
-                      style={program.imagePosition ? { objectPosition: program.imagePosition } : undefined}
-                    />
+                    <GlowMedia className="modalities__glow" variant="fill">
+                      <img
+                        src={program.imageSrc}
+                        alt={program.imageAlt ?? `Imagen de ${program.title}`}
+                        loading="lazy"
+                        decoding="async"
+                        width="1600"
+                        height="1067"
+                        style={program.imagePosition ? { objectPosition: program.imagePosition } : undefined}
+                      />
+                    </GlowMedia>
                   )}
                   <div className="modalities__card-body">
                     <h3 className="modalities__card-title">{program.title}</h3>

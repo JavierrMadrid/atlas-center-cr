@@ -82,7 +82,7 @@
   object-fit: cover;
   display: block;
   filter: brightness(0.94);
-  transition: transform 0.5s var(--ease-out), filter 0.5s var(--ease-out);
+  transition: filter 0.5s var(--ease-out);
 }
 
 @media (hover: hover) {
@@ -91,7 +91,6 @@
   }
 
   .price-card--image:hover img {
-    transform: scale(1.04);
     filter: brightness(1);
   }
 }
