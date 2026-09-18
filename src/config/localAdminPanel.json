@@ -53,7 +53,8 @@
       "description": "Sesiones enfocadas en movilidad, control postural, respiración y trabajo de core dentro de los bonos de clase.",
       "href": "/pilates",
       "imageSrc": "/imagenes/entrenamiento/yogaypilates.webp",
-      "imageAlt": "Clase de pilates"
+      "imageAlt": "Clase de pilates",
+      "imagePosition": "center 64%"
     }
   ],
   "carouselImages": [

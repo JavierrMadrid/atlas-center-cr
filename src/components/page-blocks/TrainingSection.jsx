@@ -38,6 +38,7 @@ function TrainingSection({ programs }) {
                       decoding="async"
                       width="1600"
                       height="1067"
+                      style={program.imagePosition ? { objectPosition: program.imagePosition } : undefined}
                     />
                   )}
                   <div className="modalities__card-body">
