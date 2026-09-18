@@ -48,6 +48,7 @@ body::before {
   height: 100dvh;
   z-index: -1;
   background: url('/imagenes/logo_grande.webp') center center / cover no-repeat;
+  background-size: max(100vw, 202.3lvh) auto;
   opacity: 0.15;
   pointer-events: none;
 }
