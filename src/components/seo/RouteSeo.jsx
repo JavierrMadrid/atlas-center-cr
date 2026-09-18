@@ -13,7 +13,7 @@ const PATH_LABELS = {
   '/': 'Inicio',
   '/equipo': 'Equipo',
   '/fisioterapia': 'Fisioterapia',
-  '/pilates-zenn': 'Pilates y Zenn',
+  '/pilates': 'Pilates',
   '/tarifas-horarios': 'Tarifas y horarios',
   '/contacto': 'Contacto',
 }
@@ -22,7 +22,7 @@ const SEO_BY_PATH = {
   '/': {
     title: 'Atlas Center | Centro Deportivo en Ciudad Real',
     description:
-      'Centro deportivo especializado en entrenamientos funcionales e híbridos en grupos reducidos. Ofrecemos fisioterapia, pilates, Zenn inspirado en yoga y sala de entrenamiento libre en Ciudad Real. Consulta horarios y tarifas en Atlas Center.',
+      'Centro deportivo especializado en entrenamientos funcionales e híbridos en grupos reducidos. Ofrecemos fisioterapia, pilates y sala de entrenamiento libre en Ciudad Real. Consulta horarios y tarifas en Atlas Center.',
   },
   '/equipo': {
     title: 'Equipo de Entrenadores | Atlas Center Ciudad Real',
@@ -34,15 +34,15 @@ const SEO_BY_PATH = {
     description:
       'Servicio de fisioterapia deportiva en Atlas Center, con recuperacion funcional, readaptacion y prevencion de lesiones para deportistas y personas activas.',
   },
-  '/pilates-zenn': {
-    title: 'Clases de Pilates, Zenn y Yoga en Ciudad Real | Atlas Center',
+  '/pilates': {
+    title: 'Clases de Pilates en Ciudad Real | Atlas Center',
     description:
-      'Clases de pilates y Zenn (fusion de yoga, pilates y taichi) en Atlas Center para mejorar movilidad, control postural, respiracion, equilibrio y fuerza del core con sesiones guiadas para todos los niveles.',
+      'Clases de pilates en Atlas Center para mejorar movilidad, control postural, respiracion y fuerza del core con sesiones guiadas en grupos reducidos para todos los niveles.',
   },
   '/tarifas-horarios': {
     title: 'Tarifas y Horarios del Gimnasio | Atlas Center Ciudad Real',
     description:
-      'Consulta tarifas y horarios de Atlas Center para entrenamiento funcional e híbrido en grupos reducidos, entrenamiento guiado, gimnasio open, Zenn, yoga y pilates en Ciudad Real.',
+      'Consulta tarifas y horarios de Atlas Center para entrenamiento funcional e híbrido en grupos reducidos, entrenamiento guiado, gimnasio open y pilates en Ciudad Real.',
   },
   '/contacto': {
     title: 'Contacto Atlas Center | Centro Deportivo en Ciudad Real',
@@ -203,23 +203,23 @@ const getBreadcrumbSchema = (pathname, canonicalUrl) => {
   }
 }
 
-const getPilatesZennFaqSchema = () => ({
+const getPilatesFaqSchema = () => ({
   '@type': 'FAQPage',
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Que diferencia hay entre Zenn y una clase de yoga tradicional?',
+      name: 'Para quien son las clases de pilates de Atlas Center?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Zenn mantiene la respiracion y la conexion cuerpo-mente del yoga, y ademas integra movimientos de pilates y taichi en un formato coreografiado y dinamico.',
+        text: 'Las clases de pilates estan adaptadas a todos los niveles. Trabajamos desde la tecnica basica hasta ejercicios mas exigentes, ajustando la intensidad a cada persona.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Si busco yoga en Ciudad Real, me sirve Zenn?',
+      name: 'Que beneficios aporta el pilates?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Si. Zenn es una opcion inspirada en yoga que anade trabajo de control postural, coordinacion y estabilidad del core para una practica completa.',
+        text: 'El pilates mejora el control postural, la movilidad, la respiracion y la fuerza del core, con especial atencion al suelo pelvico y al transverso abdominal.',
       },
     },
   ],
@@ -293,10 +293,10 @@ const SERVICE_BY_PATH = {
     areaServed: { '@type': 'City', name: 'Ciudad Real' },
     provider: { '@id': `${SITE_URL}/#localbusiness` },
   },
-  '/pilates-zenn': {
+  '/pilates': {
     '@type': 'Service',
-    serviceType: 'Clases de pilates, Zenn y yoga',
-    description: 'Clases guiadas de pilates, Zenn (fusion de yoga, pilates y taichi) y trabajo de core en Ciudad Real.',
+    serviceType: 'Clases de pilates',
+    description: 'Clases guiadas de pilates y trabajo de core en Ciudad Real.',
     areaServed: { '@type': 'City', name: 'Ciudad Real' },
     provider: { '@id': `${SITE_URL}/#localbusiness` },
   },
@@ -310,14 +310,14 @@ const SERVICE_BY_PATH = {
   '/equipo': {
     '@type': 'Service',
     serviceType: 'Entrenamiento personal',
-    description: 'Entrenadores personales, especialistas en pilates, Zenn y fisioterapia en Ciudad Real.',
+    description: 'Entrenadores personales, especialistas en pilates y fisioterapia en Ciudad Real.',
     areaServed: { '@type': 'City', name: 'Ciudad Real' },
     provider: { '@id': `${SITE_URL}/#localbusiness` },
   },
 }
 
 const FAQ_BY_PATH = {
-  '/pilates-zenn': getPilatesZennFaqSchema,
+  '/pilates': getPilatesFaqSchema,
   '/fisioterapia': getFisioterapiaFaqSchema,
   '/tarifas-horarios': getTarifasFaqSchema,
 }

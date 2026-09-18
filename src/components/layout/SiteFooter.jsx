@@ -38,7 +38,7 @@ function SiteFooter({ brand, contactPage, legalItems, schedule }) {
             </span>
             <p className="site-footer__blurb">
               Centro de entrenamiento en Ciudad Real: funcional e híbrido guiado en grupos
-              reducidos, sala open, pilates, Zenn y fisioterapia deportiva.
+              reducidos, sala open, pilates y fisioterapia deportiva.
             </p>
             <nav className="site-footer__social" aria-label="Redes sociales">
               {socialLinks.map((link) => (

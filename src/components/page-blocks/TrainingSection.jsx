@@ -4,28 +4,7 @@ import Reveal from '../ui/Reveal'
 import SectionHeading from '../ui/SectionHeading'
 
 function TrainingSection({ programs }) {
-  const items = programs.flatMap((program) => {
-    if (!/pilates\s*y\s*zenn/i.test(program.title ?? '')) {
-      return [program]
-    }
-
-    return [
-      {
-        ...program,
-        title: 'Pilates',
-        description:
-          'Trabajo de movilidad, control postural, respiración y fuerza del core en clases guiadas.',
-        href: '/pilates-zenn',
-      },
-      {
-        ...program,
-        title: 'Zenn',
-        description:
-          'Sesión dinámica inspirada en yoga, pilates y taichi para mejorar equilibrio y coordinación.',
-        href: '/pilates-zenn',
-      },
-    ]
-  })
+  const items = programs
 
   return (
     <section id="entrenamientos" className="section">
@@ -34,14 +13,14 @@ function TrainingSection({ programs }) {
           <SectionHeading
             eyebrow="Modalidades"
             title="Elige cómo entrenar"
-            description="Entrenamiento guiado, sala open, pilates y Zenn. Cuatro vías, un mismo criterio técnico y seguimiento adaptado a tu nivel."
+            description="Entrenamiento guiado, sala open y pilates. Tres vías, un mismo criterio técnico y seguimiento adaptado a tu nivel."
           />
         </Reveal>
 
         <div className="modalities__grid">
           {items.map((program, index) => {
             const sizeClass =
-              index === 0 ? 'modalities__card--feature' : index === items.length - 1 ? 'modalities__card--wide' : ''
+              index === items.length - 1 ? 'modalities__card--wide' : 'modalities__card--feature'
 
             return (
               <Reveal

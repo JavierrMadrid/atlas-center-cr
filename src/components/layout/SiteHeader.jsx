@@ -6,7 +6,7 @@ const pageLinks = [
   { to: '/', label: 'Inicio', icon: 'home' },
   { to: '/equipo', label: 'Equipo', icon: 'team' },
   { to: '/fisioterapia', label: 'Fisioterapia', icon: 'physio' },
-  { to: '/pilates-zenn', label: 'Pilates y Zenn', icon: 'pilates' },
+  { to: '/pilates', label: 'Pilates', icon: 'pilates' },
   { to: '/tarifas-horarios', label: 'Tarifas y horarios', icon: 'pricing' },
   { to: '/contacto', label: 'Contacto', icon: 'contact' },
 ]

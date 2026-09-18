@@ -45,9 +45,9 @@ body::before {
   left: 0;
   width: 100%;
   height: 100vh;
-  height: 100lvh;
+  height: 100dvh;
   z-index: -1;
-  background: url('/imagenes/logo_grande.webp') center / cover no-repeat;
+  background: url('/imagenes/logo_grande.webp') center center / cover no-repeat;
   opacity: 0.15;
   pointer-events: none;
 }

@@ -11,7 +11,7 @@ const PricingPage = lazy(() => import('./pages/PricingPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const TeamPage = lazy(() => import('./pages/TeamPage'))
 const FisioterapiaPage = lazy(() => import('./pages/FisioterapiaPage'))
-const PilatesZennPage = lazy(() => import('./pages/PilatesYogaPage'))
+const PilatesPage = lazy(() => import('./pages/PilatesPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 const HEADER_OFFSET_PX = 88
@@ -71,8 +71,9 @@ function App() {
             <Route path="/" element={<HomePage content={localAdminContent} />} />
             <Route path="/equipo" element={<TeamPage content={localAdminContent} />} />
             <Route path="/fisioterapia" element={<FisioterapiaPage content={localAdminContent} />} />
-            <Route path="/pilates-zenn" element={<PilatesZennPage />} />
-            <Route path="/pilates-yoga" element={<Navigate to="/pilates-zenn" replace />} />
+            <Route path="/pilates" element={<PilatesPage />} />
+            <Route path="/pilates-zenn" element={<Navigate to="/pilates" replace />} />
+            <Route path="/pilates-yoga" element={<Navigate to="/pilates" replace />} />
             <Route path="/tarifas-horarios" element={<PricingPage content={localAdminContent} />} />
             <Route path="/contacto" element={<ContactPage content={localAdminContent} />} />
             <Route path="/404" element={<NotFoundPage />} />

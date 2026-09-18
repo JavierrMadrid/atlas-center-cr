@@ -17,7 +17,7 @@ import PricingPage from './pages/PricingPage'
 import ContactPage from './pages/ContactPage'
 import TeamPage from './pages/TeamPage'
 import FisioterapiaPage from './pages/FisioterapiaPage'
-import PilatesZennPage from './pages/PilatesYogaPage'
+import PilatesPage from './pages/PilatesPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 // ─── Componente y función de render ──────────────────────────────────────────
@@ -38,8 +38,9 @@ function ServerApp() {
           <Route path="/" element={<HomePage content={localAdminContent} />} />
           <Route path="/equipo" element={<TeamPage content={localAdminContent} />} />
           <Route path="/fisioterapia" element={<FisioterapiaPage content={localAdminContent} />} />
-          <Route path="/pilates-zenn" element={<PilatesZennPage />} />
-          <Route path="/pilates-yoga" element={<Navigate to="/pilates-zenn" replace />} />
+          <Route path="/pilates" element={<PilatesPage />} />
+          <Route path="/pilates-zenn" element={<Navigate to="/pilates" replace />} />
+          <Route path="/pilates-yoga" element={<Navigate to="/pilates" replace />} />
           <Route path="/tarifas-horarios" element={<PricingPage content={localAdminContent} />} />
           <Route path="/contacto" element={<ContactPage content={localAdminContent} />} />
           <Route path="/404" element={<NotFoundPage />} />

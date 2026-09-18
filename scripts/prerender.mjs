@@ -14,7 +14,7 @@ const routes = [
   '/',
   '/equipo',
   '/fisioterapia',
-  '/pilates-zenn',
+  '/pilates',
   '/tarifas-horarios',
   '/contacto',
   '/404',
@@ -26,7 +26,7 @@ const seoConfig = {
   '/': { priority: 1.0, changefreq: 'weekly' },
   '/equipo': { priority: 0.8, changefreq: 'monthly' },
   '/fisioterapia': { priority: 0.8, changefreq: 'monthly' },
-  '/pilates-zenn': { priority: 0.8, changefreq: 'monthly' },
+  '/pilates': { priority: 0.8, changefreq: 'monthly' },
   '/tarifas-horarios': { priority: 0.9, changefreq: 'weekly' },
   '/contacto': { priority: 0.9, changefreq: 'weekly' },
 }

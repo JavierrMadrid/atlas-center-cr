@@ -16,7 +16,7 @@ const items = [
   {
     icon: 'barbell',
     title: 'Todo en un centro',
-    text: 'Funcional, híbrido, sala open, pilates, Zenn y fisioterapia en un mismo espacio.',
+    text: 'Funcional, híbrido, sala open, pilates y fisioterapia en un mismo espacio.',
   },
 ]
 

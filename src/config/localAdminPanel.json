@@ -4,7 +4,7 @@
     "heroName": "Gimnasio en Ciudad Real con entrenamiento guiado, pilates y fisioterapia",
     "kicker": "Centro de entrenamiento en Ciudad Real",
     "claim": "",
-    "description": "Especializados en entrenamiento funcional e híbrido en grupos reducidos, entrenamiento personal, pilates y Zenn. Ofrecemos seguimiento personalizado adaptado a cada nivel y objetivo: pérdida de peso, ganancia muscular, salud y bienestar. Un espacio cercano y motivador donde entrenar de forma segura, eficiente y acompañada.",
+    "description": "Especializados en entrenamiento funcional e híbrido en grupos reducidos, entrenamiento personal y pilates. Ofrecemos seguimiento personalizado adaptado a cada nivel y objetivo: pérdida de peso, ganancia muscular, salud y bienestar. Un espacio cercano y motivador donde entrenar de forma segura, eficiente y acompañada.",
     "headerLogoSrc": "/imagenes/logo_simple.webp",
     "heroLogoSrc": "/imagenes/logo_grande.webp",
     "socialImageSrc": "/imagenes/og-image.webp",
@@ -42,18 +42,18 @@
       "imageAlt": "Entrenamiento guiado en zona funcional"
     },
     {
-      "title": "Pilates y Zenn",
-      "description": "Sesiones enfocadas en movilidad, control postural, respiración y trabajo de core dentro de los bonos de clase.",
-      "href": "/tarifas-horarios#tarifas-grupos-reducidos",
-      "imageSrc": "/imagenes/entrenamiento/yogaypilates.webp",
-      "imageAlt": "Clase de pilates y Zenn"
-    },
-    {
       "title": "Sala open",
       "description": "Acceso libre a sala de musculación con bonos open para entrenar a tu ritmo.",
       "href": "/tarifas-horarios#tarifas-solo-open",
       "imageSrc": "/imagenes/entrenamiento/open.webp",
       "imageAlt": "Zona de sala open para musculación libre"
+    },
+    {
+      "title": "Pilates",
+      "description": "Sesiones enfocadas en movilidad, control postural, respiración y trabajo de core dentro de los bonos de clase.",
+      "href": "/pilates",
+      "imageSrc": "/imagenes/entrenamiento/yogaypilates.webp",
+      "imageAlt": "Clase de pilates"
     }
   ],
   "carouselImages": [
@@ -104,7 +104,7 @@
     {
       "name": "Grupos reducidos - Basic",
       "price": "50 €",
-      "details": "4 bonos de clase (entrenamiento guiado, Zenn o pilates) + 2 bonos open.",
+      "details": "4 bonos de clase (entrenamiento guiado o pilates) + 2 bonos open.",
       "imageSrc": "/imagenes/tarifas/Tarifa BASIC.webp"
     },
     {

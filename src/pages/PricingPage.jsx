@@ -10,7 +10,7 @@ function PricingPage({ content }) {
         schedule={content.schedule}
         headingLevel="h1"
         headingTitle="Tarifas y horarios del gimnasio en Ciudad Real"
-        headingDescription="Entrenamiento funcional e híbrido guiado en grupos reducidos, sala open, pilates, Zenn y fisioterapia. Bonos mensuales con caducidad de 30 días."
+        headingDescription="Entrenamiento funcional e híbrido guiado en grupos reducidos, sala open, pilates y fisioterapia. Bonos mensuales con caducidad de 30 días."
       />
     </PageShell>
   )

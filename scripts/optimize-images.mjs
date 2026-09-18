@@ -91,7 +91,7 @@ const collectFromFile = (filePath) => {
   } catch {}
 }
 collectFromFile(resolve(rootDir, 'src/App.jsx'))
-for (const page of ['HomePage', 'FisioterapiaPage', 'PilatesYogaPage', 'PricingPage', 'TeamPage', 'ContactPage']) {
+for (const page of ['HomePage', 'FisioterapiaPage', 'PilatesPage', 'PricingPage', 'TeamPage', 'ContactPage']) {
   collectFromFile(resolve(rootDir, 'src/pages', `${page}.jsx`))
 }
 

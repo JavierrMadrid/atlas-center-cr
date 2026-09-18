@@ -2,7 +2,7 @@ import Reveal from '../ui/Reveal'
 
 const paragraphs = [
   'Somos un centro de entrenamiento en Ciudad Real especializado en ayudarte a mejorar tu salud, composición corporal y rendimiento a través del ejercicio guiado por profesionales. En Atlas Center cada persona entrena a su ritmo, con atención personalizada y un plan adaptado a su nivel.',
-  'Ofrecemos entrenamiento funcional e híbrido en grupos reducidos de hasta 5 personas, clases de pilates y Zenn, acceso libre a sala de musculación y sesiones de fisioterapia deportiva. Nuestro equipo de técnicos y fisioterapeutas diseña programas orientados a pérdida de peso, ganancia de fuerza, mejora de la movilidad y prevención de lesiones, con seguimiento técnico continuo.',
+  'Ofrecemos entrenamiento funcional e híbrido en grupos reducidos de hasta 5 personas, clases de pilates, acceso libre a sala de musculación y sesiones de fisioterapia deportiva. Nuestro equipo de técnicos y fisioterapeutas diseña programas orientados a pérdida de peso, ganancia de fuerza, mejora de la movilidad y prevención de lesiones, con seguimiento técnico continuo.',
   'Ya estés empezando o busques dar el siguiente paso, en Atlas Center encontrarás un espacio cercano, motivador y profesional para entrenar de forma segura y constante.',
 ]
 

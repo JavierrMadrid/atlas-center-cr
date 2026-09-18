@@ -318,7 +318,7 @@
   width: 100%;
   aspect-ratio: 3 / 4;
   transform-style: preserve-3d;
-  transition: transform 0.45s var(--ease-out);
+  transition: transform 0.225s var(--ease-out);
 }
 
 .trainer-card__face {
