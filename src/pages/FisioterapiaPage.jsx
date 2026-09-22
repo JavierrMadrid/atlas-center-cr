@@ -1,5 +1,6 @@
 import PageShell from '../components/layout/PageShell'
 import { Link } from 'react-router-dom'
+import PriceMarquee from '../components/ui/PriceMarquee'
 import SectionHeading from '../components/ui/SectionHeading'
 
 function FisioterapiaPage({ content }) {
@@ -57,26 +58,9 @@ function FisioterapiaPage({ content }) {
             </figure>
           </div>
 
-          <div className="service__block service__block--card">
+          <div className="service__block">
             <h3>Tarifas de fisioterapia</h3>
-            <table className="price-table" aria-label="Precios de fisioterapia">
-              <thead>
-                <tr>
-                  <th scope="col">Tarifa</th>
-                  <th scope="col">Socios</th>
-                  <th scope="col">No socios</th>
-                </tr>
-              </thead>
-              <tbody>
-                {physiotherapyPrices.map((item) => (
-                  <tr key={item.label}>
-                    <th scope="row">{item.label}</th>
-                    <td>{item.memberPrice}</td>
-                    <td>{item.nonMemberPrice}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <PriceMarquee prices={physiotherapyPrices} variant="row" />
           </div>
 
           <p className="service__note">

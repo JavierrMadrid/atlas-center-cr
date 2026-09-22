@@ -425,6 +425,119 @@
   }
 }
 
+/* Home physio (features-style) ------------------------------------------------ */
+
+.physio-feat__head {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  max-width: 40rem;
+  margin: 0 auto clamp(2.25rem, 4vw, 3.25rem);
+  text-align: center;
+}
+
+.physio-feat__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: var(--fs-micro);
+  font-weight: 800;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.physio-feat__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.physio-feat__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.physio-feat__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--fs-micro);
+  font-weight: 800;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.physio-feat__eyebrow-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-soft);
+}
+
+.physio-feat__title {
+  font-size: var(--fs-h3);
+  text-transform: uppercase;
+}
+
+.physio-feat__list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.physio-feat__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  color: var(--text);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+
+.physio-feat__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.1rem;
+  border-radius: 5px;
+  background: var(--accent-600);
+  color: var(--paper);
+}
+
+@media (min-width: 769px) {
+  .physio-feat__row {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  .physio-feat__content {
+    flex: 1 1 0;
+  }
+
+  .physio-feat__prices {
+    flex: 1 1 0;
+  }
+}
+
 /* Editorial (SEO block) -------------------------------------------------------- */
 
 .editorial__copy {

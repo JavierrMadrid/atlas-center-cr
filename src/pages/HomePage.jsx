@@ -3,13 +3,14 @@ import CarouselSection from '../components/page-blocks/CarouselSection'
 import EditorialSection from '../components/page-blocks/EditorialSection'
 import HeroSection from '../components/page-blocks/HeroSection'
 import PageShell from '../components/layout/PageShell'
+import PhysioHomeSection from '../components/page-blocks/PhysioHomeSection'
 import TrainersSection from '../components/page-blocks/TrainersSection'
 import TrainingSection from '../components/page-blocks/TrainingSection'
 import ValueStrip from '../components/page-blocks/ValueStrip'
 import Icon from '../components/ui/Icon'
 
 function HomePage({ content }) {
-  const { brand, trainers, trainingPrograms, carouselImages } = content
+  const { brand, trainers, trainingPrograms, carouselImages, physiotherapyPrices } = content
   const [showScrollTop, setShowScrollTop] = useState(false)
   const sentinelRef = useRef(null)
 
@@ -49,6 +50,7 @@ function HomePage({ content }) {
         <ValueStrip />
         <TrainingSection programs={trainingPrograms} />
         <CarouselSection images={carouselImages} />
+        <PhysioHomeSection prices={physiotherapyPrices} />
         <TrainersSection
           trainers={trainers}
           headingTitle="El equipo"

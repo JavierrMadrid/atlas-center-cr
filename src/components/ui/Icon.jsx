@@ -25,6 +25,7 @@ import {
   Sparkle,
   Users,
   UsersThree,
+  User,
   WhatsappLogo,
   X,
 } from '@phosphor-icons/react'
@@ -58,6 +59,7 @@ const registry = {
   menu: List,
   expand: ArrowsOut,
   group: Users,
+  user: User,
 }
 
 function Icon({ name, size = 20, ...rest }) {
