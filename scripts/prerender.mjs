@@ -38,6 +38,39 @@ const lastmodISO = new Date().toISOString().slice(0, 10)
 // hoistea al <head> (eso solo pasa en cliente), las extraemos del body y
 // las reubicamos en <head> para evitar duplicados y que la herramienta de
 // SEO solo vea una etiqueta por tipo.
+// La plantilla (index.html) trae sus propias etiquetas SEO de la home. Como
+// solo inyectamos las del Helmet, cada página pre-renderizada salía con dos
+// <title>, dos <meta description>, dos <robots> y dos <canonical>; el primero
+// (el de la home) es el que los crawlers leen primero. Las eliminamos de la
+// plantilla solo cuando el Helmet inyecta el equivalente, así nunca perdemos
+// una etiqueta si el render no la produce.
+const TEMPLATE_SEO_PATTERNS = {
+  title: /<title[^>]*>[\s\S]*?<\/title>/i,
+  description: /<meta\s+name="description"[^>]*>/i,
+  robots: /<meta\s+name="(?:robots|googlebot)"[^>]*>/gi,
+  canonical: /<link\s+rel="canonical"[^>]*>/gi,
+}
+
+const stripTemplateSeo = (html, collected) => {
+  const has = (pattern) => collected.some((tag) => pattern.test(tag))
+  let result = html
+
+  if (has(/<title[\s>]/i)) {
+    result = result.replace(TEMPLATE_SEO_PATTERNS.title, '')
+  }
+  if (has(/name="description"/i)) {
+    result = result.replace(TEMPLATE_SEO_PATTERNS.description, '')
+  }
+  if (has(/name="(?:robots|googlebot)"/i)) {
+    result = result.replace(TEMPLATE_SEO_PATTERNS.robots, '')
+  }
+  if (has(/rel="canonical"/i)) {
+    result = result.replace(TEMPLATE_SEO_PATTERNS.canonical, '')
+  }
+
+  return result
+}
+
 const extractHelmetTags = (markup) => {
   const collected = []
   let cleaned = markup
@@ -67,7 +100,7 @@ for (const route of routes) {
   const { collected, cleaned } = extractHelmetTags(html)
   const headHtml = collected.join('\n    ')
 
-  const finalHtml = template
+  const finalHtml = stripTemplateSeo(template, collected)
     .replace('</head>', `    ${headHtml}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${cleaned}</div>`)
 

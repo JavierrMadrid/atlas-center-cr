@@ -30,7 +30,7 @@ function PhysioHomeSection({ prices }) {
               <span>Servicio</span>
             </div>
 
-            <h3 className="physio-feat__title">Prevención, tratamiento y readaptación</h3>
+            <h2 className="physio-feat__title">Prevención, tratamiento y readaptación</h2>
 
             <ul className="physio-feat__list">
               {bullets.map((bullet) => (

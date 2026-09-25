@@ -1,0 +1,73 @@
+.bounce-cards {
+  --bc-label-boost: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bounce-cards__stage {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  transform-origin: top center;
+}
+
+.bounce-card {
+  position: absolute;
+  width: 200px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-container);
+  box-shadow:
+    0 12px 28px -16px rgba(0, 0, 0, 0.85),
+    0 2px 8px -4px rgba(0, 0, 0, 0.55);
+}
+
+.bounce-card__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.88);
+  transition: filter 0.5s var(--ease-out);
+}
+
+@media (hover: hover) {
+  .bounce-card:hover .bounce-card__image {
+    filter: brightness(1);
+  }
+}
+
+.bounce-card__label {
+  position: absolute;
+  left: 8px;
+  bottom: 12px;
+  z-index: 1;
+  max-width: min(calc(50% - 8px), calc((100% - 16px) / var(--bc-label-boost)));
+  padding: 5px 9px 4px 8px;
+  background: linear-gradient(180deg, #ffffff, #edf0f2);
+  border-left: 3px solid var(--accent-500);
+  color: var(--ink-950);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  overflow-wrap: break-word;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 4px 12px -6px rgba(0, 0, 0, 0.55),
+    0 14px 26px -18px rgba(0, 0, 0, 0.95);
+  transform: rotate(-1deg) scale(var(--bc-label-boost));
+  transform-origin: 0 100%;
+}
+
+.bounce-card__label::first-letter {
+  text-transform: uppercase;
+}

@@ -68,6 +68,9 @@
 }
 
 .site-footer__list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
   color: var(--ink-200);
   font-size: var(--fs-small);
   transition: color var(--dur-fast) var(--ease-out);
@@ -87,8 +90,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
   color: var(--text-soft);
@@ -170,6 +173,9 @@
 }
 
 .site-footer__bottom-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   color: var(--text-soft);
 }
 
@@ -187,5 +193,11 @@
   .site-footer__grid {
     grid-template-columns: 1fr;
     gap: var(--space-5);
+  }
+
+  /* En móvil los enlaces son el objetivo táctil principal. */
+  .site-footer__list a,
+  .site-footer__bottom-links a {
+    min-height: 44px;
   }
 }

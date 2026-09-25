@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import Icon from '../ui/Icon'
+import { toTelHref, toWhatsAppHref } from '../../utils/phone'
+import { useFocusTrap } from '../../utils/useFocusTrap'
 
 const pageLinks = [
   { to: '/', label: 'Inicio', icon: 'home' },
@@ -11,28 +13,26 @@ const pageLinks = [
   { to: '/contacto', label: 'Contacto', icon: 'contact' },
 ]
 
-const socialLinks = [
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/atlascentercr?igsh=MXZlYXRzeHV1ejBlOA==',
-    icon: 'instagram',
-  },
-  {
-    label: 'WhatsApp',
-    href: 'https://wa.me/616725294',
-    icon: 'whatsapp',
-  },
-  {
-    label: 'Facebook',
-    href: 'https://www.facebook.com/profile.php?id=61586132360765&locale=es_ES',
-    icon: 'facebook',
-  },
-]
+const INSTAGRAM_URL = 'https://www.instagram.com/atlascentercr?igsh=MXZlYXRzeHV1ejBlOA=='
+const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61586132360765&locale=es_ES'
+
+const buildSocialLinks = (phone) => {
+  const whatsappHref = toWhatsAppHref(phone)
+
+  return [
+    { label: 'Instagram', href: INSTAGRAM_URL, icon: 'instagram' },
+    ...(whatsappHref ? [{ label: 'WhatsApp', href: whatsappHref, icon: 'whatsapp' }] : []),
+    { label: 'Facebook', href: FACEBOOK_URL, icon: 'facebook' },
+  ]
+}
 
 function SiteHeader({ brandName, brandLogoSrc, phone }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
   const [previousPath, setPreviousPath] = useState(location.pathname)
+  const shellRef = useRef(null)
+  const closeButtonRef = useRef(null)
+  const toggleButtonRef = useRef(null)
 
   const closeMenu = () => setIsMenuOpen(false)
   const toggleMenu = () => setIsMenuOpen((value) => !value)
@@ -42,20 +42,15 @@ function SiteHeader({ brandName, brandLogoSrc, phone }) {
     setIsMenuOpen(false)
   }
 
-  useEffect(() => {
-    if (!isMenuOpen) {
-      return undefined
-    }
+  useFocusTrap(shellRef, {
+    active: isMenuOpen,
+    onClose: closeMenu,
+    initialFocusRef: closeButtonRef,
+    restoreFocusRef: toggleButtonRef,
+  })
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-
-    return () => {
-      document.body.style.overflow = previousOverflow
-    }
-  }, [isMenuOpen])
-
-  const telHref = `tel:${(phone || '').replace(/\s+/g, '')}`
+  const telHref = toTelHref(phone)
+  const socialLinks = buildSocialLinks(phone)
 
   return (
     <header className={isMenuOpen ? 'site-header site-header--menu-open' : 'site-header'}>
@@ -78,8 +73,9 @@ function SiteHeader({ brandName, brandLogoSrc, phone }) {
         <span>{brandName}</span>
       </NavLink>
 
-      <div className="site-header__menu-shell" id="site-mobile-menu">
+      <div ref={shellRef} className="site-header__menu-shell" id="site-mobile-menu">
         <button
+          ref={closeButtonRef}
           type="button"
           className="site-header__menu-close"
           onClick={closeMenu}
@@ -150,6 +146,7 @@ function SiteHeader({ brandName, brandLogoSrc, phone }) {
       </div>
 
       <button
+        ref={toggleButtonRef}
         type="button"
         className="site-header__menu-toggle"
         aria-expanded={isMenuOpen}

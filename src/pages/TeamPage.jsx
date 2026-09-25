@@ -9,6 +9,8 @@ function TeamPage({ content }) {
         headingLevel="h1"
         headingTitle="Equipo de entrenadores personales en Ciudad Real"
         headingDescription="Conoce al equipo de Atlas Center: entrenadores personales, especialistas en pilates y fisioterapia. Mismo criterio técnico, distinta disciplina."
+        expandOnClick
+        nameAsLabel
       />
     </PageShell>
   )

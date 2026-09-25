@@ -19,7 +19,9 @@ function HeroSection({ brand }) {
         <div className="hero__content">
           <p className="hero__eyebrow">{brand.kicker || 'Centro de entrenamiento en Ciudad Real'}</p>
           <h1 id="hero-title" className="hero__title">
-            <span className="sr-only">Entrena con propósito</span>
+            <span className="sr-only">
+              Entrena con propósito. Entrenamiento funcional e híbrido en grupos de 5 personas.
+            </span>
             {HERO_TITLE_LINES.map((lineWords, lineIndex) => (
               <SplitFlapText
                 key={lineIndex}

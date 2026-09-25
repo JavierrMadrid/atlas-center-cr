@@ -210,52 +210,21 @@
 }
 
 .trainer-card {
-  perspective: 1400px;
+  min-width: 0;
 }
 
-.trainer-card__flip {
-  width: 100%;
-  padding: 0;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-container);
-  background: transparent;
-  cursor: pointer;
+.trainer-card--source {
+  opacity: 0.35;
+}
+
+.trainer-card .trainer-flip {
   display: block;
-  text-align: left;
-  overflow: hidden;
-}
-
-.trainer-card--glow .trainer-card__flip {
-  border: 0;
-  overflow: visible;
-}
-
-.trainer-card__flip-inner {
-  position: relative;
   width: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;
-  transform-style: preserve-3d;
-  transition: transform 0.225s var(--ease-out);
 }
 
-.trainer-card__face {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-container);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.trainer-card__face--front {
-  background: var(--surface-solid);
-  overflow: hidden;
-}
-
-.trainer-card--glow .trainer-card__face--front {
-  overflow: visible;
-}
-
-.trainer-card__face--front img {
+.trainer-flip .flip-card__face--front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -265,13 +234,9 @@
 }
 
 @media (hover: hover) {
-  .trainer-card__flip:hover .trainer-card__face--front img {
+  .trainer-flip:hover .flip-card__face--front img {
     filter: brightness(1);
   }
-}
-
-.trainer-card--source {
-  opacity: 0.35;
 }
 
 .trainer-card__name {
@@ -298,14 +263,83 @@
   text-transform: uppercase;
 }
 
-.trainer-card__face--back {
-  transform: rotateY(180deg);
-  background: linear-gradient(180deg, var(--ink-850), var(--ink-900));
-  padding: var(--space-5);
-  overflow-y: auto;
+/* Name on a corporate tag (team screen only) --------------------------------- */
+
+.trainer-card__caption {
+  position: absolute;
+  left: 0;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
 }
 
-.trainer-card__face--back h3 {
+.trainer-card__caption .trainer-card__hint {
+  position: static;
+  right: auto;
+  bottom: auto;
+  z-index: auto;
+}
+
+.trainer-card__label {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 6px 16px 5px 28px;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45)) drop-shadow(0 12px 20px rgba(0, 0, 0, 0.4));
+  transform: rotate(-1deg);
+  transform-origin: 0 100%;
+}
+
+.trainer-card__label::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--accent-500), var(--accent-900));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(0, 0, 0, 0.35);
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+  -webkit-mask-image: radial-gradient(circle at 15px 50%, transparent 0 5px, #000 5.5px);
+  mask-image: radial-gradient(circle at 15px 50%, transparent 0 5px, #000 5.5px);
+}
+
+.trainer-card__label::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 50%;
+  z-index: 0;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  border: 3px solid var(--accent-300);
+  border-radius: 50%;
+}
+
+.trainer-card__label .trainer-card__name {
+  position: relative;
+  z-index: 1;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  color: #ffffff;
+  font-size: clamp(0.8rem, 1.0vw, 1.1rem);
+  line-height: 1;
+  text-shadow: none;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.trainer-flip .flip-card__face--back {
+  padding: var(--space-5);
+  overflow-y: auto;
+  background: linear-gradient(180deg, var(--ink-850), var(--ink-900));
+}
+
+.trainer-flip .trainer-card__heading {
   font-size: var(--fs-h3);
   text-transform: uppercase;
   margin-bottom: var(--space-3);
@@ -333,7 +367,13 @@
   margin-top: var(--space-2);
 }
 
-/* Trainer modal (expanded profile) --------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .trainer-flip .flip-card__face--front img {
+    transition: none;
+  }
+}
+
+/* Trainer modal (expanded FlipCard profile) ----------------------------------- */
 
 .trainer-modal {
   position: fixed;
@@ -365,12 +405,6 @@
   left: 50%;
   width: clamp(280px, 92vw, 420px);
   height: min(82dvh, 560px);
-  perspective: 1400px;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-container);
-  background: var(--surface-solid);
-  box-shadow: var(--shadow-lift);
-  overflow: hidden;
   cursor: default;
   transform: translate(-50%, -50%);
   will-change: transform;
@@ -380,14 +414,10 @@
   transition: transform 0.5s var(--ease-out);
 }
 
-.trainer-modal__inner {
+.trainer-modal__card .trainer-flip--modal {
+  display: block;
   width: 100%;
   height: 100%;
-  aspect-ratio: auto;
-}
-
-.trainer-modal__inner.is-flipped {
-  transform: rotateY(180deg);
 }
 
 .trainer-modal__close {
@@ -417,10 +447,6 @@
   }
 
   .trainer-modal__card.is-ready {
-    transition: none;
-  }
-
-  .trainer-card__face--front img {
     transition: none;
   }
 }
@@ -626,7 +652,7 @@
     grid-template-columns: 1fr;
   }
 
-  .trainer-card__flip-inner {
+  .trainer-card .trainer-flip {
     aspect-ratio: 4 / 5;
   }
 }

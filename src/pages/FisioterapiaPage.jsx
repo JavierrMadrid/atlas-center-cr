@@ -20,7 +20,7 @@ function FisioterapiaPage({ content }) {
 
           <div className="service__grid">
             <div>
-              <h3 className="service__intro-title">Prevención, tratamiento y readaptación</h3>
+              <h2 className="service__intro-title">Prevención, tratamiento y readaptación</h2>
               <p className="service__note service__note--tight">
                 Valoración, tratamiento y readaptación para volver a entrenar con seguridad y con
                 menos dolor.
@@ -28,19 +28,19 @@ function FisioterapiaPage({ content }) {
 
               <div className="service__mini-grid">
                 <article className="mini-card">
-                  <h4>Prevención</h4>
+                  <h3>Prevención</h3>
                   <p>Prevención de lesiones en entrenamiento y actividad diaria.</p>
                 </article>
                 <article className="mini-card">
-                  <h4>Tratamiento</h4>
+                  <h3>Tratamiento</h3>
                   <p>Molestias musculares y articulares frecuentes con enfoque funcional.</p>
                 </article>
                 <article className="mini-card">
-                  <h4>Readaptación</h4>
+                  <h3>Readaptación</h3>
                   <p>Plan para retomar el entrenamiento personal o en grupo con confianza.</p>
                 </article>
                 <article className="mini-card">
-                  <h4>Movilidad</h4>
+                  <h3>Movilidad</h3>
                   <p>Mejora del rango de movimiento, el control postural y la calidad gestual.</p>
                 </article>
               </div>
@@ -59,7 +59,7 @@ function FisioterapiaPage({ content }) {
           </div>
 
           <div className="service__block">
-            <h3>Tarifas de fisioterapia</h3>
+            <h2>Tarifas de fisioterapia</h2>
             <PriceMarquee prices={physiotherapyPrices} variant="row" />
           </div>
 

@@ -56,7 +56,7 @@ function HomePage({ content }) {
           headingTitle="El equipo"
           headingDescription="Entrenadores personales, pilates y fisioterapia bajo el mismo criterio técnico: técnica, intensidad y cercanía."
           viewAll
-          glow
+          layout="spread"
         />
         <EditorialSection />
       </PageShell>

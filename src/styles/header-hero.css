@@ -107,8 +107,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: var(--radius-pill);
   color: var(--text-soft);
   transition: color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
@@ -363,13 +363,21 @@
     background: linear-gradient(170deg, var(--ink-900), var(--ink-950));
     border-left: 1px solid var(--border);
     transform: translateX(100%);
-    transition: transform var(--dur) var(--ease-out);
+    /* Sin visibility el cajón cerrado sigue tabulable y expuesto al AT. */
+    visibility: hidden;
+    transition:
+      transform var(--dur) var(--ease-out),
+      visibility 0s linear var(--dur);
     overflow-y: auto;
     overscroll-behavior: contain;
   }
 
   .site-header--menu-open .site-header__menu-shell {
     transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform var(--dur) var(--ease-out),
+      visibility 0s;
   }
 
   .site-header__menu-close {

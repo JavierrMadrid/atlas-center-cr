@@ -89,8 +89,8 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 3000;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -136,20 +136,30 @@
   backdrop-filter: blur(6px);
 }
 
+/* El botón mide 24px (SC 2.5.8) y el punto visual es un pseudo-elemento. */
 .depth-carousel__dot {
-  width: 7px;
-  height: 7px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
   padding: 0;
   border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.depth-carousel__dot::before {
+  content: '';
+  width: 7px;
+  height: 7px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.32);
-  cursor: pointer;
   transition:
     width 0.25s ease,
     background 0.25s ease;
 }
 
-.depth-carousel__dot.is-active {
+.depth-carousel__dot.is-active::before {
   width: 20px;
   background: #fff;
 }
@@ -159,7 +169,7 @@
     will-change: auto;
   }
   .depth-carousel__arrow,
-  .depth-carousel__dot {
+  .depth-carousel__dot::before {
     transition: none;
   }
 }

@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { useLocation } from 'react-router-dom'
 import { HERO_IMAGE_SRC } from '../../config/media'
+import { toE164 } from '../../utils/phone'
 
 const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://atlas-center.com').replace(/\/$/, '')
 
@@ -32,12 +33,12 @@ const SEO_BY_PATH = {
   '/fisioterapia': {
     title: 'Fisioterapia Deportiva en Ciudad Real | Atlas Center',
     description:
-      'Servicio de fisioterapia deportiva en Atlas Center, con recuperacion funcional, readaptacion y prevencion de lesiones para deportistas y personas activas.',
+      'Servicio de fisioterapia deportiva en Atlas Center, con recuperación funcional, readaptación y prevención de lesiones para deportistas y personas activas.',
   },
   '/pilates': {
     title: 'Clases de Pilates en Ciudad Real | Atlas Center',
     description:
-      'Clases de pilates en Atlas Center para mejorar movilidad, control postural, respiracion y fuerza del core con sesiones guiadas en grupos reducidos para todos los niveles.',
+      'Clases de pilates en Atlas Center para mejorar movilidad, control postural, respiración y fuerza del core con sesiones guiadas en grupos reducidos para todos los niveles.',
   },
   '/tarifas-horarios': {
     title: 'Tarifas y Horarios del Gimnasio | Atlas Center Ciudad Real',
@@ -47,11 +48,11 @@ const SEO_BY_PATH = {
   '/contacto': {
     title: 'Contacto Atlas Center | Centro Deportivo en Ciudad Real',
     description:
-      'Contacta con Atlas Center en Ciudad Real. Direccion, telefonos, email y formulario para reservar entrenamiento, fisioterapia y clases guiadas.',
+      'Contacta con Atlas Center en Ciudad Real. Dirección, teléfonos, email y formulario para reservar entrenamiento, fisioterapia y clases guiadas.',
   },
   '/404': {
-    title: 'Pagina no encontrada | Atlas Center',
-    description: 'La pagina solicitada no existe. Explora los servicios de Atlas Center en Ciudad Real.',
+    title: 'Página no encontrada | Atlas Center',
+    description: 'La página solicitada no existe. Explora los servicios de Atlas Center en Ciudad Real.',
   },
 }
 
@@ -75,7 +76,7 @@ const toAbsoluteUrl = (value) => {
   return new URL(value, SITE_URL).toString()
 }
 
-const normalizePhone = (phone) => (typeof phone === 'string' ? phone.replace(/\s+/g, '') : '')
+const normalizePhone = (phone) => toE164(phone)
 
 const DAY_TOKEN_TO_SCHEMA = {
   lunes: ['Monday'],
@@ -208,18 +209,18 @@ const getPilatesFaqSchema = () => ({
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Para quien son las clases de pilates de Atlas Center?',
+      name: '¿Para quién son las clases de pilates de Atlas Center?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Las clases de pilates estan adaptadas a todos los niveles. Trabajamos desde la tecnica basica hasta ejercicios mas exigentes, ajustando la intensidad a cada persona.',
+        text: 'Las clases de pilates están adaptadas a todos los niveles. Trabajamos desde la técnica básica hasta ejercicios más exigentes, ajustando la intensidad a cada persona.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Que beneficios aporta el pilates?',
+      name: '¿Qué beneficios aporta el pilates?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'El pilates mejora el control postural, la movilidad, la respiracion y la fuerza del core, con especial atencion al suelo pelvico y al transverso abdominal.',
+        text: 'El pilates mejora el control postural, la movilidad, la respiración y la fuerza del core, con especial atención al suelo pélvico y al transverso abdominal.',
       },
     },
   ],
@@ -230,26 +231,26 @@ const getFisioterapiaFaqSchema = () => ({
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Cuanto cuesta una sesion de fisioterapia deportiva en Ciudad Real?',
+      name: '¿Cuánto cuesta una sesión de fisioterapia deportiva en Ciudad Real?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'La sesion suelta cuesta 35 EUR para socios y 40 EUR para no socios. Tambien ofrecemos bono de 5 sesiones por 150 EUR (socios) o 175 EUR (no socios).',
+        text: 'La sesión suelta cuesta 35 € para socios y 40 € para no socios. También ofrecemos bono de 5 sesiones por 150 € (socios) o 175 € (no socios).',
       },
     },
     {
       '@type': 'Question',
-      name: 'Tengo que ser socio de Atlas Center para recibir fisioterapia?',
+      name: '¿Tengo que ser socio de Atlas Center para recibir fisioterapia?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. El servicio de fisioterapia esta abierto a socios y no socios. Las tarifas son distintas en cada caso, pero cualquier persona puede reservar sesion.',
+        text: 'No. El servicio de fisioterapia está abierto a socios y no socios. Las tarifas son distintas en cada caso, pero cualquier persona puede reservar sesión.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Que lesiones tratais en la fisioterapia de Atlas Center?',
+      name: '¿Qué lesiones tratáis en la fisioterapia de Atlas Center?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Tratamos lesiones deportivas, molestias musculares y articulares, y readaptacion funcional para volver a entrenar o a la actividad diaria con seguridad.',
+        text: 'Tratamos lesiones deportivas, molestias musculares y articulares, y readaptación funcional para volver a entrenar o a la actividad diaria con seguridad.',
       },
     },
   ],
@@ -260,26 +261,26 @@ const getTarifasFaqSchema = () => ({
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Cuanto cuesta entrenar en Atlas Center Ciudad Real?',
+      name: '¿Cuánto cuesta entrenar en Atlas Center Ciudad Real?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Las tarifas de grupos reducidos empiezan en 50 EUR al mes (plan Basic) y llegan a 110 EUR (plan Olympo). La sala open va desde 50 EUR (Base) hasta 60 EUR (Plus).',
+        text: 'Las tarifas de grupos reducidos empiezan en 50 € al mes (plan Basic) y llegan a 110 € (plan Olympo). La sala open va desde 50 € (Base) hasta 60 € (Plus).',
       },
     },
     {
       '@type': 'Question',
-      name: 'Puedo probar una clase antes de apuntarme?',
+      name: '¿Puedo probar una clase antes de apuntarme?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Si. Ofrecemos una primera clase guiada para conocer tu nivel y proponerte una ruta de progresion. Escríbenos por el formulario de contacto o llamanos al 616 725 294.',
+        text: 'Sí. Ofrecemos una primera clase guiada para conocer tu nivel y proponerte una ruta de progresión. Escríbenos por el formulario de contacto o llámanos al 616 725 294.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Cuanto tiempo tengo para gastar un bono?',
+      name: '¿Cuánto tiempo tengo para gastar un bono?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Todos los bonos se deben gastar en un plazo maximo de 40 dias desde la fecha de compra.',
+        text: 'Todos los bonos se deben gastar en un plazo máximo de 30 días desde la fecha de compra.',
       },
     },
   ],
@@ -289,7 +290,7 @@ const SERVICE_BY_PATH = {
   '/fisioterapia': {
     '@type': 'Service',
     serviceType: 'Fisioterapia deportiva',
-    description: 'Fisioterapia deportiva, recuperacion funcional, readaptacion y prevencion de lesiones en Ciudad Real.',
+    description: 'Fisioterapia deportiva, recuperación funcional, readaptación y prevención de lesiones en Ciudad Real.',
     areaServed: { '@type': 'City', name: 'Ciudad Real' },
     provider: { '@id': `${SITE_URL}/#localbusiness` },
   },
@@ -303,7 +304,7 @@ const SERVICE_BY_PATH = {
   '/tarifas-horarios': {
     '@type': 'Service',
     serviceType: 'Entrenamiento personal y en grupos reducidos',
-    description: 'Entrenamiento funcional e híbrido guiado en grupos reducidos y sala open de musculacion en Ciudad Real.',
+    description: 'Entrenamiento funcional e híbrido guiado en grupos reducidos y sala open de musculación en Ciudad Real.',
     areaServed: { '@type': 'City', name: 'Ciudad Real' },
     provider: { '@id': `${SITE_URL}/#localbusiness` },
   },
@@ -325,7 +326,9 @@ const FAQ_BY_PATH = {
 function RouteSeo({ brand, contactPage, schedule }) {
   const location = useLocation()
   const normalizedPathname = normalizePathname(location.pathname)
-  const isKnownPath = Boolean(SEO_BY_PATH[normalizedPathname])
+  // /404 se resuelve con la plantilla del buscador: siempre noindex, porque
+  // 404.html se sirve para cualquier URL desconocida y no debe competir con la home.
+  const isKnownPath = normalizedPathname !== '/404' && Boolean(SEO_BY_PATH[normalizedPathname])
   const seoPath = isKnownPath ? normalizedPathname : '/404'
   const pathSeo = SEO_BY_PATH[seoPath]
   const canonicalPath = seoPath === '/' ? '/' : `${seoPath}/`

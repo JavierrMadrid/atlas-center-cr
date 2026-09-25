@@ -33,6 +33,7 @@
   --ink-700: #2a3135;
   --ink-600: #3c454a;
   --ink-500: #5d686e;
+  --ink-450: #7c878d;
   --ink-400: #8a959b;
   --ink-300: #b4bdc2;
   --ink-200: #d5dbdf;
@@ -61,7 +62,8 @@
 
   --text: var(--ink-200);
   --text-soft: var(--ink-400);
-  --text-muted: var(--ink-500);
+  /* ink-450 mantiene 5.3:1 sobre --bg; ink-500 solo llegaba a 3.4:1. */
+  --text-muted: var(--ink-450);
   --heading: var(--paper);
   --accent: var(--accent-400);
   --accent-strong: var(--accent-300);

@@ -4,7 +4,7 @@ function SectionHeading({ eyebrow, title, description, level = 'h2' }) {
   return (
     <header className="section-head">
       {eyebrow ? <p className="section-head__eyebrow">{eyebrow}</p> : null}
-      <Heading>{title}</Heading>
+      <Heading className="section-head__title">{title}</Heading>
       {description ? <p className="section-head__text">{description}</p> : null}
     </header>
   )

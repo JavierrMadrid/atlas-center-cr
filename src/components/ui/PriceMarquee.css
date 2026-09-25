@@ -91,12 +91,20 @@
   color: var(--text-soft);
   font-size: var(--fs-small);
   line-height: 1.25;
-  opacity: 0.75;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .price-marquee__track {
     animation: none;
+  }
+
+  /* Sin animación el track deja de moverse: el recorte del contenedor
+     ocultaría tarjetas. Se pasa a scroll accesible. */
+  .price-marquee {
+    overflow-y: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    overscroll-behavior: contain;
   }
 }
 

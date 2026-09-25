@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useRef, useState } from 'react'
 import Icon from '../ui/Icon'
 import SectionHeading from '../ui/SectionHeading'
+import { useFocusTrap } from '../../utils/useFocusTrap'
 
 function PricingScheduleSection({
   pricingPlans,
@@ -11,6 +13,21 @@ function PricingScheduleSection({
   headingDescription,
 }) {
   const [lightbox, setLightbox] = useState(null)
+  const lightboxRef = useRef(null)
+  const lightboxCloseRef = useRef(null)
+  const lightboxTriggerRef = useRef(null)
+
+  const closeLightbox = () => setLightbox(null)
+
+  // Los títulos de grupo deben quedar justo debajo del encabezado de la sección.
+  const GroupTitle = headingLevel === 'h1' ? 'h2' : 'h3'
+
+  useFocusTrap(lightboxRef, {
+    active: Boolean(lightbox),
+    onClose: closeLightbox,
+    initialFocusRef: lightboxCloseRef,
+    restoreFocusRef: lightboxTriggerRef,
+  })
 
   const normalizePlanName = (name) =>
     name
@@ -20,9 +37,12 @@ function PricingScheduleSection({
       .replace(/^\s*open\s*-\s*/i, '')
       .trim()
 
-  const guidedPlans = pricingPlans.filter((plan) => /grupos reducidos|guiad[oa]s?/i.test(plan.name))
-  const openPlans = pricingPlans.filter((plan) => /solo open|\bopen\b/i.test(plan.name))
-  const otherPlans = pricingPlans.filter((plan) => !guidedPlans.includes(plan) && !openPlans.includes(plan))
+  const allPlans = Array.isArray(pricingPlans) ? pricingPlans : []
+  const guidedPlans = allPlans.filter((plan) => /grupos reducidos|guiad[oa]s?/i.test(plan.name))
+  const openPlans = allPlans.filter((plan) => /solo open|\bopen\b/i.test(plan.name))
+  const otherPlans = allPlans.filter(
+    (plan) => !guidedPlans.includes(plan) && !openPlans.includes(plan),
+  )
 
   const planGroups = [
     {
@@ -39,17 +59,26 @@ function PricingScheduleSection({
     },
   ].filter((group) => group.plans.length > 0)
 
+  const scheduleRows = Array.isArray(schedule) ? schedule : []
+
   return (
     <>
       {lightbox && (
         <div
+          ref={lightboxRef}
           className="lightbox"
           role="dialog"
           aria-modal="true"
           aria-label={lightbox.alt}
-          onClick={() => setLightbox(null)}
+          onClick={closeLightbox}
         >
-          <button className="lightbox__close" onClick={() => setLightbox(null)} aria-label="Cerrar">
+          <button
+            ref={lightboxCloseRef}
+            type="button"
+            className="lightbox__close"
+            onClick={closeLightbox}
+            aria-label="Cerrar"
+          >
             <Icon name="close" size={20} />
           </button>
           <img
@@ -73,11 +102,18 @@ function PricingScheduleSection({
                 description={headingDescription}
               />
 
+              {planGroups.length === 0 ? (
+                <p className="service__note">
+                  No hay tarifas publicadas todavía. Escríbenos desde{' '}
+                  <Link to="/contacto">contacto</Link> y te informamos.
+                </p>
+              ) : null}
+
               {planGroups.map((group) => (
                 <div key={group.key} className="pricing__group">
-                  <h3 className="pricing__group-title" id={group.id}>
+                  <GroupTitle className="pricing__group-title" id={group.id}>
                     {group.title}
-                  </h3>
+                  </GroupTitle>
                   <div className="pricing__grid">
                     {group.plans.map((plan) => {
                       const planLabel = normalizePlanName(plan.name)
@@ -88,9 +124,10 @@ function PricingScheduleSection({
                             key={plan.name}
                             type="button"
                             className="price-card price-card--image"
-                            onClick={() =>
+                            onClick={(event) => {
+                              lightboxTriggerRef.current = event.currentTarget
                               setLightbox({ src: plan.imageSrc, alt: `Tarifa ${planLabel}` })
-                            }
+                            }}
                             aria-label={`Ver tarifa ${planLabel} en grande`}
                           >
                             <img
@@ -129,7 +166,10 @@ function PricingScheduleSection({
                   Horarios de apertura
                 </div>
                 <div className="schedule__rows">
-                  {schedule.map((slot) => (
+                  {scheduleRows.length === 0 ? (
+                    <p className="service__note">Horarios no disponibles. Consúltanos.</p>
+                  ) : null}
+                  {scheduleRows.map((slot) => (
                     <div className="schedule__row" key={slot.day}>
                       <span className="schedule__row-day">{slot.day}</span>
                       <span className="schedule__row-hours">{slot.hours}</span>

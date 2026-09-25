@@ -1,29 +1,19 @@
 import { NavLink } from 'react-router-dom'
 import Icon from '../ui/Icon'
+import { toTelHref, toWhatsAppHref } from '../../utils/phone'
 
-const socialLinks = [
-  {
-    label: 'Instagram',
-    href: 'https://www.instagram.com/atlascentercr?igsh=MXZlYXRzeHV1ejBlOA==',
-    icon: 'instagram',
-  },
-  {
-    label: 'WhatsApp',
-    href: 'https://wa.me/616725294',
-    icon: 'whatsapp',
-  },
-  {
-    label: 'Facebook',
-    href: 'https://www.facebook.com/profile.php?id=61586132360765&locale=es_ES',
-    icon: 'facebook',
-  },
-]
-
-const toTelHref = (phone) => `tel:${phone.replace(/\s+/g, '')}`
+const INSTAGRAM_URL = 'https://www.instagram.com/atlascentercr?igsh=MXZlYXRzeHV1ejBlOA=='
+const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61586132360765&locale=es_ES'
 
 function SiteFooter({ brand, contactPage, legalItems, schedule }) {
   const currentYear = new Date().getFullYear()
   const hours = Array.isArray(schedule) ? schedule : []
+  const whatsappHref = toWhatsAppHref(contactPage.phones?.[0])
+  const socialLinks = [
+    { label: 'Instagram', href: INSTAGRAM_URL, icon: 'instagram' },
+    ...(whatsappHref ? [{ label: 'WhatsApp', href: whatsappHref, icon: 'whatsapp' }] : []),
+    { label: 'Facebook', href: FACEBOOK_URL, icon: 'facebook' },
+  ]
 
   return (
     <footer className="site-footer" aria-label="Pie de página">

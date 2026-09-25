@@ -34,7 +34,7 @@ function PilatesPage() {
 
           <div className="service__grid">
             <div>
-              <h3 className="service__intro-title">Pilates para todos los niveles</h3>
+              <h2 className="service__intro-title">Pilates para todos los niveles</h2>
               <p className="service__note service__note--tight">
                 Trabajo técnico centrado en el control postural, la movilidad y la fuerza del core
                 para que avances con seguridad, dentro de los bonos de clase.
@@ -43,7 +43,7 @@ function PilatesPage() {
               <div className="service__mini-grid">
                 {focuses.map((focus) => (
                   <article key={focus.title} className="mini-card">
-                    <h4>{focus.title}</h4>
+                    <h3>{focus.title}</h3>
                     <p>{focus.text}</p>
                   </article>
                 ))}
@@ -63,7 +63,7 @@ function PilatesPage() {
           </div>
 
           <div className="service__block service__block--card">
-            <h3>Qué trabajamos en cada sesión</h3>
+            <h2>Qué trabajamos en cada sesión</h2>
             <ul className="service__list">
               <li>Activación del suelo pélvico y del transverso abdominal.</li>
               <li>Respiración y control del movimiento en cada repetición.</li>

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Icon from '../ui/Icon'
+import { toTelHref, toWhatsAppHref } from '../../utils/phone'
 
 function ContactFloating({ contact }) {
   const [collapsed, setCollapsed] = useState(false)
 
   const primaryPhone = contact?.phones?.[0] || ''
-  const telHref = `tel:${primaryPhone.replace(/\s+/g, '')}`
-  const whatsappHref = `https://wa.me/${primaryPhone.replace(/\s+/g, '')}`
+  const telHref = toTelHref(primaryPhone)
+  const whatsappHref = toWhatsAppHref(primaryPhone)
   const title = contact?.title || 'Empieza esta semana'
   const description =
     contact?.description || 'Primera clase guiada para conocer tu nivel y crear tu ruta de progresión.'
@@ -53,15 +54,17 @@ function ContactFloating({ contact }) {
               <Icon name="phone" size={16} className="btn__icon" />
               {buttonLabel}
             </a>
-            <a
-              className="btn btn--primary btn--block"
-              href={whatsappHref}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <Icon name="whatsapp" size={16} className="btn__icon" />
-              WhatsApp
-            </a>
+            {whatsappHref ? (
+              <a
+                className="btn btn--primary btn--block"
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <Icon name="whatsapp" size={16} className="btn__icon" />
+                WhatsApp
+              </a>
+            ) : null}
             <Link className="btn btn--primary btn--block" to="/contacto">
               <Icon name="contact" size={16} className="btn__icon" />
               Escribir por contacto
@@ -75,15 +78,17 @@ function ContactFloating({ contact }) {
           <Icon name="phone" size={20} />
           <span>Llamar</span>
         </a>
-        <a
-          className="contact-float__bar-action"
-          href={whatsappHref}
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <Icon name="whatsapp" size={20} />
-          <span>WhatsApp</span>
-        </a>
+        {whatsappHref ? (
+          <a
+            className="contact-float__bar-action"
+            href={whatsappHref}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <Icon name="whatsapp" size={20} />
+            <span>WhatsApp</span>
+          </a>
+        ) : null}
         <Link className="contact-float__bar-action" to="/contacto">
           <Icon name="contact" size={20} />
           <span>Contacto</span>

@@ -58,6 +58,7 @@ const DepthCarousel = ({
   const reducedRef = useRef(false)
 
   const [active, setActive] = useState(0)
+  const [announcement, setAnnouncement] = useState('')
 
   useEffect(() => {
     onChangeRef.current = onChange
@@ -175,6 +176,34 @@ const DepthCarousel = ({
 
   const navigateBy = useCallback((step) => setFocus(focusRef.current + step, true), [setFocus])
 
+  const announce = useCallback(
+    (idx) => {
+      const item = data[idx]
+      const label = item?.caption || item?.alt || ''
+      setAnnouncement(`Imagen ${idx + 1} de ${count}${label ? `: ${label}` : ''}`)
+    },
+    [count, data],
+  )
+
+  // Solo las acciones del usuario anuncian: el autoplay no debe interrumpir
+  // al lector de pantalla cada pocos segundos.
+  const navigateUser = useCallback(
+    (step) => {
+      const n = cfgRef.current.count
+      if (!n) return
+      let idx = focusRef.current + step
+      if (cfgRef.current.loop && n > 1) {
+        idx = ((idx % n) + n) % n
+      } else {
+        idx = clamp(idx, 0, n - 1)
+      }
+      setFocus(focusRef.current + step, true)
+      announce(idx)
+    },
+    [announce, setFocus],
+  )
+
+
   useEffect(() => {
     const root = rootRef.current
     if (!root) return
@@ -235,28 +264,31 @@ const DepthCarousel = ({
     const cfg = cfgRef.current
     const stepPx = Math.max(cfg.cardWidth * 0.55 * scaleRef.current, 40)
     const projected = posRef.current - (drag.v * 180) / stepPx
-    setFocus(Math.round(projected), true)
-  }, [setFocus])
+    const target = Math.round(projected)
+    setFocus(target, true)
+    announce(cfg.loop ? ((target % cfg.count) + cfg.count) % cfg.count : clamp(target, 0, cfg.count - 1))
+  }, [announce, setFocus])
 
   const onKeyDown = useCallback(
     (e) => {
       if (e.key === 'ArrowLeft') {
         e.preventDefault()
-        navigateBy(-1)
+        navigateUser(-1)
       } else if (e.key === 'ArrowRight') {
         e.preventDefault()
-        navigateBy(1)
+        navigateUser(1)
       }
     },
-    [navigateBy],
+    [navigateUser],
   )
 
   const onCardClick = useCallback(
     (index) => {
       if (dragRef.current?.moved) return
       setFocus(index, true)
+      announce(index)
     },
-    [setFocus],
+    [announce, setFocus],
   )
 
   useEffect(() => {
@@ -336,9 +368,9 @@ const DepthCarousel = ({
             className="depth-carousel__card"
             ref={(el) => (cardRefs.current[i] = el)}
             style={{ width: cardWidth, height: cardHeight, borderRadius: radius }}
+            role="group"
             aria-roledescription="diapositiva"
             aria-label={`${i + 1} de ${count}`}
-            aria-hidden={active !== i}
             onClick={() => onCardClick(i)}
           >
             <div className="depth-carousel__media">
@@ -354,13 +386,17 @@ const DepthCarousel = ({
         ))}
       </div>
 
+      <p className="sr-only" aria-live="polite">
+        {announcement}
+      </p>
+
       {showControls && count > 1 && (
         <>
           <button
             type="button"
             className="depth-carousel__arrow depth-carousel__arrow--prev"
             aria-label="Imagen anterior"
-            onClick={() => navigateBy(-1)}
+            onClick={() => navigateUser(-1)}
           >
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
               <path
@@ -377,7 +413,7 @@ const DepthCarousel = ({
             type="button"
             className="depth-carousel__arrow depth-carousel__arrow--next"
             aria-label="Imagen siguiente"
-            onClick={() => navigateBy(1)}
+            onClick={() => navigateUser(1)}
           >
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
               <path
@@ -394,16 +430,18 @@ const DepthCarousel = ({
       )}
 
       {showIndicators && count > 1 && (
-        <div className="depth-carousel__dots" role="tablist" aria-label="Imágenes">
+        <div className="depth-carousel__dots" role="group" aria-label="Seleccionar imagen">
           {data.map((_, i) => (
             <button
               key={i}
               type="button"
-              role="tab"
-              aria-selected={active === i}
+              aria-current={active === i ? 'true' : undefined}
               aria-label={`Ir a la imagen ${i + 1}`}
               className={`depth-carousel__dot${active === i ? ' is-active' : ''}`}
-              onClick={() => setFocus(i, true)}
+              onClick={() => {
+                setFocus(i, true)
+                announce(i)
+              }}
             />
           ))}
         </div>

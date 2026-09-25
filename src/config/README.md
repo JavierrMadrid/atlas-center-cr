@@ -6,6 +6,7 @@ Reglas rapidas:
 - Mantener nombres de claves tal cual.
 - Rutas de imagenes deben apuntar a /imagenes/... (archivos en public/imagenes).
 - pricingPlans, schedule, trainers, trainingPrograms y carouselImages deben ser arrays.
+- trainers[].profession define la etiqueta de profesion que se muestra sobre la foto en la portada.
 - brand.headerLogoSrc controla el logo de la cabecera.
 - brand.heroLogoSrc controla el logo grande de la pagina de inicio.
 - contactPage.mapEmbedUrl define el mapa de Google embebido para la pagina /contacto.
