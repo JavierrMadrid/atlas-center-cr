@@ -50,24 +50,28 @@ function ContactFloating({ contact }) {
           <p className="contact-float__text">{description}</p>
 
           <div className="contact-float__actions">
-            <a className="btn btn--primary btn--block" href={telHref}>
-              <Icon name="phone" size={16} className="btn__icon" />
-              {buttonLabel}
+            <a className="contact-float__action" href={telHref} title={buttonLabel} aria-label={buttonLabel}>
+              <Icon name="phone" size={18} />
             </a>
             {whatsappHref ? (
               <a
-                className="btn btn--primary btn--block"
+                className="contact-float__action"
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer noopener"
+                title="WhatsApp"
+                aria-label="WhatsApp"
               >
-                <Icon name="whatsapp" size={16} className="btn__icon" />
-                WhatsApp
+                <Icon name="whatsapp" size={18} />
               </a>
             ) : null}
-            <Link className="btn btn--primary btn--block" to="/contacto">
-              <Icon name="contact" size={16} className="btn__icon" />
-              Escribir por contacto
+            <Link
+              className="contact-float__action"
+              to="/contacto"
+              title="Escribir por contacto"
+              aria-label="Escribir por contacto"
+            >
+              <Icon name="contact" size={18} />
             </Link>
           </div>
         </div>

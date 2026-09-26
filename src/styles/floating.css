@@ -9,7 +9,7 @@
   right: clamp(1rem, 3vw, 2rem);
   bottom: clamp(1rem, 3vw, 2rem);
   z-index: var(--z-contact);
-  width: min(320px, calc(100vw - 2rem));
+  width: min(260px, calc(100vw - 2rem));
 }
 
 .contact-float__pill {
@@ -43,8 +43,8 @@
 
 .contact-float__card {
   display: grid;
-  gap: var(--space-4);
-  padding: var(--space-5);
+  gap: var(--space-3);
+  padding: var(--space-4);
   border: 1px solid var(--border);
   border-radius: var(--radius-container);
   background: var(--ink-800);
@@ -59,7 +59,9 @@
 }
 
 .contact-float__head h2 {
-  font-size: var(--fs-h3);
+  font-size: 1.375rem;
+  line-height: 1.25;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -67,8 +69,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 1.75rem;
+  height: 1.75rem;
   flex-shrink: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-pill);
@@ -90,8 +92,35 @@
 }
 
 .contact-float__actions {
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.contact-float__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 2.6rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-field);
+  background: var(--accent);
+  color: var(--ink-900);
+  transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.contact-float__action:hover,
+.contact-float__action:focus-visible {
+  transform: translateY(-1px);
+  background: var(--accent-strong);
+}
+
+.contact-float__action svg {
+  width: 20px;
+  height: 20px;
 }
 
 .contact-float--collapsed .contact-float__card {
