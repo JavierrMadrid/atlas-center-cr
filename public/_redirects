@@ -1,4 +1,17 @@
-/pilates-zenn /pilates/ 301
-/pilates-zenn/ /pilates/ 301
-/pilates-yoga /pilates/ 301
-/pilates-yoga/ /pilates/ 301
+# Sin barra final: el edge sirve /pilates con 200 (html_handling
+# "drop-trailing-slash"). Apuntar aquí a /pilates/ encadenaba un 307 extra.
+/pilates-zenn /pilates 301
+/pilates-zenn/ /pilates 301
+/pilates-yoga /pilates 301
+/pilates-yoga/ /pilates 301
+
+# Variantes .html: con html_handling "drop-trailing-slash" el edge sirve
+# /index.html con 200 y el mismo contenido que la home, lo que Google marca
+# como duplicada. 301 explícito a la versión sin extensión.
+/index.html / 301
+/404.html /404 301
+/equipo.html /equipo 301
+/fisioterapia.html /fisioterapia 301
+/pilates.html /pilates 301
+/tarifas-horarios.html /tarifas-horarios 301
+/contacto.html /contacto 301

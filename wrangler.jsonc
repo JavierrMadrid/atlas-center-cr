@@ -6,7 +6,12 @@
     "enabled": true
   },
   "assets": {
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // Sin barra final: /equipo responde 200 directamente. Con el
+    // "auto-trailing-slash" por defecto Cloudflare devolvía 307 hacia
+    // /equipo/, así que todos los enlaces internos del sitio pasaban por una
+    // redirección temporal y Google las reportaba como "página con redirección".
+    "html_handling": "drop-trailing-slash"
   },
   "compatibility_flags": [
     "nodejs_compat"

@@ -41,9 +41,12 @@ const lastmodISO = new Date().toISOString().slice(0, 10)
 // La plantilla (index.html) trae sus propias etiquetas SEO de la home. Como
 // solo inyectamos las del Helmet, cada página pre-renderizada salía con dos
 // <title>, dos <meta description>, dos <robots> y dos <canonical>; el primero
-// (el de la home) es el que los crawlers leen primero. Las eliminamos de la
-// plantilla solo cuando el Helmet inyecta el equivalente, así nunca perdemos
-// una etiqueta si el render no la produce.
+// (el de la home) es el que los crawlers leen primero. Se eliminan siempre:
+// el Helmet emite title/description/robots en todas las rutas y canonical en
+// todas las indexables, así que la etiqueta de la plantilla solo puede
+// sobrevivir por error. Antes se borraba "si el Helmet injecta el equivalente",
+// y en la plantilla 404 (donde no hay canonical) quedaba la de la home,
+// declarando canónica la portada en cada URL inexistente.
 const TEMPLATE_SEO_PATTERNS = {
   title: /<title[^>]*>[\s\S]*?<\/title>/i,
   description: /<meta\s+name="description"[^>]*>/i,
@@ -51,22 +54,13 @@ const TEMPLATE_SEO_PATTERNS = {
   canonical: /<link\s+rel="canonical"[^>]*>/gi,
 }
 
-const stripTemplateSeo = (html, collected) => {
-  const has = (pattern) => collected.some((tag) => pattern.test(tag))
+const stripTemplateSeo = (html) => {
   let result = html
 
-  if (has(/<title[\s>]/i)) {
-    result = result.replace(TEMPLATE_SEO_PATTERNS.title, '')
-  }
-  if (has(/name="description"/i)) {
-    result = result.replace(TEMPLATE_SEO_PATTERNS.description, '')
-  }
-  if (has(/name="(?:robots|googlebot)"/i)) {
-    result = result.replace(TEMPLATE_SEO_PATTERNS.robots, '')
-  }
-  if (has(/rel="canonical"/i)) {
-    result = result.replace(TEMPLATE_SEO_PATTERNS.canonical, '')
-  }
+  result = result.replace(TEMPLATE_SEO_PATTERNS.title, '')
+  result = result.replace(TEMPLATE_SEO_PATTERNS.description, '')
+  result = result.replace(TEMPLATE_SEO_PATTERNS.robots, '')
+  result = result.replace(TEMPLATE_SEO_PATTERNS.canonical, '')
 
   return result
 }
@@ -100,7 +94,7 @@ for (const route of routes) {
   const { collected, cleaned } = extractHelmetTags(html)
   const headHtml = collected.join('\n    ')
 
-  const finalHtml = stripTemplateSeo(template, collected)
+  const finalHtml = stripTemplateSeo(template)
     .replace('</head>', `    ${headHtml}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${cleaned}</div>`)
 
@@ -125,7 +119,7 @@ const sitemapUrls = routes
   .filter((route) => route !== '/404')
   .map((route) => {
     const config = seoConfig[route] ?? { priority: 0.5, changefreq: 'monthly' }
-    const loc = route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}/`
+    const loc = route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}`
     return `  <url>
     <loc>${loc}</loc>
     <lastmod>${lastmodISO}</lastmod>

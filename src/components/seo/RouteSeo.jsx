@@ -331,8 +331,9 @@ function RouteSeo({ brand, contactPage, schedule }) {
   const isKnownPath = normalizedPathname !== '/404' && Boolean(SEO_BY_PATH[normalizedPathname])
   const seoPath = isKnownPath ? normalizedPathname : '/404'
   const pathSeo = SEO_BY_PATH[seoPath]
-  const canonicalPath = seoPath === '/' ? '/' : `${seoPath}/`
-  const canonicalUrl = `${SITE_URL}${canonicalPath}`
+  // Sin barra final: es la forma que sirve el edge con 200 y la que usan los
+  // enlaces internos. Una canónica con barra apuntaría a una URL que redirige.
+  const canonicalUrl = `${SITE_URL}${seoPath === '/' ? '/' : seoPath}`
   const socialImage = toAbsoluteUrl(brand.socialImageSrc || '/imagenes/og-image.webp')
   const brandLogo = toAbsoluteUrl(brand.headerLogoSrc || '/imagenes/logo_simple.webp')
   const mapUrl = toAbsoluteUrl(contactPage.mapEmbedUrl)
@@ -428,9 +429,16 @@ function RouteSeo({ brand, contactPage, schedule }) {
       <meta name="twitter:image" content={socialImage} />
       <meta name="twitter:image:alt" content={`${brand.name} en Ciudad Real`} />
 
-      <link rel="canonical" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="es-ES" href={canonicalUrl} />
-      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
+      {/* Array y no <>: Helmet recorre props.children con React.Children, que
+          aplana arrays pero se salta los Fragment, y estas etiquetas se
+          perderían en el prerender. */}
+      {isKnownPath
+        ? [
+            <link key="canonical" rel="canonical" href={canonicalUrl} />,
+            <link key="hreflang-es" rel="alternate" hrefLang="es-ES" href={canonicalUrl} />,
+            <link key="hreflang-x" rel="alternate" hrefLang="x-default" href={canonicalUrl} />,
+          ]
+        : null}
 
       <link rel="preconnect" href="https://formspree.io" crossOrigin="anonymous" />
       <link rel="preconnect" href="https://www.google.com" crossOrigin="anonymous" />
