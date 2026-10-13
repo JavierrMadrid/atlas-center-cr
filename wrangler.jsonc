@@ -1,6 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "atlas-center-cr",
+  // Cuenta Atlas Center (migrado desde "Liga Hispana AO4" el 2026-10-13).
+  "account_id": "303677174b3b78313fc57a7633b1b41b",
   "compatibility_date": "2026-05-26",
   "observability": {
     "enabled": true
